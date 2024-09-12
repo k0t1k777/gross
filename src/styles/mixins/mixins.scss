@@ -60,6 +60,11 @@
   margin: 0 auto;
 }
 
+@mixin flex-all-center {
+  @include flex-row-center;
+  justify-content: center;
+}
+
 @mixin flex-column-center {
   @include flex-row-center;
   flex-direction: column;

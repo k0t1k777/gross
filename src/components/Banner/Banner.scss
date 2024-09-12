@@ -1,0 +1,45 @@
+.baner {
+  height: 400px;
+  background: $grey;
+  padding: 48px 0 0 165px;
+  position: relative;
+
+  &__title {
+    @include mp-null;
+    @include use-font(66px, 72px);
+    width: 445px;
+  }
+
+  &__buttons {
+    @include flex-row-center;
+    padding: 10px 8px;
+    margin-top: 62px;
+    border-radius: 8px;
+    background: $white;
+    width: fit-content;
+    gap: 24px;
+  }
+
+  &__button-container {
+    @include flex-all-center;
+    width: 24px;
+    height: 24px;
+    position: relative;
+    cursor: pointer;
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: -12px;
+      width: 1px;
+      height: 24px;
+      background-color: $grey;
+    }
+  }
+
+  &__img {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}

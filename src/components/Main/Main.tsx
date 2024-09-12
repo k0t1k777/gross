@@ -1,14 +1,12 @@
-import 'src/components/Main/Main.scss'
+import 'src/components/Main/Main.scss';
+import Banner from 'src/components/Banner/Banner';
 
 function Main() {
-
   return (
-    <>
-      <div>
-      Main
-      </div>
-    </>
-  )
+    <div className='main'>
+      <Banner />
+    </div>
+  );
 }
 
-export default Main
+export default Main;
