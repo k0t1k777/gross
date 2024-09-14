@@ -1,12 +1,19 @@
 .baner {
   height: 400px;
   background: $grey;
-  padding: 48px 0 0 165px;
+  padding: 48px 0 0 calc((100vw - 1275px));
   position: relative;
+  overflow: hidden;
+  @media (min-width: 1440px) {
+    padding: 48px 0 0 165px;
+  }
+  @media (max-width: 1314px) {
+    padding: 48px 0 0 39px;
+  }
 
   &__title {
     @include mp-null;
-    @include use-font(66px, 72px);
+    @include use-font(72px, 66px);
     width: 445px;
   }
 
@@ -20,26 +27,39 @@
     gap: 24px;
   }
 
-  &__button-container {
-    @include flex-all-center;
-    width: 24px;
-    height: 24px;
-    position: relative;
-    cursor: pointer;
-    &::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      right: -12px;
-      width: 1px;
-      height: 24px;
-      background-color: $grey;
+  &__circle {
+    width: 612px;
+    height: 612px;
+    border-radius: 50%;
+    position: absolute;
+    top: -104px;
+    left: 663px;
+    z-index: 5;
+    overflow: hidden;
+    @media (max-width: 1156px) {
+      left: calc((100vw - 493px));
+    }
+    @media (max-width: 894px) {
+      left: 401px;
     }
   }
 
   &__img {
+    width: 745px;
+    height: 434px;
+    object-fit: scale-down;
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    user-select: none;
+    // @media (max-width: 801px) {
+    //   left: calc(100vw - 50%);
+    // }
+  }
+
+  &__items {
+    height: 100%;
+    @include mp-null;
   }
 }

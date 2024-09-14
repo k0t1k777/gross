@@ -1,23 +1,25 @@
-// export interface RegistrationProps {
-//   name?: string;
-//   email?: string;
-//   phone_number?: string;
-//   code?: string;
-// }
+export interface CaptionProps {
+  name: string;
+  className?: string;
+}
 
-// export interface HandleLoginProps extends RegistrationProps {
-//   onSuccess?: (data: any) => void;
-//   onError?: (error: any) => void;
-// }
+export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  className?: string;
+  children: React.ReactNode;
+  type?: 'button' | 'submit' | 'reset';
+}
 
-// export interface HandleRegisterProps extends RegistrationProps {
-//   onSuccess?: (data: any) => void;
-//   onError?: (error: any) => void;
-// }
+export interface IconProps {
+  id: string;
+  className?: string;
+}
 
-// export interface Category {
-//   title: string;
-//   slug: string;
-//   icon: string;
-//   parent: null | string;
-// }
+export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+  inputClass?: string;
+  inputType?: string;
+  inputName: string;
+  inputValue?: string | number;
+  inputError?: string;
+  inputInfo?: string;
+  inputLabelText?: string;
+}

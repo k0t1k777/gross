@@ -7,10 +7,32 @@
   cursor: pointer;
   box-sizing: border-box;
   color: $black;
-  background: $button-color;
 
   &__header {
     @include use-font(18px, 22.82px, 500);
+    background: $button-color;
+  }
+
+  &__button-container {
+    @include flex-all-center;
+    background: inherit;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    position: relative;
+    &:disabled {
+      cursor: not-allowed;
+      opacity: .2;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: -12px;
+      width: 1px;
+      height: 24px;
+      background-color: $grey;
+    }
   }
 
   // &__coral {

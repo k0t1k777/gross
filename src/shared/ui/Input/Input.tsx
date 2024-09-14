@@ -1,14 +1,5 @@
+import { InputProps } from 'src/shared/consts/types';
 import 'src/shared/ui/Input/Input.scss';
-
-interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  inputClass?: string;
-  inputType?: string;
-  inputName: string;
-  inputValue?: string | number;
-  inputError?: string;
-  inputInfo?: string;
-  inputLabelText?: string;
-}
 
 export const Input: React.FC<InputProps> = ({
   inputClass,

@@ -1,11 +1,7 @@
 import React from 'react';
+import { IconProps } from 'src/shared/consts/types';
 import 'src/shared/ui/Icon/Icon.scss';
 import Icons from 'src/shared/ui/Icon/icons/sprite.svg';
-
-interface IconProps {
-  id: string;
-  className?: string;
-}
 
 export const Icon: React.FC<IconProps> = ({ id, className = 'svg' }) => {
   return (

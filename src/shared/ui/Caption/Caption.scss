@@ -1,0 +1,31 @@
+.container {
+  position: absolute;
+  background: $white;
+  border-radius: 30px;
+  padding: 10px 16px;
+}
+  
+  .text {
+    @include mp-null;
+    @include use-font(24px, 30.43px);
+  }
+
+  .baner__caption-profession {
+    top: 152px;
+    right: 120px;
+  }
+
+  .baner__caption-professionUp {
+    top: 402px;
+    right: 78px;
+  }
+
+  .baner__caption-name {
+    top: 402px;
+    right: 348px;
+  }
+
+  .baner__caption-nameUp {
+    top: 152px;
+    right: 378px;
+  }
