@@ -12,6 +12,7 @@ function Header() {
       <div className='header__container-button'>
         <p className='header__phone-logo'>+7 (926) 433-14-16</p>
         <Button className='button__header'>заполнить анкету</Button>
+        <Icon id='phone' className='svg__phone'/>
       </div>
     </div>
   );

@@ -11,6 +11,9 @@
   &__header {
     @include use-font(18px, 22.82px, 500);
     background: $button-color;
+    @media (max-width: 767px) {
+      display: none;
+    }
   }
 
   &__button-container {

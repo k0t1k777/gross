@@ -33,13 +33,13 @@
     border-radius: 50%;
     position: absolute;
     top: -104px;
-    left: 663px;
+    left: calc((100vw - 777px));
     z-index: 5;
     overflow: hidden;
-    @media (max-width: 1156px) {
-      left: calc((100vw - 493px));
+    @media (min-width: 1440px) {
+      left: 663px;
     }
-    @media (max-width: 894px) {
+    @media (max-width: 1178px) {
       left: 401px;
     }
   }
@@ -53,9 +53,10 @@
     left: 50%;
     transform: translate(-50%, -50%);
     user-select: none;
-    // @media (max-width: 801px) {
-    //   left: calc(100vw - 50%);
-    // }
+    transition: left 0.5s ease;
+    @media (max-width: 920px) {
+      left: 33%;
+    }
   }
 
   &__items {
