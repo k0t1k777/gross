@@ -39,8 +39,8 @@ function Baner() {
   return (
     <div className='baner'>
       <h1 className='baner__title'>
-        У тебя
-        <br />к этому талант
+        У тебя <span className='baner__title-block'>к этому </span>
+        <span className='baner__title-inline'>талант</span>
       </h1>
       <div className='baner__buttons'>
         <Button

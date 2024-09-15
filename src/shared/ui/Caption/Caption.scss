@@ -17,11 +17,22 @@
   @media (max-width: 920px) {
     right: 285px;
   }
+  @media (max-width: 767px) {
+    right: 106px;
+    top: 100px;
+  }
 }
 
 .baner__caption-professionUp {
   top: 402px;
   right: 78px;
+  @media (max-width: 920px) {
+    right: 285px;
+  }
+  @media (max-width: 767px) {
+    right: 288px;
+    top: 100px;
+  }
 }
 
 .baner__caption-name {
@@ -31,9 +42,20 @@
   @media (max-width: 768px) {
     right: 388px;
   }
+  @media (max-width: 767px) {
+    right: 296px;
+    top: 257px;
+  }
 }
 
 .baner__caption-nameUp {
   top: 152px;
   right: 378px;
+  @media (max-width: 920px) {
+    right: 446px;
+  }
+  @media (max-width: 767px) {
+    right: 112px;
+    top: 257px;
+  }
 }
