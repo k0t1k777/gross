@@ -1,0 +1,43 @@
+.insta {
+  @include flex-column-container;
+  width: 100%;
+  padding: 0 calc((100vw - 1110px) / 2) 0;
+
+  @media (min-width: 1440px) {
+    padding: 0 165px 0;
+  }
+  // @media (max-width: 1314px) {
+  //   padding: 48px 0 0 39px;
+  // }
+  // @media (max-width: 550px) {
+  //   padding: 48px 15px 0;
+  // }
+
+  &__title {
+    @include mp-null;
+    @include use-font;
+    margin-bottom: 32px;
+  }
+
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 30px;
+    margin-bottom: 30px;
+  }
+
+  &__big {
+      grid-column: span 2;
+      grid-row: span 2;
+    background-color: $grey;
+    width: 540px;
+    height: 540px;
+  }
+
+  &__small {
+    background-color: $grey;
+    width: 255px;
+    height: 255px;
+  }
+}

@@ -1,0 +1,95 @@
+.vacancy {
+  height: 553px;
+  width: 100%;
+  // padding: 0 calc((100vw - 1110px) / 2) 0;
+  padding: 0 0 0 165px;
+  overflow: hidden;
+
+  @media (min-width: 1440px) {
+    padding: 0 165px 0;
+  }
+  // @media (max-width: 1314px) {
+  //   padding: 48px 0 0 39px;
+  // }
+  // @media (max-width: 550px) {
+  //   padding: 48px 15px 0;
+  // }
+
+  &__head {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin-bottom: 32px;
+  }
+
+  &__buttons {
+    display: flex;
+    padding: 10px 8px;
+    border-radius: 8px;
+    background: $white;
+    width: fit-content;
+    gap: 24px;
+    @media (max-width: 767px) {
+      display: none;
+    }
+  }
+
+  &__title {
+    @include mp-null;
+    @include use-font;
+  }
+
+  &__slider {
+    width: 1490px;
+    // overflow: hidden;
+  }
+
+  &__items {
+    height: 100%;
+    @include mp-null;
+  }
+
+  &__card {
+    background: $grey;
+    cursor: pointer;
+    border-radius: 8px;
+    position: relative;
+    width: 350px;
+    height: 480px;
+    &:hover .vacancy__overlay {
+      opacity: 1;
+    }
+    &:hover .vacancy__text {
+      opacity: 1;
+      transition: opacity 0.3s ease;
+    }
+  }
+
+  &__photo {
+    object-fit: cover;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+
+  &__text {
+    @include mp-null;
+    @include use-font(18px, 22.82px);
+    position: absolute;
+    bottom: 24px;
+    left: 24px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $button-color;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+} 

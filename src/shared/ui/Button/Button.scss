@@ -16,7 +16,7 @@
     }
   }
 
-  &__button-container {
+  &__button-baner {
     @include flex-all-center;
     background: inherit;
     padding: 0;
@@ -25,19 +25,31 @@
     position: relative;
     &:disabled {
       cursor: not-allowed;
-      opacity: .2;
-    }
-    &::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      right: -12px;
-      width: 1px;
-      height: 24px;
-      background-color: $grey;
+      opacity: 0.2;
     }
   }
 
+  &__button-vacancy {
+    @include flex-all-center;
+    background: inherit;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    position: relative;
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.2;
+    }
+  }
+
+  &__button-insta {
+    @include use-font(18px, 22.82px);
+    background: $grey;
+    width: inherit;
+    border-radius: 8px;
+    padding: 12px 0 12px 0;
+    margin: 0 auto;
+  }
   // &__coral {
   //   @include use-font(18px, 24px, 400);
   //   padding: 10px 24px;

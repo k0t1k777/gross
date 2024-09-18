@@ -1,16 +1,16 @@
-import 'src/components/Banner/Banner.scss';
+import 'src/components/Vacancy/Vacancy.scss';
+import { Button } from 'src/shared/ui/Button/Button';
 import { Icon } from 'src/shared/ui/Icon/Icon';
 import { Caption } from 'src/shared/ui/Caption/Caption';
-import { BANER_DATA } from 'src/shared/mock/mock';
-import { useRef, useState } from 'react';
 import { Swiper as SwiperComponent, SwiperSlide } from 'swiper/react';
 import { Swiper as SwiperType } from 'swiper';
 import { FreeMode } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/free-mode';
-import { Button } from 'src/shared/ui/Button/Button';
+import { useRef, useState } from 'react';
+import { VACANCY_DATA } from 'src/shared/mock/mock';
 
-function Baner() {
+function Vacancy() {
   const [statusBtnSlide, setStatusBtnSlide] = useState({
     start: true,
     end: false,
@@ -35,39 +35,20 @@ function Baner() {
       }
     }
   };
-
   return (
-    <div className='baner'>
-      <h1 className='baner__title'>
-        У тебя
-        <span className='baner__title-block'>
-          {swiperRef.current
-            ? swiperRef.current.activeIndex === 0
-              ? 'к этому'
-              : 'всё под'
-            : 'к этому'}
-        </span>
-        <span className='baner__title-inline'>
-          {swiperRef.current
-            ? swiperRef.current.activeIndex === 0
-              ? 'талант'
-              : 'контролем'
-            : 'талант'}
-        </span>
-      </h1>
-      <div className='baner__buttons'>
-        <div className='baner__buttons-wrapper'>
+    <div className='vacancy'>
+      <div className='vacancy__head'>
+        <p className='vacancy__title'>вакансии в гросс маркете</p>
+        <div className='vacancy__buttons'>
           <Button
-            className='button__button-baner'
+            className='button__button-vacancy'
             onClick={() => changeSlideBtn('prev')}
             disabled={statusBtnSlide.start}
           >
             <Icon id='icon-left' className='svg__arrow' />
           </Button>
-        </div>
-        <div className='baner-wrapper'>
           <Button
-            className='button__button-baner'
+            className='button__button-vacancy'
             onClick={() => changeSlideBtn('next')}
             disabled={statusBtnSlide.end}
           >
@@ -75,39 +56,45 @@ function Baner() {
           </Button>
         </div>
       </div>
-      <div className='baner__circle'>
+      <div className='vacancy__slider'>
         <SwiperComponent
           onSlideChange={() => {
             handleDisBtn();
           }}
           tag='ul'
           freeMode={true}
-          slidesPerView={1}
-          spaceBetween={30}
+          centeredSlides={true}
           pagination={{
             clickable: true,
           }}
+          breakpoints={{
+            // 640: {
+            //   slidesPerView: 1,
+            //   spaceBetween: 20,
+            // },
+            // 768: {
+            //   slidesPerView: 3,
+            //   spaceBetween: 30,
+            // },
+            1440: {
+              slidesPerView: 4,
+              spaceBetween: 30,
+            },
+          }}
           modules={[FreeMode]}
           onSwiper={(swiper) => (swiperRef.current = swiper)}
-          className='baner__items'
+          className='vacancy__items'
         >
-          {BANER_DATA.map((item, index) => (
-            <SwiperSlide key={index}>
-              <img src={item.image} alt='Фото мастера' className='baner__img' />
-              <Caption
-                className={
-                  index === 1
-                    ? 'baner__caption-professionUp'
-                    : 'baner__caption-profession'
-                }
-                name={item.profession}
+          {VACANCY_DATA.map((item, index) => (
+            <SwiperSlide key={index} className='vacancy__card'>
+              <img
+                src={item.image}
+                className='vacancy__photo'
+                alt='Профессия человека'
               />
-              <Caption
-                className={
-                  index === 1 ? 'baner__caption-nameUp' : 'baner__caption-name'
-                }
-                name={item.name}
-              />
+              <div className='vacancy__overlay'></div>
+              <Caption name={item.profession} className='vacancy__caption' />
+              <p className='vacancy__text'>{item.text}</p>
             </SwiperSlide>
           ))}
         </SwiperComponent>
@@ -116,4 +103,4 @@ function Baner() {
   );
 }
 
-export default Baner;
+export default Vacancy;

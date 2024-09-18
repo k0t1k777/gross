@@ -48,6 +48,21 @@
     background: $white;
     width: fit-content;
     gap: 24px;
+    &-wrapper {
+      position: relative;
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: -12px;
+        height: 24px;
+        width: 1px;
+        background-color: $grey;
+        &:last-child {
+          display: none;
+        }
+      }
+    }
     @media (max-width: 767px) {
       display: none;
     }
