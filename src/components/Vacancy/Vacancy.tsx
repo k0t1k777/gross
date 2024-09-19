@@ -7,7 +7,7 @@ import { Swiper as SwiperType } from 'swiper';
 import { FreeMode } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/free-mode';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { VACANCY_DATA } from 'src/shared/mock/mock';
 
 function Vacancy() {
@@ -35,6 +35,23 @@ function Vacancy() {
       }
     }
   };
+
+  useEffect(() => {
+    const handleResize = () => {
+      handleDisBtn();
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  useEffect(() => {
+    handleDisBtn();
+  }, []);
+
   return (
     <div className='vacancy'>
       <div className='vacancy__head'>
@@ -58,28 +75,32 @@ function Vacancy() {
       </div>
       <div className='vacancy__slider'>
         <SwiperComponent
-          onSlideChange={() => {
-            handleDisBtn();
-          }}
+          onTransitionEnd={handleDisBtn}
+          onSlideChange={handleDisBtn}
+          loop={false}
           tag='ul'
           freeMode={true}
-          centeredSlides={true}
+          // slidesPerView={3.5}
+          spaceBetween={30} 
           pagination={{
             clickable: true,
           }}
           breakpoints={{
-            // 640: {
-            //   slidesPerView: 1,
-            //   spaceBetween: 20,
+            1440: {
+              slidesPerView: 3.48,
+            },
+            768: {
+              slidesPerView: 3,
+            },
+            375: {
+              slidesPerView: 3,
+            },
+            // 1024: {
+            //   slidesPerView: 3,
             // },
             // 768: {
             //   slidesPerView: 3,
-            //   spaceBetween: 30,
             // },
-            1440: {
-              slidesPerView: 4,
-              spaceBetween: 30,
-            },
           }}
           modules={[FreeMode]}
           onSwiper={(swiper) => (swiperRef.current = swiper)}

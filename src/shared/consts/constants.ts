@@ -1,3 +1,12 @@
+export const DESCTOP_SCREEN = 1188;
+export const TABLET_SCREEN = 767;
+
+
+
+
+
+
+
 // const formTitles = {
 //   login: ['Вход', 'Регистрация'],
 //   password: ['Восстановление пароля'],

@@ -1,19 +1,18 @@
 .vacancy {
   height: 553px;
   width: 100%;
-  // padding: 0 calc((100vw - 1110px) / 2) 0;
-  padding: 0 0 0 165px;
+  padding: 0 calc((100vw - 1110px) / 2) 0;
   overflow: hidden;
 
   @media (min-width: 1440px) {
     padding: 0 165px 0;
   }
-  // @media (max-width: 1314px) {
-  //   padding: 48px 0 0 39px;
-  // }
-  // @media (max-width: 550px) {
-  //   padding: 48px 15px 0;
-  // }
+  @media (max-width: 1188px) {
+    padding: 0 39px 0;
+  }
+  @media (max-width: 490px) {
+    padding: 0 15px 0;
+  }
 
   &__head {
     display: flex;
@@ -37,11 +36,23 @@
   &__title {
     @include mp-null;
     @include use-font;
+    @media (max-width: 490px) {
+      @include use-font(24px, 30.43px);
+    }
   }
 
   &__slider {
-    width: 1490px;
-    // overflow: hidden;
+    width: 1290px;
+    overflow: hidden;
+    @media (max-width: 1250px) {
+      width: 1110px;
+    }
+    @media (max-width: 1150px) {
+      width: 960px;
+    }
+    @media (max-width: 767px) {
+      width: 816px;
+    }
   }
 
   &__items {
@@ -54,8 +65,13 @@
     cursor: pointer;
     border-radius: 8px;
     position: relative;
-    width: 350px;
     height: 480px;
+    @media (max-width: 1150px) {
+      height: 410px;
+    }
+    @media (max-width: 767px) {
+      height: 344px;
+    }
     &:hover .vacancy__overlay {
       opacity: 1;
     }
@@ -69,7 +85,12 @@
     object-fit: cover;
     position: absolute;
     bottom: 0;
-    left: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    @media (max-width: 767px) {
+      width: 250px;
+    }
   }
 
   &__text {
@@ -92,4 +113,4 @@
     opacity: 0;
     transition: opacity 0.3s ease;
   }
-} 
+}

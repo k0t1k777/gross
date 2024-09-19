@@ -53,6 +53,23 @@
   overflow: hidden;
 }
 
+// Квадраты
+@mixin little-square {
+  background-color: $grey;
+  width: 100%;
+  height: 100%;;
+  max-width: 255px;
+  max-height: 255px;
+}
+
+@mixin big-square {
+  @include little-square;
+  max-width: 540px;
+  max-height: 540px;
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
 // BLOCKS
 @mixin main-container {
   max-width: $max-width;

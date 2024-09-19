@@ -1,43 +1,104 @@
 .insta {
   @include flex-column-container;
   width: 100%;
+  height: 100%;
   padding: 0 calc((100vw - 1110px) / 2) 0;
 
   @media (min-width: 1440px) {
     padding: 0 165px 0;
   }
-  // @media (max-width: 1314px) {
-  //   padding: 48px 0 0 39px;
-  // }
-  // @media (max-width: 550px) {
-  //   padding: 48px 15px 0;
-  // }
+  @media (max-width: 1188px) {
+    padding: 0 39px 0 39px;
+  }
+  @media (max-width: 767px) {
+    padding: 0 13px 0 16px;
+  }
 
   &__title {
     @include mp-null;
     @include use-font;
     margin-bottom: 32px;
+    @media (max-width: 490px) {
+      @include use-font(24px, 30.43px);
+    }
   }
 
   &__container {
+    margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-rows: auto;
     gap: 30px;
     margin-bottom: 30px;
+    @media (max-width: 1188px) {
+      grid-template-columns: repeat(6, 1fr);
+    }
+    @media (max-width: 767px) {
+      grid-template-columns: repeat(1, 1fr);
+      gap: 12px;
+      justify-items: center; 
+    }
   }
 
-  &__big {
-      grid-column: span 2;
-      grid-row: span 2;
-    background-color: $grey;
-    width: 540px;
-    height: 540px;
-  }
-
-  &__small {
+  &__square {
     background-color: $grey;
     width: 255px;
     height: 255px;
+    transition: width 0.3s ease, height 0.3s ease;
+
+    @media (min-width: 1188px) {
+    &:first-of-type {
+      width: 540px;
+      height: 540px;
+      grid-column: span 2;
+      grid-row: span 2;
+    }
   }
+
+      @media (min-width: 768px) and (max-width: 1188px) {
+      width: 210px;
+      height: 210px;
+      grid-column: span 2;
+      grid-row: span 1;
+
+      &:first-of-type {
+        width: 330px;
+        height: 330px;
+        grid-column: span 3;
+        grid-row: span 1;
+      }
+
+      &:nth-of-type(2) {
+        width: 330px;
+        height: 330px;
+        grid-column: span 3;
+        grid-row: span 1;
+      }
+    }
+
+    @media (max-width: 767px) {
+      width: 346px;
+      height: 346px;
+    }
+  }
+
+  // &__quare {
+  //   @include little-square;
+  //   &:first-of-type {
+  //     @include big-square;
+  //   }
+  //   @media (max-width: 768px) {
+  //     &:first-of-type {
+  //       @include big-square;
+  //       width: 330px;
+  //       height: 330px;
+  //     }
+  //     &:nth-of-type(2) {
+  //       width: 330px;
+  //       height: 330px;
+  //       grid-column: span 2;
+  //       grid-row: span 2;
+  //     }
+  //   }
+  // }
 }

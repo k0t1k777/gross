@@ -39,7 +39,7 @@ function Baner() {
   return (
     <div className='baner'>
       <h1 className='baner__title'>
-        У тебя
+        У тебя{' '}
         <span className='baner__title-block'>
           {swiperRef.current
             ? swiperRef.current.activeIndex === 0
@@ -77,7 +77,7 @@ function Baner() {
       </div>
       <div className='baner__circle'>
         <SwiperComponent
-          onSlideChange={() => {
+          onTransitionEnd={() => {
             handleDisBtn();
           }}
           tag='ul'
