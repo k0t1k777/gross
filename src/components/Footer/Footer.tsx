@@ -3,7 +3,8 @@ import 'src/components/Footer/Footer.scss'
 function Footer() {
 
   return (
-      <div>
+      <div style={{ height: '235px'}}>
+        ae
       </div>
   )
 }

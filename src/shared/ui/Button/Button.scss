@@ -10,7 +10,7 @@
 
   &__header {
     @include use-font(18px, 22.82px, 500);
-    background: $button-color;
+    background: $yelow;
     @media (max-width: 767px) {
       display: none;
     }
@@ -49,6 +49,22 @@
     border-radius: 8px;
     padding: 12px 0 12px 0;
     margin: 0 auto;
+    @media (max-width: 1188px) {
+      width: 690px;
+    }
+    @media (max-width: 767px) {
+      width: 346px;
+    }
+  }
+
+  &__map {
+    @include use-font(18px, 22.82px);
+    background: $white;
+    padding: 10px 15px;
+    justify-content: flex-start;
+    &_color_yelow {
+      background: $yelow;
+    }
   }
   // &__coral {
   //   @include use-font(18px, 24px, 400);

@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { motion } from 'framer-motion';
 import 'src/components/Insta/Insta.scss';
 import { DESCTOP_SCREEN, TABLET_SCREEN } from 'src/shared/consts/constants';
 import { Button } from 'src/shared/ui/Button/Button';
@@ -34,23 +35,22 @@ function Insta() {
           ? 3
           : 1)
     );
-
-    setTimeout(() => {
-      const button = document.querySelector('.button__button-insta');
-      if (button) {
-        button.scrollIntoView({ behavior: 'smooth' });
-      }
-    }, 50);
   }
 
   return (
     <div className='insta'>
       <p className='insta__title'>мы в инстаграме</p>
-      <div className='insta__container' ref={containerRef}>
+      <motion.div className='insta__container' ref={containerRef}>
         {Array.from({ length: smallSquares }).map((_, index) => (
-          <div key={index} className='insta__square'></div>
+          <motion.div
+            key={index}
+            className='insta__square'
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: index * 0.05 }}
+          ></motion.div>
         ))}
-      </div>
+      </motion.div>
       <Button className='button__button-insta' onClick={addMoreSquares}>
         показать ещё
       </Button>

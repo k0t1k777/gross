@@ -1,18 +1,11 @@
 export const DESCTOP_SCREEN = 1188;
 export const TABLET_SCREEN = 767;
 
+export const ULYANOVSK = [54.3233, 48.3661];
 
 
 
 
-
-
-// const formTitles = {
-//   login: ['Вход', 'Регистрация'],
-//   password: ['Восстановление пароля'],
-//   registerConfirm: ['Вход'],
-//   emailSend: ['']
-// }
 
 // const EMAILREGEX = /\s*^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
 // const NAMEREGEX = /^[а-яА-Яa-zA-Z]+$/

@@ -1,0 +1,93 @@
+.map {
+  @include flex-column-container;
+  width: 100%;
+  height: 100%;
+  padding: 0 calc((100vw - 1110px) / 2) 0;
+
+  &__wrapper {
+    position: relative;
+  }
+
+  @media (min-width: 1440px) {
+    padding: 0 165px 0;
+  }
+  @media (max-width: 1188px) {
+    padding: 0 39px 0 39px;
+  }
+  @media (max-width: 767px) {
+    padding: 0 13px 0 16px;
+  }
+
+  &__title {
+    @include mp-null;
+    @include use-font;
+    margin-bottom: 32px;
+    @media (max-width: 490px) {
+      @include use-font(24px, 30.43px);
+    }
+  }
+
+  &__filters {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 145px;
+    position: absolute;
+    left: 24px;
+    bottom: 24px;
+    z-index: 5;
+  }
+
+  &__container {
+    width: 100%;
+    height: 540px;
+    border-radius: 8px;
+  }
+
+  &__buttons-zoom {
+    @include flex-column-center;
+    position: absolute;
+    right: 24px;
+    bottom: 24px;
+    height: 88px;
+    width: 44px;
+    z-index: 5;
+    padding: 10px 8px;
+    border-radius: 8px;
+    background: $white;
+    width: fit-content;
+    gap: 24px;
+    &-wrapper {
+      position: relative;
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: -12px;
+        height: 24px;
+        width: 1px;
+        background-color: $grey;
+        &:last-child {
+          display: none;
+        }
+      }
+    }
+    @media (max-width: 767px) {
+      display: none;
+    }
+  }
+}
+
+.ymaps-2-1-79-gototech,
+.ymaps-2-1-79-gotoymaps__container,
+.ymaps-2-1-79-copyright {
+  display: none !important;
+}
+
+.ymaps-2-1-79-inner-panes {
+  border-radius: 8px;
+}
+
+  .ymaps-2-1-79-map {
+  filter: grayscale(100%);
+}
