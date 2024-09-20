@@ -6,7 +6,7 @@ import Icons from 'src/shared/ui/Icon/icons/sprite.svg';
 export const Icon: React.FC<IconProps> = ({ id, className = 'svg' }) => {
   return (
     <svg className={className}>
-      <use xlinkHref={`${Icons}#${id}`}></use>
+      <use href={`${Icons}#${id}`}></use>
     </svg>
   );
 };

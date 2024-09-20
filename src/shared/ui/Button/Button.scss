@@ -5,7 +5,6 @@
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  box-sizing: border-box;
   color: $black;
 
   &__header {
@@ -60,11 +59,17 @@
   &__map {
     @include use-font(18px, 22.82px);
     background: $white;
+    width: fit-content;
     padding: 10px 15px;
     justify-content: flex-start;
     &_color_yelow {
       background: $yelow;
     }
+  }
+
+  &__button-zoom {
+    background: transparent;
+    padding: 0;
   }
   // &__coral {
   //   @include use-font(18px, 24px, 400);

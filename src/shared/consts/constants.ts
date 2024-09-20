@@ -3,7 +3,28 @@ export const TABLET_SCREEN = 767;
 
 export const ULYANOVSK = [54.3233, 48.3661];
 
-
+export const locations = [
+  { id: 1, name: 'Юрлицо 1', type: 'юрлица', coordinates: [54.309759, 48.376799] },
+  { id: 2, name: 'Юрлицо 2', type: 'юрлица', coordinates: [54.310667, 48.382075] },
+  {
+    id: 3,
+    name: 'Физлицо 1',
+    type: 'физлица',
+    coordinates: [54.314334, 48.402458],
+  },
+  {
+    id: 4,
+    name: 'Физлицо 2',
+    type: 'физлица',
+    coordinates: [54.324009, 48.390358],
+  },
+  { id: 5, name: 'Юрлицо 3', type: 'юрлица', coordinates: [54.307230, 48.394420] },
+  { id: 6, name: 'Физлицо 3', type: 'физлица', coordinates: [54.325545, 48.374074] },
+  { id: 7, name: 'Юрлицо 4', type: 'юрлица', coordinates: [54.309233, 48.335307] },
+  { id: 8, name: 'Физлицо 4', type: 'физлица', coordinates: [54.318210, 48.364944] },
+  { id: 9, name: 'Юрлицо 5', type: 'юрлица', coordinates: [54.330340, 48.355289] },
+  { id: 10, name: 'Физлицо 5', type: 'физлица', coordinates: [54.339912, 48.384175] },
+];
 
 
 

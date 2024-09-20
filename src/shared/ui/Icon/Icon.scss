@@ -1,6 +1,7 @@
 .svg {
   width: 21px;
   height: 30px;
+  z-index: 9999;
 
   &__arrow {
     width: 10.66px;
@@ -19,5 +20,17 @@
     @media (max-width: 767px) {
       display: flex;
     }
+  }
+
+  &__plus {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+  }
+
+  &__minus {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
   }
 }

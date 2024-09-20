@@ -2,25 +2,9 @@ import { useState } from 'react';
 import { YMaps, Map, Placemark } from '@r3flector/react-yandex-maps';
 import 'src/components/MapCity/MapCity.scss';
 import { Button } from 'src/shared/ui/Button/Button';
-import { ULYANOVSK } from 'src/shared/consts/constants';
+import { locations, ULYANOVSK } from 'src/shared/consts/constants';
 import { Icon } from 'src/shared/ui/Icon/Icon';
-
-const locations = [
-  { id: 1, name: 'Юрлицо 1', type: 'юрлица', coordinates: [54.3233, 48.3661] },
-  { id: 2, name: 'Юрлицо 2', type: 'юрлица', coordinates: [54.3333, 48.3761] },
-  {
-    id: 3,
-    name: 'Физлицо 1',
-    type: 'физлица',
-    coordinates: [54.3433, 48.3861],
-  },
-  {
-    id: 4,
-    name: 'Физлицо 2',
-    type: 'физлица',
-    coordinates: [54.3533, 48.3961],
-  },
-];
+import Icon42 from 'src/shared/Новая папка/Group 42.svg';
 
 function MapCity() {
   const [zoom, setZoom] = useState(13);
@@ -40,8 +24,9 @@ function MapCity() {
 
   return (
     <div className='map'>
+      <p className='map__title'>География</p>
+
       <div className='map__wrapper'>
-        <p className='map__title'>География</p>
         <div className='map__filters'>
           <Button className='button__map' onClick={() => setFilter('юрлица')}>
             юрлица
@@ -56,35 +41,38 @@ function MapCity() {
             показать всё
           </Button>
         </div>
-        <div className='map__buttons-zoom'>
 
+        <div className='map__buttons-zoom'>
           <div className='map__buttons-zoom-wrapper'>
-             <Button className='button__button-zoom' onClick={increaseZoom}>
-              <Icon id='icon-left' className='svg__arrow' />
+            <Button className='button__button-zoom' onClick={increaseZoom}>
+              <Icon id='plus' className='svg__plus' />
             </Button>
           </div>
-
           <Button className='button__button-zoom' onClick={decreaseZoom}>
-            <Icon id='icon-left' className='svg__arrow' />
+            <Icon id='minus' className='svg__minus' />
           </Button>
         </div>
 
-        <div>
-          <YMaps query={{ apikey: '65e426f5-d8ee-482a-be00-8f5d48ae88f8' }}>
-            <Map
-              state={{ center: ULYANOVSK, zoom: zoom }}
-              className='map__container'
-            >
-              {filteredLocations.map((location) => (
-                <Placemark
-                  key={location.id}
-                  geometry={location.coordinates}
-                  properties={{ balloonContent: location.name }}
-                />
-              ))}
-            </Map>
-          </YMaps>
-        </div>
+        <YMaps query={{ apikey: '65e426f5-d8ee-482a-be00-8f5d48ae88f8' }}>
+          <Map
+            state={{ center: ULYANOVSK, zoom: zoom }}
+            className='map__container'
+          >
+            {filteredLocations.map((location) => (
+              <Placemark
+                key={location.id}
+                geometry={location.coordinates}
+                properties={{ balloonContent: location.name }}
+                options={{
+                  iconLayout: 'default#image',
+                  iconImageHref: Icon42,
+                  iconImageSize: [44, 44],
+                  iconImageOffset: [-15, -15],
+                }}
+              />
+            ))}
+          </Map>
+        </YMaps>
       </div>
     </div>
   );

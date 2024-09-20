@@ -11,19 +11,20 @@
   @media (min-width: 1440px) {
     padding: 0 165px 0;
   }
-  @media (max-width: 1188px) {
-    padding: 0 39px 0 39px;
-  }
-  @media (max-width: 767px) {
-    padding: 0 13px 0 16px;
+  @media (max-width: 768px) {
+    padding: 0;
   }
 
   &__title {
     @include mp-null;
     @include use-font;
     margin-bottom: 32px;
+    @media (max-width: 1188px) {
+      padding: 0 39px;
+    }
     @media (max-width: 490px) {
       @include use-font(24px, 30.43px);
+      padding: 0 15px;
     }
   }
 
@@ -36,12 +37,14 @@
     left: 24px;
     bottom: 24px;
     z-index: 5;
-  }
-
-  &__container {
-    width: 100%;
-    height: 540px;
-    border-radius: 8px;
+    @media (max-width: 768px) {
+      left: 39px;
+      bottom: 48px;
+    }
+    @media (max-width: 490px) {
+      left: 15px;
+      bottom: 32px;
+    }
   }
 
   &__buttons-zoom {
@@ -49,45 +52,94 @@
     position: absolute;
     right: 24px;
     bottom: 24px;
-    height: 88px;
-    width: 44px;
+    height: fit-content;
+    width: fit-content;
     z-index: 5;
-    padding: 10px 8px;
+    padding: 8px 10px;
     border-radius: 8px;
     background: $white;
-    width: fit-content;
     gap: 24px;
+    @media (max-width: 768px) {
+      right: 39px;
+      bottom: 48px;
+    }
+    @media (max-width: 490px) {
+      right: 15px;
+      bottom: 32px;
+    }
     &-wrapper {
       position: relative;
       &::after {
         content: '';
         position: absolute;
-        top: 0;
-        right: -12px;
-        height: 24px;
-        width: 1px;
+        top: 36px;
+        right: 0;
+        height: 1px;
+        width: 24px;
         background-color: $grey;
         &:last-child {
           display: none;
         }
       }
     }
-    @media (max-width: 767px) {
-      display: none;
-    }
   }
+
+  &__container {
+    height: 540px;
+    @media (max-width: 768px) {
+      height: 600px;
+    }
+
+    // background: grayscale(1);
+    // filter: grayscale(100%);
+    //  background: gray!important;
+    // box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.05)!important;
+    // &::after {
+    //   content: '';
+    // background-color: rgba(255, 255, 255, 0.5);
+    // }
+  }
+}
+
+.map__container .ymaps-2-1-79-image {
+  // filter: invert(1) hue-rotate(180deg)!important;
+  // filter: none!important;
+  // // background: white;
+  // background-image: url('src/shared/Новая папка/Group 42.png')!important;
+  // filter: invert(1)!important;
+  // filter: invert(1) hue-rotate(180deg)!important;
+
+  // mix-blend-mode: normal!important;
+  // z-index: 555!important;
 }
 
 .ymaps-2-1-79-gototech,
 .ymaps-2-1-79-gotoymaps__container,
-.ymaps-2-1-79-copyright {
+.ymaps-2-1-79-copyright,
+.ymaps-2-1-79-gototaxi__container,
+.ymaps-2-1-79-gotoymaps__container {
   display: none !important;
 }
 
 .ymaps-2-1-79-inner-panes {
   border-radius: 8px;
+  @media (max-width: 768px) {
+    border-radius: none;
+  }
 }
 
-  .ymaps-2-1-79-map {
-  filter: grayscale(100%);
-}
+// .ymaps-2-1-79-map {
+//   filter: grayscale(100%);
+// }
+
+// .ymaps-2-1-79-image  {
+//   filter: none!important;
+//   // background: white;
+//   background-image: url('src/shared/Новая папка/Group 42.png')!important;
+//   // filter: invert(1)!important;
+//   // filter: invert(1) hue-rotate(180deg)!important;
+
+//   mix-blend-mode: normal!important;
+//   z-index: 555!important;
+
+// }

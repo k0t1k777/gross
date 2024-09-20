@@ -36,4 +36,12 @@
 <path d="M20 22.621L16.479 15.826C16.471 15.83 14.505 16.796 14.415 16.837C12.175 17.923 7.61604 9.017 9.80604 7.843L11.889 6.817L8.39604 0L6.29004 1.039C-0.911963 4.794 10.523 27.021 17.89 23.654C18.011 23.599 19.992 22.625 20 22.621Z" fill="black"/>
 </svg>
 
+<svg id='plus' width="28" height="36" viewBox="0 0 28 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="5" y="13" width="2" height="14" rx="1" transform="rotate(-90 5 13)" fill="black"/>
+<rect x="13" y="19" width="2" height="14" rx="1" transform="rotate(180 13 19)" fill="black"/>
+<line x1="-2.18557e-08" y1="35.5" x2="28" y2="35.5" stroke="#F5F5F5"/>
+</svg>
 
+<svg id='minus' width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="5" y="13" width="2" height="14" rx="1" transform="rotate(-90 5 13)" fill="black"/>
+</svg>
