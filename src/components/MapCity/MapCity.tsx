@@ -4,7 +4,7 @@ import 'src/components/MapCity/MapCity.scss';
 import { Button } from 'src/shared/ui/Button/Button';
 import { locations, ULYANOVSK } from 'src/shared/consts/constants';
 import { Icon } from 'src/shared/ui/Icon/Icon';
-import Icon42 from 'src/shared/Новая папка/Group 42.svg';
+import IconMap from 'src/shared/assets/IconMap.svg';
 
 function MapCity() {
   const [zoom, setZoom] = useState(13);
@@ -25,8 +25,8 @@ function MapCity() {
   return (
     <div className='map'>
       <p className='map__title'>География</p>
-
       <div className='map__wrapper'>
+      <div className='map__whith-buttons'>
         <div className='map__filters'>
           <Button className='button__map' onClick={() => setFilter('юрлица')}>
             юрлица
@@ -65,7 +65,7 @@ function MapCity() {
                 properties={{ balloonContent: location.name }}
                 options={{
                   iconLayout: 'default#image',
-                  iconImageHref: Icon42,
+                  iconImageHref: IconMap,
                   iconImageSize: [44, 44],
                   iconImageOffset: [-15, -15],
                 }}
@@ -75,6 +75,8 @@ function MapCity() {
         </YMaps>
       </div>
     </div>
+    </div>
+
   );
 }
 

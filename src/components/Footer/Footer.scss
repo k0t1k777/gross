@@ -1,0 +1,82 @@
+.footer {
+  @include flex-column-container;
+  width: 100%;
+  height: fit-content;
+  background: $grey;
+  // padding: 0 calc((100vw - 1110px) / 2) 0;
+  // &__wrapper {
+  //   padding: 0 calc((100vw - 1110px) / 2) 0;
+  //   @media (min-width: 1440px) {
+  //     padding: 0 165px 0;
+  //   }
+  // }
+
+  &__container {
+    margin: 72px calc((100vw - 1110px) / 2) 74px;
+    border-radius: 8px;
+    padding: 24px;
+    background: $white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    @media (min-width: 1440px) {
+      margin: 72px 165px 74px;
+    }
+    @media (max-width: 1188px) {
+      margin: 72px 39px 74px;
+    }
+    @media (max-width: 767px) {
+      flex-direction: column;
+      align-items: start;
+      gap: 24px;
+      margin: 48px 0 116px;
+      padding: 24px 0 24px 15px;
+    }
+  }
+
+  &__share {
+    @include mp-null;
+    @include use-font(32px, 40.58px);
+    position: absolute;
+    left: calc(100% - 530px);
+    @media (max-width: 968px) {
+      left: 360px;
+    }
+    @media (max-width: 767px) {
+      display: none;
+    }
+  }
+
+  &__container-icon {
+    display: flex;
+    gap: 8px;
+  }
+
+  &__copyright {
+    @include mp-null;
+    @include use-font(14px, 17.75px);
+    position: absolute;
+    top: 113px;
+    left: 0;
+    @media (max-width: 767px) {
+      top: 192px;
+      left: 15px;
+    }
+  }
+
+  &__politica {
+    @include mp-null;
+    @include use-font(14px, 17.75px);
+    position: absolute;
+    top: 113px;
+    left: calc(100% - 530px);
+    @media (max-width: 968px) {
+      left: 360px;
+    }
+    @media (max-width: 767px) {
+      top: 150px;
+      left: 15px;
+    }
+  }
+}

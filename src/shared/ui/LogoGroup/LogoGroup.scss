@@ -1,0 +1,14 @@
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  &__text {
+    @include use-font;
+    @include mp-null;
+    white-space: nowrap;
+    @media (max-width: 767px) {
+      @include use-font(24px, 30.43px);
+    }
+  }
+}

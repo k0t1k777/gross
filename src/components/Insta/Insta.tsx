@@ -47,7 +47,7 @@ function Insta() {
             className='insta__square'
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: index * 0.05 }}
+            transition={{ duration: 0.5, delay: index * 0.02 }}
           ></motion.div>
         ))}
       </motion.div>
