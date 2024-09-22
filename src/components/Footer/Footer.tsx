@@ -4,7 +4,7 @@ import LogoGroup from 'src/shared/ui/LogoGroup/LogoGroup';
 
 function Footer() {
   return (
-    <div className='footer'>
+    <footer className='footer'>
       <div className='footer__container'>
         <LogoGroup />
         <p className='footer__share'>поделиться</p>
@@ -16,7 +16,7 @@ function Footer() {
         <p className='footer__politica'>Политика обработки персональных данных</p>
       </div>
 
-    </div>
+    </footer>
   );
 }
 

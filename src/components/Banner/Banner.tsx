@@ -37,7 +37,7 @@ function Baner() {
   };
 
   return (
-    <div className='baner'>
+    <section className='baner'>
       <h1 className='baner__title'>
         У тебя{' '}
         <span className='baner__title-block'>
@@ -114,7 +114,7 @@ function Baner() {
           ))}
         </SwiperComponent>
       </div>
-    </div>
+    </section>
   );
 }
 

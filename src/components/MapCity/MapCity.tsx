@@ -23,7 +23,7 @@ function MapCity() {
   );
 
   return (
-    <div className='map'>
+    <section className='map'>
       <p className='map__title'>География</p>
       <div className='map__wrapper'>
       <div className='map__whith-buttons'>
@@ -75,7 +75,7 @@ function MapCity() {
         </YMaps>
       </div>
     </div>
-    </div>
+    </section>
 
   );
 }

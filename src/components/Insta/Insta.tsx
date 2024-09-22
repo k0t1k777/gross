@@ -38,7 +38,7 @@ function Insta() {
   }
 
   return (
-    <div className='insta'>
+    <section className='insta'>
       <p className='insta__title'>мы в инстаграме</p>
       <motion.div className='insta__container' ref={containerRef}>
         {Array.from({ length: smallSquares }).map((_, index) => (
@@ -54,7 +54,7 @@ function Insta() {
       <Button className='button__button-insta' onClick={addMoreSquares}>
         показать ещё
       </Button>
-    </div>
+    </section>
   );
 }
 

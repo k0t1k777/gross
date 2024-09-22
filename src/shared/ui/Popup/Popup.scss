@@ -7,25 +7,74 @@
   top: 0;
   height: 100vh;
   width: 100%;
-  align-items: center;
-  justify-content: center;
-  z-index: 4;
-  font-family: $font-family;
-  overflow: scroll;
-  background-color: $background-popup;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.4);
 
   &__container {
     @include flex-column-container;
-    height: fit-content;
-    min-width: 200px;
-    max-width: 460px;
-    width: calc(100% - 80px);
-    border-radius: 20px;
-    box-sizing: border-box;
-    background: $main-white;
-    padding: 0 40px;
-    margin: 30px 0 20px;
+    margin: 72px calc((100vw - 1110px) / 2);
+    padding: 72px 95px;
+    max-height: calc(100vh - 144px);
+    overflow: scroll;
+    width: 1110px;
+    border-radius: 8px;
+    background: $white;
     position: relative;
-    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+    @media (max-width: 1188px) {
+      width: calc(684px + (100vw - 768px) * ((1110 - 684) / (1188 - 768)));
+      margin: 72px 45px 72px 39px;
+      padding: 32px 24px;
+    }
+    @media (max-width: 768px) {
+      // width: calc(684px + (100vw - 768px) * ((1110 - 684) / (1188 - 768)));
+      // margin: 72px calc((100vw - (684 + (100vw - 768px) * ((1110 - 684) / (1188 - 768)))) / 2);
+      // padding: 32px 24px;
+    }
+  }
+
+  &__title {
+    @include mp-null;
+    @include use-font(72px, 66px);
+  }
+
+  &__point {
+    @include mp-null;
+    @include use-font(18px, 22.82px);
+    margin: 48px 0 24px;
+  }
+
+  &__description {
+    @include mp-null;
+    @include use-font(14px, 22px, 400);
+  }
+
+  &__span {
+    @include mp-null;
+    @include use-font(14px, 22px, 400);
+    color: $grey;
+    margin: 22px 0 0;
+  }
+
+  &__sticky-container {
+    padding: 30px 32px 30px 95px;
+    background: $white;
+    display: none;
+    width: inherit;
+    margin: 0 calc((100vw - 1110px) / 2);
+    @media (max-width: 1188px) {
+      margin: 0 45px 72px 39px;
+    }
+    &_position_fixed {
+      display: flex;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 20;
+    }
+  }
+
+  &__sticky-title {
+    @include mp-null;
+    @include use-font(24px, 30.43px);
   }
 }

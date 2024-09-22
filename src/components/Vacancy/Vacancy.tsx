@@ -53,7 +53,7 @@ function Vacancy() {
   }, []);
 
   return (
-    <div className='vacancy'>
+    <section className='vacancy'>
       <div className='vacancy__head'>
         <p className='vacancy__title'>вакансии в гросс маркете</p>
         <div className='vacancy__buttons'>
@@ -120,7 +120,7 @@ function Vacancy() {
           ))}
         </SwiperComponent>
       </div>
-    </div>
+    </section>
   );
 }
 

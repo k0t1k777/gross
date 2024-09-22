@@ -29,7 +29,7 @@
     @media (max-width: 1188px) {
       padding: 0 39px;
     }
-    @media (max-width: 490px) {
+    @media (max-width: 767px) {
       @include use-font(24px, 30.43px);
       padding: 0 15px;
     }
@@ -48,7 +48,7 @@
       left: 39px;
       bottom: 48px;
     }
-    @media (max-width: 490px) {
+    @media (max-width: 767px) {
       left: 15px;
       bottom: 32px;
     }
@@ -70,7 +70,7 @@
       right: 39px;
       bottom: 48px;
     }
-    @media (max-width: 490px) {
+    @media (max-width: 767px) {
       right: 15px;
       bottom: 32px;
     }

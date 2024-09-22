@@ -71,6 +71,14 @@
     background: transparent;
     padding: 0;
   }
+
+  &__popup-close {
+    position: absolute;
+    top: 32px;
+    right: 32px;
+    background: none;
+  }
+
   // &__coral {
   //   @include use-font(18px, 24px, 400);
   //   padding: 10px 24px;
@@ -125,15 +133,5 @@
   //   padding: 10px 24px;
   //   background-color: $blue-btn;
   //   letter-spacing: 0.15px;
-  // }
-
-  // &__close {
-  //   position: absolute;
-  //   top: 0px;
-  //   right: -36px;
-  //   width: 24px;
-  //   height: 24px;
-  //   padding: 0;
-  //   background: none;
   // }
 }

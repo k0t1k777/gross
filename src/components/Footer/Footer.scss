@@ -3,21 +3,13 @@
   width: 100%;
   height: fit-content;
   background: $grey;
-  // padding: 0 calc((100vw - 1110px) / 2) 0;
-  // &__wrapper {
-  //   padding: 0 calc((100vw - 1110px) / 2) 0;
-  //   @media (min-width: 1440px) {
-  //     padding: 0 165px 0;
-  //   }
-  // }
 
   &__container {
+    @include flex-row-center;
     margin: 72px calc((100vw - 1110px) / 2) 74px;
     border-radius: 8px;
     padding: 24px;
     background: $white;
-    display: flex;
-    align-items: center;
     justify-content: space-between;
     position: relative;
     @media (min-width: 1440px) {
