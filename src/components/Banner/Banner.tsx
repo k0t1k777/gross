@@ -56,7 +56,6 @@ function Baner() {
         </span>
       </h1>
       <div className='baner__buttons'>
-        
         <div className='baner__buttons-wrapper'>
           <Button
             className='button__button-baner'
@@ -66,17 +65,14 @@ function Baner() {
             <Icon id='icon-left' className='svg__arrow' />
           </Button>
         </div>
-
-          <Button
-            className='button__button-baner'
-            onClick={() => changeSlideBtn('next')}
-            disabled={statusBtnSlide.end}
-          >
-            <Icon id='icon-right' className='svg__arrow' />
-          </Button>
-
+        <Button
+          className='button__button-baner'
+          onClick={() => changeSlideBtn('next')}
+          disabled={statusBtnSlide.end}
+        >
+          <Icon id='icon-right' className='svg__arrow' />
+        </Button>
       </div>
-
       <div className='baner__circle'>
         <SwiperComponent
           onTransitionEnd={() => {

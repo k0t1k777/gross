@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import 'src/components/Insta/Insta.scss';
 import { DESCTOP_SCREEN, TABLET_SCREEN } from 'src/shared/consts/constants';
 import { Button } from 'src/shared/ui/Button/Button';
+import { Subtitle } from 'src/shared/ui/Subtitle/Subtitle';
 
 function Insta() {
   const [smallSquares, setSmallSquares] = useState(1);
@@ -39,7 +40,7 @@ function Insta() {
 
   return (
     <section className='insta'>
-      <p className='insta__title'>мы в инстаграме</p>
+      <Subtitle text={'мы в инстаграме'} className='subtitle__insta' />
       <motion.div className='insta__container' ref={containerRef}>
         {Array.from({ length: smallSquares }).map((_, index) => (
           <motion.div

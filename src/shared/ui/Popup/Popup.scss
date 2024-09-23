@@ -8,7 +8,7 @@
   height: 100vh;
   width: 100%;
   z-index: 10;
-  background: rgba(0, 0, 0, 0.4);
+  background: $blackOpacity;
 
   &__container {
     @include flex-column-container;
@@ -25,16 +25,50 @@
       margin: 72px 45px 72px 39px;
       padding: 32px 24px;
     }
-    @media (max-width: 768px) {
-      // width: calc(684px + (100vw - 768px) * ((1110 - 684) / (1188 - 768)));
-      // margin: 72px calc((100vw - (684 + (100vw - 768px) * ((1110 - 684) / (1188 - 768)))) / 2);
-      // padding: 32px 24px;
+    @media (max-width: 767px) {
+      margin: 0;
+      width: 100%;
+      max-height: 100vh;
+      padding: 72px 14px;
+      border-radius: 0;
     }
+  }
+
+  &__sticky-container {
+    padding: 30px 32px 30px 95px;
+    background: $white;
+    display: none;
+    width: inherit;
+    margin: 0 calc((100vw - 1110px) / 2);
+    @media (max-width: 1188px) {
+      margin: 0 45px 72px 39px;
+      padding: 32px 0 32px 24px;
+    }
+    @media (max-width: 767px) {
+      width: 100%;
+      margin: 0;
+      padding: 21px 0 21px 14px;
+    }
+    &_position_fixed {
+      display: block;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 20;
+    }
+  }
+
+  &__sticky-title {
+    @include mp-null;
+    @include use-font(24px, 30.43px);
   }
 
   &__title {
     @include mp-null;
     @include use-font(72px, 66px);
+    @media (max-width: 767px) {
+      @include use-font(48px, 44px);
+    }
   }
 
   &__point {
@@ -51,30 +85,7 @@
   &__span {
     @include mp-null;
     @include use-font(14px, 22px, 400);
-    color: $grey;
+    color: rgba(179, 179, 179, 1);
     margin: 22px 0 0;
-  }
-
-  &__sticky-container {
-    padding: 30px 32px 30px 95px;
-    background: $white;
-    display: none;
-    width: inherit;
-    margin: 0 calc((100vw - 1110px) / 2);
-    @media (max-width: 1188px) {
-      margin: 0 45px 72px 39px;
-    }
-    &_position_fixed {
-      display: flex;
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 20;
-    }
-  }
-
-  &__sticky-title {
-    @include mp-null;
-    @include use-font(24px, 30.43px);
   }
 }

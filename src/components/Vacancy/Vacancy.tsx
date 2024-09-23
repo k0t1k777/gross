@@ -9,6 +9,7 @@ import 'swiper/css';
 import 'swiper/css/free-mode';
 import { useEffect, useRef, useState } from 'react';
 import { VACANCY_DATA } from 'src/shared/mock/mock';
+import { Subtitle } from 'src/shared/ui/Subtitle/Subtitle';
 
 function Vacancy() {
   const [statusBtnSlide, setStatusBtnSlide] = useState({
@@ -55,7 +56,7 @@ function Vacancy() {
   return (
     <section className='vacancy'>
       <div className='vacancy__head'>
-        <p className='vacancy__title'>вакансии в гросс маркете</p>
+      <Subtitle text={'вакансии в гросс маркете'} className='subtitle__vacancy'/>
         <div className='vacancy__buttons'>
           <Button
             className='button__button-vacancy'

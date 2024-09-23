@@ -33,14 +33,6 @@
     }
   }
 
-  &__title {
-    @include mp-null;
-    @include use-font;
-    @media (max-width: 490px) {
-      @include use-font(24px, 30.43px);
-    }
-  }
-
   &__slider {
     width: 1290px;
     overflow: hidden;
@@ -109,7 +101,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: $yelow;
+    background-color: $yellow;
     opacity: 0;
     transition: opacity 0.3s ease;
   }

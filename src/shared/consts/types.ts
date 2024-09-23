@@ -14,6 +14,11 @@ export interface IconProps {
   className?: string;
 }
 
+export interface SubtitleProps {
+  text: string;
+  className?: string;
+}
+
 export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   inputClass?: string;
   inputType?: string;
@@ -22,4 +27,12 @@ export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> 
   inputError?: string;
   inputInfo?: string;
   inputLabelText?: string;
+}
+
+export interface SelectProps {
+  label: string;
+  options: { value: string; label: string }[];
+  selectedValue?: string;
+  onChange: (value: string) => void;
+  error?: string;
 }

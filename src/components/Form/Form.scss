@@ -1,0 +1,59 @@
+.form {
+  padding: 72px calc((100vw - 1110px) / 2);
+  @include main-container;
+
+  @media (min-width: 1440px) {
+    padding: 32px 165px;
+  }
+  @media (max-width: 1188px) {
+    padding: 32px 39px;
+  }
+  @media (max-width: 767px) {
+    transition: padding 0.5s ease;
+    padding: 24px 32px 15px;
+  }
+
+  &__wrapper {
+    display: flex;
+    gap: 125px;
+    margin: 48px 0 0 0;
+  }
+
+  &__container {
+    @include flex-column-container;
+    gap: 30px;
+    width: 540px;
+  }
+
+  &__input-wrapper {
+    @include flex-column-container;
+  }
+
+  &__info {
+    @include flex-column-container;
+    width: 445px;
+    gap: 24px;
+    &_title {
+      @include mp-null;
+      @include use-font(32px, 40.58px);
+    }
+    &_text {
+      @include mp-null;
+      @include use-font(18px, 22.82px);
+    }
+    &_span {
+      display: block;
+      margin: 23px 0;
+    }
+  }
+  &__container_number {
+    border-radius: 8px;
+    background: $grey;
+    text-align: center;
+    padding: 22px 0;
+  }
+  &__number {
+    @include mp-null;
+    @include use-font(24px, 30.43px);
+  }
+}

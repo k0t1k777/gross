@@ -2,9 +2,11 @@ import { useState } from 'react';
 import { YMaps, Map, Placemark } from '@r3flector/react-yandex-maps';
 import 'src/components/MapCity/MapCity.scss';
 import { Button } from 'src/shared/ui/Button/Button';
-import { locations, ULYANOVSK } from 'src/shared/consts/constants';
 import { Icon } from 'src/shared/ui/Icon/Icon';
 import IconMap from 'src/shared/assets/IconMap.svg';
+import { Subtitle } from 'src/shared/ui/Subtitle/Subtitle';
+import { locations } from 'src/shared/mock/mock';
+import { ULYANOVSK } from 'src/shared/consts/constants';
 
 function MapCity() {
   const [zoom, setZoom] = useState(13);
@@ -24,7 +26,7 @@ function MapCity() {
 
   return (
     <section className='map'>
-      <p className='map__title'>География</p>
+      <Subtitle text={'География'} className='subtitle__map'/>
       <div className='map__wrapper'>
       <div className='map__whith-buttons'>
         <div className='map__filters'>

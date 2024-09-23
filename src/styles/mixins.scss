@@ -30,13 +30,13 @@
 }
 
 // для информации под импутами, текст с маленьким шрифтом.
-// @mixin text-info {
-//   @include use-font(12px, 14px, 400);
-//   @include mp-null();
-//   display: block;
-//   min-height: 40px;
-//   border: 0;
-// }
+@mixin text-info {
+  @include use-font(14px, 17.75px);
+  @include mp-null();
+  display: block;
+  min-height: 27px;
+  border: 0;
+}
 // // заголовки второго уровня для блоков
 // @mixin suptitle-page($font-size: 40px, $line-height: 48px) {
 //   @include mp-null;

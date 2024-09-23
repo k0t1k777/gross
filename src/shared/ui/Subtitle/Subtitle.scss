@@ -1,0 +1,32 @@
+.subtitle {
+  @include mp-null;
+  @include use-font;
+  &__map {
+    margin-bottom: 32px;
+    padding: 0 calc((100vw - 1110px) / 2) 0;
+    @media (min-width: 1440px) {
+      padding: 0 165px 0;
+    }
+    @media (max-width: 1188px) {
+      padding: 0 39px;
+    }
+    @media (max-width: 767px) {
+      @include use-font(24px, 30.43px);
+      padding: 0 15px;
+    }
+  }
+  &__vacancy {
+    @media (max-width: 490px) {
+      @include use-font(24px, 30.43px);
+    }
+  }
+  &__insta {
+    margin-bottom: 32px;
+    @media (max-width: 490px) {
+      @include use-font(24px, 30.43px);
+    }
+  }
+  &__form {
+    
+  }
+}

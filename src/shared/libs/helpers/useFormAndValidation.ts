@@ -1,128 +1,125 @@
-// import { useEffect, useState } from 'react';
-// import * as Yup from 'yup';
+import { useEffect, useState } from 'react';
+import * as Yup from 'yup';
 
-// export interface FormFields {
-//   email?: string;
-//   username?: string;
-//   phone?: string;
-//   password?: string;
-//   confirmPass?: string;
-//   confirmСode?: string;
-// }
+export interface FormFields {
+  // email?: string;
+  username?: string;
+  // phone?: string;
+}
 
-// export interface SearchFormFields {
-//   search: string;
-// }
+export interface SearchFormFields {
+  search: string;
+}
 
-// export interface Errors {
-//   [key: string]: string;
-// }
+export interface Errors {
+  [key: string]: string;
+}
 
-// interface UseFormAndValidationProps<T> {
-//   form: T;
-//   setForm: React.Dispatch<React.SetStateAction<T>>;
-//   errors: Errors;
-//   setErrors: React.Dispatch<React.SetStateAction<Errors>>;
-//   isFormValid: boolean;
-//   handleChange: (evt: React.ChangeEvent<HTMLInputElement>) => Promise<void>;
-//   handleSelectChange: (selectedObj: Partial<T>) => void;
-//   resetForm: () => void;
-//   handleFocus: (evt: React.FocusEvent<HTMLInputElement>) => void;
-//   handleBlur: () => void;
-//   updateFormInput: (data: Partial<T>) => void;
-//   isActiveInput: { [key: string]: boolean };
-// }
+interface UseFormAndValidationProps<T> {
+  form: T;
+  setForm: React.Dispatch<React.SetStateAction<T>>;
+  errors: Errors;
+  setErrors: React.Dispatch<React.SetStateAction<Errors>>;
+  isFormValid: boolean;
+  handleChange: (evt: React.ChangeEvent<HTMLInputElement>) => Promise<void>;
+  handleSelectChange: (selectedObj: Partial<T>) => void;
+  resetForm: () => void;
+  handleFocus: (evt: React.FocusEvent<HTMLInputElement>) => void;
+  handleBlur: () => void;
+  updateFormInput: (data: Partial<T>) => void;
+  isActiveInput: { [key: string]: boolean };
+}
 
-// const useFormAndValidation = <T extends Record<string, any>>(
-//   initialState: T,
-//   validationSchema: Yup.ObjectSchema<T>,
-// ): UseFormAndValidationProps<T> => {
-//   const [form, setForm] = useState<T>(initialState);
-//   const [errors, setErrors] = useState<Errors>({});
-//   const [isFormValid, setIsFormValid] = useState<boolean>(false);
-//   const [isActiveInput, setIsActiveInput] = useState<{
-//     [key: string]: boolean;
-//   }>({});
+const useFormAndValidation = <T extends Record<string, any>>(
+  initialState: T,
+  validationSchema: Yup.ObjectSchema<T>,
+): UseFormAndValidationProps<T> => {
+  const [form, setForm] = useState<T>(initialState);
+  const [errors, setErrors] = useState<Errors>({});
+  const [isFormValid, setIsFormValid] = useState<boolean>(false);
+  const [isActiveInput, setIsActiveInput] = useState<{
+    [key: string]: boolean;
+  }>({});
 
-//   const handleFocus = (evt: React.FocusEvent<HTMLInputElement>) => {
-//     setIsActiveInput({ [evt.target.name]: true });
-//     setForm((prevForm) => ({
-//       ...prevForm,
-//       activeInput: evt.target.name,
-//     }));
-//   };
+  const handleFocus = (evt: React.FocusEvent<HTMLInputElement>) => {
+    setIsActiveInput({ [evt.target.name]: true });
+    setForm((prevForm) => ({
+      ...prevForm,
+      activeInput: evt.target.name,
+    }));
+  };
 
-//   const handleBlur = () => {
-//     setIsActiveInput({});
-//     setForm((prevForm) => ({
-//       ...prevForm,
-//       activeInput: '',
-//     }));
-//   };
+  const handleBlur = () => {
+    setIsActiveInput({});
+    setForm((prevForm) => ({
+      ...prevForm,
+      activeInput: '',
+    }));
+  };
 
-//   const updateFormInput = (data: Partial<T>) => {
-//     setForm((prevForm) => ({
-//       ...prevForm,
-//       ...data,
-//     }));
-//   };
+  const updateFormInput = (data: Partial<T>) => {
+    setForm((prevForm) => ({
+      ...prevForm,
+      ...data,
+    }));
+  };
 
-//   const resetForm = () => {
-//     setForm(initialState);
-//     setErrors({});
-//   };
+  const resetForm = () => {
+    setForm(initialState);
+    setErrors({});
+  };
 
-//   const handleValidation = async (input: HTMLInputElement, formData: T) => {
-//     try {
-//       await validationSchema.validateAt(input.name, formData);
-//       setErrors((prevErrors) => ({ ...prevErrors, [input.name]: '' }));
-//     } catch (error) {
-//       if (error instanceof Yup.ValidationError) {
-//         setIsFormValid(false);
-//         setErrors((prevErrors) => ({
-//           ...prevErrors,
-//           [input.name]: error.message,
-//         }));
-//       }
-//     }
-//   };
+  const handleValidation = async (input: HTMLInputElement, formData: T) => {
+    try {
+      await validationSchema.validateAt(input.name, formData);
+      setErrors((prevErrors) => ({ ...prevErrors, [input.name]: '' }));
+    } catch (error) {
+      if (error instanceof Yup.ValidationError) {
+        setIsFormValid(false);
+        setErrors((prevErrors) => ({
+          ...prevErrors,
+          [input.name]: error.message,
+        }));
+      }
+    }
+  };
 
-//   const handleChange = async (evt: React.ChangeEvent<HTMLInputElement>) => {
-//     const input = evt.target;
-//     const updatedForm = { ...form, [input.name]: input.value };
-//     setForm(updatedForm);
+  const handleChange = async (evt: React.ChangeEvent<HTMLInputElement>) => {
+    const input = evt.target;
+    const updatedForm = { ...form, [input.name]: input.value };
+    setForm(updatedForm);
 
-//     await handleValidation(input, updatedForm);
-//   };
+    await handleValidation(input, updatedForm);
+  };
 
-//   const handleSelectChange = (selectedObj: Partial<T>) => {
-//     setForm((prevState) => ({
-//       ...prevState,
-//       ...selectedObj,
-//     }));
-//   };
+  const handleSelectChange = (selectedObj: Partial<T>) => {
+    setForm((prevState) => ({
+      ...prevState,
+      ...selectedObj,
+    }));
+  };
 
-//   useEffect(() => {
-//     const isValid =
-//       Object.values(form).every((value) => value !== '') &&
-//       !Object.values(errors).some((value) => value !== '');
-//     setIsFormValid(isValid);
-//   }, [form, errors]);
+  useEffect(() => {
+    const isValid =
+      Object.values(form).every((value) => value !== '') &&
+      !Object.values(errors).some((value) => value !== '');
+    setIsFormValid(isValid);
+  }, [form, errors]);
 
-//   return {
-//     form,
-//     setForm,
-//     errors,
-//     setErrors,
-//     isFormValid,
-//     handleChange,
-//     handleSelectChange,
-//     resetForm,
-//     handleFocus,
-//     handleBlur,
-//     updateFormInput,
-//     isActiveInput,
-//   };
-// };
+  return {
+    form,
+    setForm,
+    errors,
+    setErrors,
+    isFormValid,
+    handleChange,
+    handleSelectChange,
+    resetForm,
+    handleFocus,
+    handleBlur,
+    updateFormInput,
+    isActiveInput,
+  };
+};
 
-// export default useFormAndValidation;
+export default useFormAndValidation;
