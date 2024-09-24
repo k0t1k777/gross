@@ -1,6 +1,5 @@
 .input {
   @include use-font(18px, 22.82px);
-  position: relative;
   background: $grey;
   border-radius: 8px;
   border: none;
@@ -14,6 +13,7 @@
     background: $redOpacity;
     outline: $red;
   }
+
   &__text {
     @include text-info;
     align-self: self-start;
@@ -34,5 +34,7 @@
   }
   &__label {
     @include use-font(14px, 17.75px);
+    text-transform: uppercase;
+    display: block;
   }
 }

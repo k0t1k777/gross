@@ -1,5 +1,3 @@
-import { FormFields } from '../libs/helpers/useFormAndValidation';
-
 export interface CaptionProps {
   name: string;
   className?: string;
@@ -35,6 +33,6 @@ export interface SelectProps {
   label: string;
   options: string[];
   selectedValue?: string;
-  handleSelectChange: (selectedObj: Partial<FormFields>) => void;
+  handleSelectChange: (selectedValue: string) => void;
   error?: string;
 }

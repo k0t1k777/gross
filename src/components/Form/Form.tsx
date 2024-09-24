@@ -2,29 +2,20 @@ import 'src/components/Form/Form.scss';
 import { Button } from 'src/shared/ui/Button/Button';
 import { Input } from 'src/shared/ui/Input/Input';
 import { Subtitle } from 'src/shared/ui/Subtitle/Subtitle';
-import useFormAndValidation, {
-  FormFields,
-} from 'src/shared/libs/helpers/useFormAndValidation';
+import useFormAndValidation from 'src/shared/libs/helpers/useFormAndValidation';
 import { validationSchemaAuthForms } from 'src/shared/consts/validationSchemas';
 import Select from 'src/shared/ui/Select/Select';
 import { PROFESSION_DATA } from 'src/shared/consts/constants';
 
 const Form = () => {
   const { form, errors, isFormValid, handleChange, handleSelectChange } =
-    useFormAndValidation<FormFields>(
+    useFormAndValidation(
       {
         username: '',
         profession: '',
       },
       validationSchemaAuthForms
     );
-
-  // const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-  //   e.preventDefault();
-  //   handleRegister({
-  //     username: form.username,
-  //     });
-  // };
 
   return (
     <section className='form'>
@@ -35,9 +26,7 @@ const Form = () => {
             label='Вакансия *'
             options={PROFESSION_DATA}
             selectedValue={form.profession}
-            handleSelectChange={(selectedOption) =>
-              handleSelectChange({ profession: selectedOption })
-            }
+            handleSelectChange={handleSelectChange}
           />
           <div className='form__input-wrapper'>
             <Input
@@ -45,7 +34,7 @@ const Form = () => {
               inputName='username'
               inputType='username'
               inputValue={form.username}
-              inputLabelText='ФИО *'
+              inputLabelText='Фио *'
               placeholder='Константиновский Константин Александрович'
               onChange={handleChange}
               inputError={errors.username}

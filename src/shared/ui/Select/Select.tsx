@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { SelectProps } from 'src/shared/consts/types';
+import useOutsideClick from 'src/shared/libs/helpers/useOutsideClick';
 import 'src/shared/ui/Select/Select.scss';
 
 const Select: React.FC<SelectProps> = ({
@@ -10,17 +11,24 @@ const Select: React.FC<SelectProps> = ({
   handleSelectChange,
 }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const ref = useRef(null);
+
+  useOutsideClick(ref, toggleOpen);
+
+  function toggleOpen() {
+    setIsOpen(prev => !prev);
+  }
 
   return (
-    <div className='select'>
+    <div className='select' ref={isOpen ? ref : null}>
       {label && (
         <label className={`select__label ${error ? 'select__label_error' : ''}`}>
           {label}
         </label>
       )}
-      <div className='select__dropdown' onClick={() => setIsOpen(prev => !prev)}>
+      <div className='select__dropdown' onClick={toggleOpen}>
         <span className='select__selected'>
-          {selectedValue}
+          {selectedValue  ? selectedValue : 'Выберите вакансию'}
         </span>
         <div className={`select__icon ${isOpen ? 'select__icon_open' : ''}`} />
       </div>
