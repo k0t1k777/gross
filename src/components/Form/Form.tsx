@@ -6,27 +6,39 @@ import useFormAndValidation, {
   FormFields,
 } from 'src/shared/libs/helpers/useFormAndValidation';
 import { validationSchemaAuthForms } from 'src/shared/consts/validationSchemas';
-// import Select from 'src/shared/ui/Select/Select';
+import Select from 'src/shared/ui/Select/Select';
+import { PROFESSION_DATA } from 'src/shared/consts/constants';
 
 const Form = () => {
-  const {
-    form,
-    errors,
-     isFormValid,
-    handleChange,
-  } = useFormAndValidation<FormFields>(
-    {
-      username: '',
-    },
-    validationSchemaAuthForms
-  );
+  const { form, errors, isFormValid, handleChange, handleSelectChange } =
+    useFormAndValidation<FormFields>(
+      {
+        username: '',
+        profession: '',
+      },
+      validationSchemaAuthForms
+    );
+
+  // const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  //   e.preventDefault();
+  //   handleRegister({
+  //     username: form.username,
+  //     });
+  // };
 
   return (
     <section className='form'>
       <Subtitle text={'Работа твоей мечты'} className='subtitle__form' />
       <div className='form__wrapper'>
         <div className='form__container'>
-          {/* <Select label='Вакансия *'/> */}
+          <Select
+            label='Вакансия *'
+            options={PROFESSION_DATA}
+            selectedValue={form.profession}
+            handleSelectChange={(selectedOption) =>
+              handleSelectChange({ profession: selectedOption })
+            }
+          />
           <div className='form__input-wrapper'>
             <Input
               inputClass='input__form'
@@ -42,7 +54,7 @@ const Form = () => {
           <Button
             className='button__button-form'
             type='submit'
-             disabled={!isFormValid}
+            disabled={!isFormValid}
           >
             Отправить
           </Button>

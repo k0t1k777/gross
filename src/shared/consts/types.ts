@@ -1,3 +1,5 @@
+import { FormFields } from '../libs/helpers/useFormAndValidation';
+
 export interface CaptionProps {
   name: string;
   className?: string;
@@ -31,8 +33,8 @@ export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> 
 
 export interface SelectProps {
   label: string;
-  options: { value: string; label: string }[];
+  options: string[];
   selectedValue?: string;
-  onChange: (value: string) => void;
+  handleSelectChange: (selectedObj: Partial<FormFields>) => void;
   error?: string;
 }

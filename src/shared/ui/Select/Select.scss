@@ -1,3 +1,62 @@
 .select {
-width: 100%;
+  position: relative;
+  width: 100%;
+}
+
+.select__label {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 14px;
+}
+
+.select__label_error {
+  color: red;
+}
+
+.select__dropdown {
+  border: 1px solid #ccc;
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.select__selected {
+  flex-grow: 1;
+}
+
+.select__icon {
+  width: 10px;
+  height: 10px;
+  background-color: transparent; /* Здесь можно добавить иконку или стрелку */
+}
+
+.select__icon_open {
+  transform: rotate(180deg); /* Поворот иконки при открытии */
+}
+
+.select__options {
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 0;
+  right: 0;
+  border: 1px solid #ccc;
+  background-color: white;
+  z-index: 10;
+}
+
+.select__option {
+  padding: 10px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #f0f0f0; /* Подсветка при наведении */
+  }
+}
+
+.select__error {
+  color: red;
+  font-size: 12px;
+  margin-top: 4px;
 }

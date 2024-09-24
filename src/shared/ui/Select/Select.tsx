@@ -6,15 +6,10 @@ const Select: React.FC<SelectProps> = ({
   label,
   options,
   selectedValue,
-  onChange,
   error,
+  handleSelectChange,
 }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-
-  const handleSelectChange = (value: string) => {
-    onChange(value);
-    setIsOpen(false);
-  };
 
   return (
     <div className='select'>
@@ -25,7 +20,7 @@ const Select: React.FC<SelectProps> = ({
       )}
       <div className='select__dropdown' onClick={() => setIsOpen(prev => !prev)}>
         <span className='select__selected'>
-          {selectedValue || 'Выберите...'}
+          {selectedValue}
         </span>
         <div className={`select__icon ${isOpen ? 'select__icon_open' : ''}`} />
       </div>
@@ -33,11 +28,14 @@ const Select: React.FC<SelectProps> = ({
         <ul className='select__options'>
           {options.map(option => (
             <li
-              key={option.value}
+              key={option}
               className='select__option'
-              onClick={() => handleSelectChange(option.value)}
+              onClick={() => {
+                handleSelectChange(option);
+                setIsOpen(false);
+              }}
             >
-              {option.label}
+              {option}
             </li>
           ))}
         </ul>

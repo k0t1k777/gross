@@ -10,9 +10,27 @@ export const validationMessages = {
   phone: 'Введите номер телефона в формате +79XXXXXXXXX',
   date: 'Введите дату в формате гггг-мм-дд',
   required: 'Обязательное поле',
-}
+};
+
+export const EMAILREGEX = /\s*^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+export const NAMEREGEX = /^[а-яА-Яa-zA-Z]+$/;
+export const PHONEREGEX = /^\+79\d{9}$/;
+export const CODEREGEX = /^\d{4}$/;
+export const MINLENGTHNAME = 2;
+export const MINLENGTPASSWORD = 8;
+export const MAX_LENGT_CONFIRM_CODE = 4;
 
 export const APROVE_TITLE = { title: 'Обработка данных' };
+
+export const PROFESSION_DATA = [
+  'товаровед',
+  'водитель',
+  'пекарь',
+  'кассир',
+  'продавец',
+  'повар',
+  'приёмщик',
+];
 
 export const APROVE_DATA = [
   {
@@ -37,11 +55,3 @@ export const APROVE_DATA = [
       'Для обеспечения использования Вами Сайтов и Сервисов Ваша Персональная информация собирается и используется Яндексом, в том числе включая общество с ограниченной ответственностью «Гросс маркет», юридическое лицо, созданное по законодательству Российской Федерации и зарегистрированное по адресу: 123351, Россия, Москва, ул. Гроссова, д. 12 (ООО «Гросс маркет»), или его аффилированным лицом, предоставляющим соответствующий Сервис в иных юрисдикциях. С информацией о том, какое лицо предоставляет тот или иной Сервис, Вы можете ознакомиться в условиях использования соответствующего Сервиса.',
   },
 ];
-
-export const EMAILREGEX = /\s*^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
-export const NAMEREGEX = /^[а-яА-Яa-zA-Z]+$/
-export const PHONEREGEX = /^\+79\d{9}$/
-export const CODEREGEX = /^\d{4}$/
-export const MINLENGTHNAME = 2
-export const MINLENGTPASSWORD = 8
-export const MAX_LENGT_CONFIRM_CODE = 4
