@@ -13,6 +13,7 @@ const Form = () => {
       {
         username: '',
         profession: '',
+        userdate: '',
       },
       validationSchemaAuthForms
     );
@@ -34,11 +35,41 @@ const Form = () => {
               inputName='username'
               inputType='username'
               inputValue={form.username}
-              inputLabelText='Фио *'
+              inputLabelText='ФИО *'
               placeholder='Константиновский Константин Александрович'
               onChange={handleChange}
               inputError={errors.username}
             />
+          </div>
+          <div className='form__input_container_mini'>
+            <div className='form__input_container_mini-flex'>
+              <div>
+              <Input
+                inputClass='input__form'
+                inputName='userdate'
+                inputType='date'
+                inputValue={form.userdate}
+                inputLabelText='Дата рождения *'
+                placeholder='28.07.2002'
+                onChange={handleChange}
+                inputError={errors.userdate}
+                style={{ width: '255px' }}
+                maxLength={4}
+              />
+              </div>
+              <div>
+              <Input
+                inputClass='input__form'
+                inputName='userdate'
+                inputType='date'
+                inputValue={form.userdate}
+                inputLabelText='Дата рождения *'
+                placeholder='28.07.2002'
+                onChange={handleChange}
+                inputError={errors.userdate}
+              />
+              </div>
+            </div>
           </div>
           <Button
             className='button__button-form'

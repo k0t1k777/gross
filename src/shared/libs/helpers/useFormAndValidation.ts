@@ -4,6 +4,7 @@ import * as Yup from 'yup';
 export interface FormFields {
   username?: string;
   profession?: string;
+  userdate?: string;
 }
 
 export interface Errors {
@@ -19,6 +20,7 @@ const useFormAndValidation = (
     return savedForm ? JSON.parse(savedForm) : initialState;
   });
   const [errors, setErrors] = useState<Errors>({});
+  const [validity, setValidity] = useState<{ [key: string]: boolean }>({});
   const [isFormValid, setIsFormValid] = useState<boolean>(false);
   const [isActiveInput, setIsActiveInput] = useState<{
     [key: string]: boolean;
@@ -62,11 +64,14 @@ const useFormAndValidation = (
 
   const handleChange = async (evt: React.ChangeEvent<HTMLInputElement>) => {
     const input = evt.target;
-    const updatedForm = { ...form, [input.name]: input.value };
+    const updatedValue = input.value;
+  
+    const updatedForm = { ...form, [input.name]: updatedValue };
     setForm(updatedForm);
     localStorage.setItem('form', JSON.stringify(updatedForm));
     await handleValidation(input);
   };
+  
   
   const handleSelectChange = (selectedValue: string) => {
     const updatedForm = { ...form, profession: selectedValue };

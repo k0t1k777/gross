@@ -4,10 +4,10 @@ import LogoGroup from 'src/shared/ui/LogoGroup/LogoGroup';
 import usePopupOpen from 'src/shared/libs/helpers/usePopupOpen';
 import { Popup } from 'src/shared/ui/Popup/Popup';
 
-function Footer() {
+export const Footer = () => {
   const {
     isOpenPopup,
-    isSticky,
+    isStickyPopup,
     handleOpenPopup,
     handleClosePopup,
     modalRef,
@@ -29,7 +29,7 @@ function Footer() {
       </div>
       <Popup
         isOpenPopup={isOpenPopup}
-        isSticky={isSticky}
+        isStickyPopup={isStickyPopup}
         handleClosePopup={handleClosePopup}
         modalRef={modalRef}
         popupContainerRef={popupContainerRef}
@@ -37,5 +37,3 @@ function Footer() {
     </footer>
   );
 }
-
-export default Footer;

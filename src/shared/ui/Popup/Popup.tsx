@@ -6,7 +6,7 @@ import { RefObject } from 'react';
 
 interface PopupProps {
   isOpenPopup: boolean;
-  isSticky: boolean;
+  isStickyPopup: boolean;
   handleClosePopup: () => void;
   modalRef: RefObject<HTMLDivElement>;
   popupContainerRef: RefObject<HTMLDivElement>;
@@ -15,10 +15,11 @@ interface PopupProps {
 export const Popup: React.FC<PopupProps> = ({
   modalRef,
   popupContainerRef,
-  isSticky,
+  isStickyPopup,
   isOpenPopup,
   handleClosePopup,
 }) => {
+  
   return (
     isOpenPopup && (
       <div className='popup' aria-label='всплывающая форма' ref={modalRef}>
@@ -33,15 +34,15 @@ export const Popup: React.FC<PopupProps> = ({
           ))}
           <div
             className={`popup__sticky-container ${
-              isSticky ? 'popup__sticky-container_position_fixed' : ''
+              isStickyPopup ? 'popup__sticky-container_position_fixed' : ''
             }`}
           >
             <p className='popup__sticky-title'>{APROVE_TITLE.title}</p>
-            <Button onClick={handleClosePopup} className='button__popup-close'>
+            <Button onClick={handleClosePopup} className='button__popup_close'>
               <Icon id='close' className='svg__close' />
             </Button>
           </div>
-          <Button onClick={handleClosePopup} className='button__popup-close'>
+          <Button onClick={handleClosePopup} className='button__popup_close'>
             <Icon id='close' className='svg__close' />
           </Button>
         </div>

@@ -27,6 +27,17 @@
 
   &__input-wrapper {
     @include flex-column-container;
+    &-date {
+      width: 255px;
+    }
+  }
+
+  &__input_container_mini {
+    width: 100%;
+    &-flex {
+      display: flex;
+      gap: 30px;
+    }
   }
 
   &__info {

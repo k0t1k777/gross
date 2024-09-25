@@ -73,4 +73,10 @@
 <path d="M21 21L3 3" stroke="black" stroke-width="2"/>
 </svg>
 
+<svg id='arrow-select' width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M12.866 17.5C12.4811 18.1667 11.5189 18.1667 11.134 17.5L6.80383 10C6.41893 9.33333 6.90006 8.5 7.66986 8.5L16.3301 8.5C17.0999 8.5 17.581 9.33333 17.1961 10L12.866 17.5Z" fill="black"/>
+</svg>
 
+<svg id='valid' width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M7 12.5L9.76768 15.9963C10.1713 16.5062 10.9467 16.5012 11.3437 15.9862L17.5 8" stroke="#10C300" stroke-width="2" stroke-linecap="round"/>
+</svg>

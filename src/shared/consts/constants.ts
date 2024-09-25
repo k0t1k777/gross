@@ -10,6 +10,7 @@ export const validationMessages = {
   phone: 'Введите номер телефона в формате +79XXXXXXXXX',
   date: 'Введите дату в формате гггг-мм-дд',
   required: 'Обязательное поле',
+  invalid_date: 'Неправильная дата'
 };
 
 export const EMAILREGEX = /\s*^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;

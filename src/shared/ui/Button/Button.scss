@@ -14,10 +14,12 @@
       display: none;
     }
     &_type-sticky {
-      display: none;
+      @media (min-width: 767px) {
+        display: none;
+      }
       @media (max-width: 767px) {
-        display: block;
         @include use-font(18px, 22.82px, 500);
+        display: block;
         background: $yellow;
         position: fixed;
         top: 18px;
@@ -91,7 +93,7 @@
     padding: 0;
   }
 
-  &__popup-close {
+  &__popup_close {
     position: absolute;
     top: 32px;
     right: 32px;

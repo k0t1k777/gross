@@ -1,24 +1,50 @@
 import React from 'react';
-
-// кастомный хук для плавного открытия попапа
-// и его закрытие по оверлею, иконке и кнопке esc, 
+// кастомный хук для плавного открытия попапа,
+// его закрытие по оверлею, иконке и кнопке esc,
 // a так же fixed позициоинирование при скролле
+// и липкая кнопка с хедера
 
 export default function usePopupOpen() {
   const [isOpenPopup, setIsOpenPopup] = React.useState<boolean>(false);
-  const [isSticky, setIsSticky] = React.useState<boolean>(false);
+  // console.log('isOpenPopup: ', isOpenPopup);
+  const [isStickyButton, setStickyButton] = React.useState<boolean>(false);
+  const [isStickyPopup, setIsStickyPopup] = React.useState<boolean>(false);
   const popupContainerRef = React.useRef<HTMLDivElement | null>(null);
   const modalRef = React.useRef<HTMLDivElement | null>(null);
 
   const handleOpenPopup = () => {
+    setStickyButton(false);
     setIsOpenPopup(true);
     document.body.style.overflow = 'hidden';
   };
 
   const handleClosePopup = React.useCallback(() => {
-    setIsOpenPopup(false);
+    setIsOpenPopup(false)
     document.body.style.overflow = 'auto';
   }, []);
+
+  const handleScrollHeader = React.useCallback(() => {
+    if (isOpenPopup) return;
+    if (window.scrollY > 70) {
+      setStickyButton(true);
+    } else {
+      setStickyButton(false);
+    }
+  }, [isOpenPopup]);
+
+  React.useEffect(() => {
+    window.addEventListener('scroll', handleScrollHeader);
+
+    return () => {
+      window.removeEventListener('scroll', handleScrollHeader);
+    };
+  }, [handleScrollHeader]);
+
+  React.useEffect(() => {
+    if (isOpenPopup) {
+      setStickyButton(false);
+    }
+  }, [isOpenPopup]);
 
   React.useEffect(() => {
     if (modalRef.current && isOpenPopup) {
@@ -36,16 +62,13 @@ export default function usePopupOpen() {
   React.useEffect(() => {
     const handleScroll = () => {
       if (popupContainerRef.current) {
-        setIsSticky(popupContainerRef.current.scrollTop > 100);
+        setIsStickyPopup(popupContainerRef.current.scrollTop > 100);
       }
     };
-
     const popupContainer = popupContainerRef.current;
-
     if (popupContainerRef.current) {
       popupContainerRef.current.addEventListener('scroll', handleScroll);
     }
-
     return () => {
       if (popupContainer) {
         popupContainer.removeEventListener('scroll', handleScroll);
@@ -70,12 +93,10 @@ export default function usePopupOpen() {
         handleClosePopup();
       }
     }
-
     if (isOpenPopup) {
       document.addEventListener('keydown', closeByEscape);
       document.addEventListener('click', closeByOverlayClick);
     }
-
     return () => {
       document.removeEventListener('keydown', closeByEscape);
       document.removeEventListener('click', closeByOverlayClick);
@@ -83,10 +104,12 @@ export default function usePopupOpen() {
   }, [isOpenPopup, handleClosePopup]);
 
   return {
-    isSticky,
+    isStickyPopup,
+    isStickyButton,
     modalRef,
     isOpenPopup,
     popupContainerRef,
+    setStickyButton,
     handleOpenPopup,
     handleClosePopup,
   };

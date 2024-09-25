@@ -17,12 +17,16 @@
 
   &__dropdown {
     @include flex-row-center;
+    justify-content: space-between;
     background: $grey;
-    padding: 12px 0 12px 16px;
+    padding: 12px 16px;
     margin: 12px 0 2px 0;
     cursor: pointer;
     border-radius: 8px;
     border: none;
+    &_open {
+      border-radius: 8px 8px 0 0;
+    }
     &:focus {
       border: none;
       outline: none;
@@ -34,30 +38,34 @@
     @include use-font(18px, 22.82px);
   }
 
-  &__icon {
-    width: 10px;
-    height: 10px;
-    background-color: transparent; /* Здесь можно добавить иконку или стрелку */
-    &_open {
-      transform: rotate(180deg); /* Поворот иконки при открытии */
-    }
-  }
-
   &__options {
     position: absolute;
-    top: calc(100% + 5px);
+    @include mp-null-list;
+    top: 78px;
     left: 0;
     right: 0;
-    border: 1px solid #ccc;
-    background-color: white;
+    border: none;
+    background-color: $grey;
     z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
   }
+  
   &__option {
-    @include text-info;
+    @include use-font(18px, 22.82px);
+    padding: 12px 0 12px 16px;
     cursor: pointer;
 
     &:hover {
-      background-color: #f0f0f0; /* Подсветка при наведении */
+      background-color: $yellow;
+    }
+  }
+
+  &__icon {
+    @include flex-row-center;
+    &_open {
+      transform: rotate(180deg);
     }
   }
 }

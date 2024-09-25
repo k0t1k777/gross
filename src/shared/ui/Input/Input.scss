@@ -3,6 +3,9 @@
   background: $grey;
   border-radius: 8px;
   border: none;
+  &_date {
+    width: 100%;
+  }
   &:focus {
     border: none;
     outline: none;
@@ -23,18 +26,41 @@
     }
   }
 
-  // убирает дефолтный показ иконки пароля в Microsoft Edge
-  &::-ms-reveal {
-    display: none;
-  }
-
   &__form {
     padding: 12px 0 12px 16px;
     margin: 12px 0 2px 0;
   }
+
+  &__container-svg {
+    display: none;
+    &_ok {
+      display: block;
+    }
+  }
+
   &__label {
     @include use-font(14px, 17.75px);
-    text-transform: uppercase;
-    display: block;
+    display: flex;
+    align-items: center;
+    &_container {
+      display: flex;
+      gap: 8px;
+    }
   }
+  // убирает дефолтный показ иконки пароля в Microsoft Edge
+  &::-ms-reveal {
+    display: none;
+  }
+}
+
+input[type='date']::-webkit-calendar-picker-indicator {
+  display: none; /* Для браузеров на основе WebKit (Chrome, Safari) */
+}
+
+input[type='date']::-moz-inner-spin-button {
+  display: none; /* Для Firefox */
+}
+
+input[type='date']::-ms-clear {
+  display: none; /* Для Internet Explorer */
 }
