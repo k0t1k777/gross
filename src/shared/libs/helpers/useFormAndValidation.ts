@@ -20,7 +20,12 @@ const useFormAndValidation = (
     return savedForm ? JSON.parse(savedForm) : initialState;
   });
   const [errors, setErrors] = useState<Errors>({});
-  const [validity, setValidity] = useState<{ [key: string]: boolean }>({});
+  // const [validity, setValidity] = useState<{ [key: string]: boolean }>({});
+  const [validity, setValidity] = useState<{ [key: string]: boolean }>({
+    username: false,
+    profession: false,
+    userdate: false,
+  });
   const [isFormValid, setIsFormValid] = useState<boolean>(false);
   const [isActiveInput, setIsActiveInput] = useState<{
     [key: string]: boolean;
@@ -51,6 +56,7 @@ const useFormAndValidation = (
     try {
       await validationSchema.validateAt(input.name, form);
       setErrors((prevErrors) => ({ ...prevErrors, [input.name]: '' }));
+      setValidity((prevValidity) => ({ ...prevValidity, [input.name]: true }));
     } catch (error) {
       if (error instanceof Yup.ValidationError) {
         setIsFormValid(false);
@@ -58,9 +64,11 @@ const useFormAndValidation = (
           ...prevErrors,
           [input.name]: error.message,
         }));
+        setValidity((prevValidity) => ({ ...prevValidity, [input.name]: false }));
       }
     }
   };
+  
 
   const handleChange = async (evt: React.ChangeEvent<HTMLInputElement>) => {
     const input = evt.target;
@@ -73,10 +81,11 @@ const useFormAndValidation = (
   };
   
   
-  const handleSelectChange = (selectedValue: string) => {
+  const handleSelectChange = async (selectedValue: string) => {
     const updatedForm = { ...form, profession: selectedValue };
     setForm(updatedForm);
     localStorage.setItem('form', JSON.stringify(updatedForm));
+    await handleValidation({ name: 'profession' });
   };
 
   useEffect(() => {
@@ -89,6 +98,7 @@ const useFormAndValidation = (
   return {
     form,
     setForm,
+    validity,
     errors,
     setErrors,
     isFormValid,

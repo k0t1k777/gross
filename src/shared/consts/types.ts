@@ -27,6 +27,7 @@ export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> 
   inputError?: string;
   inputInfo?: string;
   inputLabelText?: string;
+  isValid?: boolean;
 }
 
 export interface SelectProps {
@@ -35,4 +36,5 @@ export interface SelectProps {
   selectedValue?: string;
   handleSelectChange: (selectedValue: string) => void;
   error?: string;
+  isValid?: boolean;
 }

@@ -6,6 +6,7 @@ import { Icon } from 'src/shared/ui/Icon/Icon';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Select: React.FC<SelectProps> = ({
+  isValid,
   label,
   options,
   selectedValue,
@@ -20,13 +21,24 @@ const Select: React.FC<SelectProps> = ({
   function toggleOpen() {
     setIsOpen((prev) => !prev);
   }
+  console.log('isValid: ', isValid);
 
   return (
     <div className='select' ref={isOpen ? ref : null}>
       {label && (
+        <div className='select__label_container'>
         <label className={`select__label ${error && 'select__label_error'}`}>
           {label}
         </label>
+        <div
+        className={`select__container-svg ${
+          isValid ? 'select__container-svg_ok' : ''
+        }`}
+      >
+        <Icon id='valid' className='svg__valid' />
+      </div>
+    </div>
+        
       )}
       <div
         className={`select__dropdown ${isOpen && 'select__dropdown_open'}`}

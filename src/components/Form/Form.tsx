@@ -8,15 +8,22 @@ import Select from 'src/shared/ui/Select/Select';
 import { PROFESSION_DATA } from 'src/shared/consts/constants';
 
 const Form = () => {
-  const { form, errors, isFormValid, handleChange, handleSelectChange } =
-    useFormAndValidation(
-      {
-        username: '',
-        profession: '',
-        userdate: '',
-      },
-      validationSchemaAuthForms
-    );
+  const {
+    form,
+    errors,
+    validity,
+    isFormValid,
+    handleChange,
+    handleSelectChange,
+  } = useFormAndValidation(
+    {
+      username: '',
+      profession: '',
+      userdate: '',
+    },
+    validationSchemaAuthForms
+  );
+  console.log('validity: ', validity);
 
   return (
     <section className='form'>
@@ -28,6 +35,7 @@ const Form = () => {
             options={PROFESSION_DATA}
             selectedValue={form.profession}
             handleSelectChange={handleSelectChange}
+            isValid={validity.profession}
           />
           <div className='form__input-wrapper'>
             <Input
@@ -39,35 +47,36 @@ const Form = () => {
               placeholder='Константиновский Константин Александрович'
               onChange={handleChange}
               inputError={errors.username}
+              isValid={validity.username}
             />
           </div>
           <div className='form__input_container_mini'>
             <div className='form__input_container_mini-flex'>
               <div>
-              <Input
-                inputClass='input__form'
-                inputName='userdate'
-                inputType='date'
-                inputValue={form.userdate}
-                inputLabelText='Дата рождения *'
-                placeholder='28.07.2002'
-                onChange={handleChange}
-                inputError={errors.userdate}
-                style={{ width: '255px' }}
-                maxLength={4}
-              />
+                <Input
+                  inputClass='input__form'
+                  inputName='userdate'
+                  inputType='date'
+                  inputValue={form.userdate}
+                  inputLabelText='Дата рождения *'
+                  placeholder='28.07.2002'
+                  onChange={handleChange}
+                  inputError={errors.userdate}
+                  style={{ width: '255px' }}
+                  isValid={validity.userdate}
+                />
               </div>
               <div>
-              <Input
-                inputClass='input__form'
-                inputName='userdate'
-                inputType='date'
-                inputValue={form.userdate}
-                inputLabelText='Дата рождения *'
-                placeholder='28.07.2002'
-                onChange={handleChange}
-                inputError={errors.userdate}
-              />
+                <Input
+                  inputClass='input__form'
+                  inputName='userdate'
+                  inputType='date'
+                  inputValue={form.userdate}
+                  inputLabelText='Дата рождения *'
+                  placeholder='28.07.2002'
+                  onChange={handleChange}
+                  inputError={errors.userdate}
+                />
               </div>
             </div>
           </div>

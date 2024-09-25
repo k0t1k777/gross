@@ -3,6 +3,7 @@ import 'src/shared/ui/Input/Input.scss';
 import { Icon } from 'src/shared/ui/Icon/Icon';
 
 export const Input: React.FC<InputProps> = ({
+  isValid,
   inputClass,
   inputType = 'text',
   inputName,
@@ -12,6 +13,7 @@ export const Input: React.FC<InputProps> = ({
   inputLabelText,
   ...otherProps
 }) => {
+
   return (
     <>
       {inputLabelText && (
@@ -25,7 +27,7 @@ export const Input: React.FC<InputProps> = ({
           </label>
           <div
             className={`input__container-svg ${
-              valid ? 'input__container_ok' : ''
+              isValid ? 'input__container-svg_ok' : ''
             }`}
           >
             <Icon id='valid' className='svg__valid' />

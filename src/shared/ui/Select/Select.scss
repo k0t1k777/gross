@@ -8,10 +8,22 @@
 
   &__label {
     @include use-font(14px, 17.75px);
-    display: block;
+    display: flex;
+    align-items: center;
+    &_container {
+      display: flex;
+      gap: 8px;
+    }
     &_error {
       color: $red;
       @include text-info;
+    }
+  }
+
+  &__container-svg {
+    display: none;
+    &_ok {
+      display: block;
     }
   }
 
@@ -51,7 +63,7 @@
     flex-direction: column;
     gap: 5px;
   }
-  
+
   &__option {
     @include use-font(18px, 22.82px);
     padding: 12px 0 12px 16px;

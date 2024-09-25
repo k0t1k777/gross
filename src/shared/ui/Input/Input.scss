@@ -31,13 +31,6 @@
     margin: 12px 0 2px 0;
   }
 
-  &__container-svg {
-    display: none;
-    &_ok {
-      display: block;
-    }
-  }
-
   &__label {
     @include use-font(14px, 17.75px);
     display: flex;
@@ -47,6 +40,14 @@
       gap: 8px;
     }
   }
+
+  &__container-svg {
+    display: none;
+    &_ok {
+      display: block;
+    }
+  }
+
   // убирает дефолтный показ иконки пароля в Microsoft Edge
   &::-ms-reveal {
     display: none;
