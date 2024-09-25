@@ -6,6 +6,8 @@ export interface FormFields {
   profession?: string;
   userdate?: string;
   gender?: string;
+  userphone?: string;
+  useremail?: string;
 }
 
 export interface Errors {
@@ -21,12 +23,13 @@ const useFormAndValidation = (
     return savedForm ? JSON.parse(savedForm) : initialState;
   });
   const [errors, setErrors] = useState<Errors>({});
-  // const [validity, setValidity] = useState<{ [key: string]: boolean }>({});
-  const [validity, setValidity] = useState<{ [key: string]: boolean }>({
-    username: false,
-    profession: false,
-    userdate: false,
-  });
+  const [validity, setValidity] = useState<{ [key: string]: boolean }>({});
+  // const [validity, setValidity] = useState<{ [key: string]: boolean }>({
+  //   username: false,
+  //   profession: false,
+  //   userdate: false,
+  //   userphone: false,
+  // });
   const [isFormValid, setIsFormValid] = useState<boolean>(false);
   const [isActiveInput, setIsActiveInput] = useState<{
     [key: string]: boolean;
@@ -97,14 +100,14 @@ const useFormAndValidation = (
     await handleValidation(input.name);
   };
 
-  // useEffect(() => {
-  //   const validateAllFields = async () => {
-  //     for (const field in form) {
-  //       await handleValidation(field);
-  //     }
-  //   };
-  //   validateAllFields();
-  // }, []); 
+  useEffect(() => {
+    const validateAllFields = async () => {
+      for (const field in form) {
+        await handleValidation(field);
+      }
+    };
+    validateAllFields();
+  }, []); 
 
   useEffect(() => {
     const isValid =

@@ -17,9 +17,8 @@ export const EMAILREGEX = /\s*^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 export const NAMEREGEX = /^[а-яА-Яa-zA-Z]+$/;
 export const PHONEREGEX = /^\+79\d{9}$/;
 export const CODEREGEX = /^\d{4}$/;
+export const DATEREGEX = /^\d{4}-\d{2}-\d{2}$/;
 export const MINLENGTHNAME = 2;
-export const MINLENGTPASSWORD = 8;
-export const MAX_LENGT_CONFIRM_CODE = 4;
 
 export const APROVE_TITLE = { title: 'Обработка данных' };
 

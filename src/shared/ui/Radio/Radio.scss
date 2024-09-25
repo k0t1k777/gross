@@ -1,20 +1,17 @@
 .radio {
-  display: flex;
-  flex-direction: column;
+  @include flex-column-container;
   width: 225px;
+  gap: 21px;
 
   &__label_container {
     display: flex;
-    align-items: center;
+    gap: 8px;
   }
 
   &__label {
     @include use-font(14px, 17.75px);
-    &_error {
-      color: $black;
-      background: $redOpacity;
-      outline: $red;
-    }
+    @include flex-row-center;
+    min-height: 24px;
   }
 
   &__container-svg {
@@ -27,18 +24,48 @@
   &__options {
     display: flex;
     gap: 32px;
-    margin-top: 24px;
   }
 
   &__option {
+    @include use-font(14px, 17.75px);
+    cursor: pointer;
     display: flex;
-    gap: 32px;
+    text-align: center;
+    gap: 12px;
   }
 
   &__input {
-    @include use-font(14px, 17.75px);
+    display: none;
+  }
+
+  &__custom {
     width: 24px;
     height: 24px;
+    border-radius: 50%;
+    background: $grey;
+    position: relative;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: $redOpacity;
+    }
+
+    &::after {
+      content: '';
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: $black;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      transition: transform 0.3s;
+    }
+  }
+
+  &__input:checked + .radio__custom::after {
+    transform: translate(-50%, -50%) scale(1);
   }
 
   &__text {

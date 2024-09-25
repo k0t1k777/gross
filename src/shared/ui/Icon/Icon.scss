@@ -1,4 +1,5 @@
 .svg {
+  display: block;
   width: 21px;
   height: 30px;
   z-index: 8;
@@ -50,6 +51,7 @@
   }
 
   &__valid {
+    display: block;
     width: 24px;
     height: 24px;
   }

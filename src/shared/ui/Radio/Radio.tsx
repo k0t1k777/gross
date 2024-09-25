@@ -6,7 +6,6 @@ export const Radio: React.FC<RadioProps> = ({
   isValid,
   radioName,
   selectedValue,
-  radioError,
   radioLabelText,
   onChange,
 }) => {
@@ -15,7 +14,7 @@ export const Radio: React.FC<RadioProps> = ({
       {radioLabelText && (
         <div className='radio__label_container'>
           <label
-            className={`radio__label ${radioError ? 'radio__label_error' : ''}`}
+            className='radio__label'
           >
             {radioLabelText}
           </label>
@@ -38,23 +37,22 @@ export const Radio: React.FC<RadioProps> = ({
             checked={selectedValue === 'male'}
             onChange={onChange}
           />
+          <span className='radio__custom'></span>
           Мужской
         </label>
         <label className='radio__option'>
           <input
-           className='radio__input'
+            className='radio__input'
             type='radio'
             name={radioName}
             value='female'
             checked={selectedValue === 'female'}
             onChange={onChange}
           />
+          <span className='radio__custom'></span>
           Женский
         </label>
       </div>
-      {radioError && (
-        <span className='radio__text radio__text_error'>{radioError}</span>
-      )}
     </div>
   );
 };

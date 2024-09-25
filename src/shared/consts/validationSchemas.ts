@@ -1,18 +1,16 @@
 import * as Yup from 'yup';
 import {
+  DATEREGEX,
   MINLENGTHNAME,
   NAMEREGEX,
-  // PHONEREGEX,
+  PHONEREGEX,
   validationMessages,
 } from 'src/shared/consts/constants';
-const isValidDate = (dateString: string) => {
-  // Регулярное выражение для формата даты (например, YYYY-MM-DD)
-  const datePattern = /^\d{4}-\d{2}-\d{2}$/;
 
-  if (!datePattern.test(dateString)) {
+const isValidDate = (dateString: string) => {
+  if (!DATEREGEX.test(dateString)) {
     return false;
   }
-
   const date = new Date(dateString);
   return !isNaN(date.getTime());
 };
@@ -33,15 +31,14 @@ const validationSchemaAuthForms = Yup.object().shape({
     })
     .required(validationMessages.required),
   gender: Yup.string().required(validationMessages.required),
-
-  // phone: Yup.string()
-  //   .trim()
-  //   .matches(PHONEREGEX, validationMessages.phone)
-  //   .required(validationMessages.required),
-  // email: Yup.string()
-  //   .trim()
-  //   .email(validationMessages.email)
-  //   .required(validationMessages.required),
+  userphone: Yup.string()
+    .trim()
+    .matches(PHONEREGEX, validationMessages.phone)
+    .required(validationMessages.required),
+    useremail: Yup.string()
+    .trim()
+    .email(validationMessages.email)
+    .required(validationMessages.required),
 });
 
 export { validationSchemaAuthForms };

@@ -33,6 +33,7 @@
 
   &__label {
     @include use-font(14px, 17.75px);
+    min-height: 24px;
     display: flex;
     align-items: center;
     &_container {

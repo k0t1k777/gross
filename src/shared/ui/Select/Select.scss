@@ -10,6 +10,7 @@
     @include use-font(14px, 17.75px);
     display: flex;
     align-items: center;
+    min-height: 24px;
     &_container {
       display: flex;
       gap: 8px;
@@ -71,6 +72,7 @@
 
     &:hover {
       background-color: $yellow;
+      border-radius: 8px;
     }
   }
 

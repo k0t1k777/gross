@@ -23,9 +23,30 @@ const Form = () => {
       profession: '',
       userdate: '',
       gender: '',
+      userphone: '',
+      useremail: '',
     },
     validationSchemaAuthForms
   );
+
+  const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    const char = event.key;
+    if (!/^[0-9+]*$/.test(char)) {
+      event.preventDefault();
+    }
+  };
+
+  const handlePhoneFocus = () => {
+    if (!form.userphone) {
+      const event = {
+        target: {
+          name: 'phone',
+          value: '+79',
+        },
+      } as React.ChangeEvent<HTMLInputElement>;
+      handleChange(event);
+    }
+  };
 
   return (
     <section className='form'>
@@ -73,9 +94,41 @@ const Form = () => {
                   isValid={validity.gender}
                   radioName='gender'
                   selectedValue={form.gender}
-                  radioError={errors.gender}
                   radioLabelText='Пол'
                   onChange={handleRadioChange}
+                />
+              </div>
+            </div>
+          </div>
+          <div className='form__input_container_mini'>
+            <div className='form__input_container_mini-flex'>
+              <div>
+                <Input
+                  inputClass='input__form'
+                  inputName='userphone'
+                  inputType='phone'
+                  inputValue={form.userphone}
+                  inputLabelText='Контактый телефон *'
+                  placeholder='+7 ('
+                  onChange={handleChange}
+                  inputError={errors.userphone}
+                  style={{ width: '255px' }}
+                  isValid={validity.userphone}
+                  onKeyUp={handleKeyPress}
+                  onFocus={handlePhoneFocus}
+                  maxLength={12}
+                />
+              </div>
+              <div>
+                <Input
+                  inputClass='input__form'
+                  inputName='useremail'
+                  inputType='useremail'
+                  inputValue={form.useremail}
+                  inputLabelText='Электронная почта'
+                  placeholder='Ведите email'
+                  onChange={handleChange}
+                  isValid={validity.useremail}
                 />
               </div>
             </div>
