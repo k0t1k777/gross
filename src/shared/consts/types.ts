@@ -3,7 +3,8 @@ export interface CaptionProps {
   className?: string;
 }
 
-export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
   children: React.ReactNode;
   type?: 'button' | 'submit' | 'reset';
@@ -19,7 +20,8 @@ export interface SubtitleProps {
   className?: string;
 }
 
-export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface InputProps
+  extends React.InputHTMLAttributes<HTMLInputElement> {
   inputClass?: string;
   inputType?: string;
   inputName: string;
@@ -36,5 +38,14 @@ export interface SelectProps {
   selectedValue?: string;
   handleSelectChange: (selectedValue: string) => void;
   error?: string;
+  isValid?: boolean;
+}
+
+export interface RadioProps {
+  radioLabelText: string;
+  radioName: string;
+  selectedValue?: string;
+  onChange: (evt: React.ChangeEvent<HTMLInputElement>) => Promise<void>;
+  radioError?: string;
   isValid?: boolean;
 }

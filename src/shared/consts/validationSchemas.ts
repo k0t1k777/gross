@@ -8,14 +8,14 @@ import {
 const isValidDate = (dateString: string) => {
   // Регулярное выражение для формата даты (например, YYYY-MM-DD)
   const datePattern = /^\d{4}-\d{2}-\d{2}$/;
-  
+
   if (!datePattern.test(dateString)) {
-    return false;   }
+    return false;
+  }
 
   const date = new Date(dateString);
   return !isNaN(date.getTime());
 };
-
 
 const validationSchemaAuthForms = Yup.object().shape({
   username: Yup.string()
@@ -32,7 +32,8 @@ const validationSchemaAuthForms = Yup.object().shape({
       return isValidDate(value);
     })
     .required(validationMessages.required),
-    
+  gender: Yup.string().required(validationMessages.required),
+
   // phone: Yup.string()
   //   .trim()
   //   .matches(PHONEREGEX, validationMessages.phone)

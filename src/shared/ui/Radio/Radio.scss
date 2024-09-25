@@ -1,0 +1,51 @@
+.radio {
+  display: flex;
+  flex-direction: column;
+  width: 225px;
+
+  &__label_container {
+    display: flex;
+    align-items: center;
+  }
+
+  &__label {
+    @include use-font(14px, 17.75px);
+    &_error {
+      color: $black;
+      background: $redOpacity;
+      outline: $red;
+    }
+  }
+
+  &__container-svg {
+    display: none;
+    &_ok {
+      display: block;
+    }
+  }
+
+  &__options {
+    display: flex;
+    gap: 32px;
+    margin-top: 24px;
+  }
+
+  &__option {
+    display: flex;
+    gap: 32px;
+  }
+
+  &__input {
+    @include use-font(14px, 17.75px);
+    width: 24px;
+    height: 24px;
+  }
+
+  &__text {
+    @include text-info;
+    align-self: self-start;
+    &_error {
+      color: $red;
+    }
+  }
+}

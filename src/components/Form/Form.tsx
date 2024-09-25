@@ -6,6 +6,7 @@ import useFormAndValidation from 'src/shared/libs/helpers/useFormAndValidation';
 import { validationSchemaAuthForms } from 'src/shared/consts/validationSchemas';
 import Select from 'src/shared/ui/Select/Select';
 import { PROFESSION_DATA } from 'src/shared/consts/constants';
+import { Radio } from 'src/shared/ui/Radio/Radio';
 
 const Form = () => {
   const {
@@ -14,16 +15,17 @@ const Form = () => {
     validity,
     isFormValid,
     handleChange,
+    handleRadioChange,
     handleSelectChange,
   } = useFormAndValidation(
     {
       username: '',
       profession: '',
       userdate: '',
+      gender: '',
     },
     validationSchemaAuthForms
   );
-  console.log('validity: ', validity);
 
   return (
     <section className='form'>
@@ -67,15 +69,13 @@ const Form = () => {
                 />
               </div>
               <div>
-                <Input
-                  inputClass='input__form'
-                  inputName='userdate'
-                  inputType='date'
-                  inputValue={form.userdate}
-                  inputLabelText='Дата рождения *'
-                  placeholder='28.07.2002'
-                  onChange={handleChange}
-                  inputError={errors.userdate}
+                <Radio
+                  isValid={validity.gender}
+                  radioName='gender'
+                  selectedValue={form.gender}
+                  radioError={errors.gender}
+                  radioLabelText='Пол'
+                  onChange={handleRadioChange}
                 />
               </div>
             </div>

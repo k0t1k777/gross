@@ -33,7 +33,6 @@
 @mixin text-info {
   @include use-font(14px, 17.75px);
   @include mp-null();
-  min-height: 27px;
   border: 0;
 }
 

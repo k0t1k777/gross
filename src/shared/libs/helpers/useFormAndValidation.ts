@@ -5,6 +5,7 @@ export interface FormFields {
   username?: string;
   profession?: string;
   userdate?: string;
+  gender?: string;
 }
 
 export interface Errors {
@@ -52,19 +53,19 @@ const useFormAndValidation = (
     localStorage.removeItem('form');
   };
 
-  const handleValidation = async (input: HTMLInputElement) => {
+  const handleValidation = async (inputName: string) => {
     try {
-      await validationSchema.validateAt(input.name, form);
-      setErrors((prevErrors) => ({ ...prevErrors, [input.name]: '' }));
-      setValidity((prevValidity) => ({ ...prevValidity, [input.name]: true }));
+      await validationSchema.validateAt(inputName, form);
+      setErrors((prevErrors) => ({ ...prevErrors, [inputName]: '' }));
+      setValidity((prevValidity) => ({ ...prevValidity, [inputName]: true }));
     } catch (error) {
       if (error instanceof Yup.ValidationError) {
         setIsFormValid(false);
         setErrors((prevErrors) => ({
           ...prevErrors,
-          [input.name]: error.message,
+          [inputName]: error.message,
         }));
-        setValidity((prevValidity) => ({ ...prevValidity, [input.name]: false }));
+        setValidity((prevValidity) => ({ ...prevValidity, [inputName]: false }));
       }
     }
   };
@@ -77,16 +78,33 @@ const useFormAndValidation = (
     const updatedForm = { ...form, [input.name]: updatedValue };
     setForm(updatedForm);
     localStorage.setItem('form', JSON.stringify(updatedForm));
-    await handleValidation(input);
+    await handleValidation(input.name);
   };
-  
-  
+    
   const handleSelectChange = async (selectedValue: string) => {
     const updatedForm = { ...form, profession: selectedValue };
     setForm(updatedForm);
     localStorage.setItem('form', JSON.stringify(updatedForm));
-    await handleValidation({ name: 'profession' });
+    await handleValidation('profession');
   };
+
+  const handleRadioChange = async (evt: React.ChangeEvent<HTMLInputElement>) => {
+    const input = evt.target;
+    const updatedValue = input.value;
+      const updatedForm = { ...form, gender: updatedValue };
+    setForm(updatedForm);
+    localStorage.setItem('form', JSON.stringify(updatedForm));
+    await handleValidation(input.name);
+  };
+
+  // useEffect(() => {
+  //   const validateAllFields = async () => {
+  //     for (const field in form) {
+  //       await handleValidation(field);
+  //     }
+  //   };
+  //   validateAllFields();
+  // }, []); 
 
   useEffect(() => {
     const isValid =
@@ -102,6 +120,7 @@ const useFormAndValidation = (
     errors,
     setErrors,
     isFormValid,
+    handleRadioChange,
     handleChange,
     handleSelectChange,
     resetForm,

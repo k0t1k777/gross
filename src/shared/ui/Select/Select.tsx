@@ -21,7 +21,6 @@ const Select: React.FC<SelectProps> = ({
   function toggleOpen() {
     setIsOpen((prev) => !prev);
   }
-  console.log('isValid: ', isValid);
 
   return (
     <div className='select' ref={isOpen ? ref : null}>
