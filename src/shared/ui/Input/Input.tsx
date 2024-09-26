@@ -2,7 +2,7 @@ import { InputProps } from 'src/shared/consts/types';
 import 'src/shared/ui/Input/Input.scss';
 import { Icon } from 'src/shared/ui/Icon/Icon';
 
-export const Input: React.FC<InputProps> = ({
+export const Input = ({
   isValid,
   inputClass,
   inputType = 'text',
@@ -12,8 +12,7 @@ export const Input: React.FC<InputProps> = ({
   inputInfo,
   inputLabelText,
   ...otherProps
-}) => {
-
+}: InputProps) => {
   return (
     <>
       {inputLabelText && (

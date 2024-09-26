@@ -1,0 +1,28 @@
+.textarea {
+  @include use-font(18px, 22.82px);
+  background: $grey;
+  border-radius: 8px;
+  border: none;
+  min-height: 94px;
+
+  &:focus {
+    border: none;
+    outline: none;
+  }
+
+  &__text {
+    @include text-info;
+    align-self: self-start;
+  }
+
+  &__label {
+    @include use-font(14px, 17.75px);
+    min-height: 24px;
+    display: flex;
+    align-items: center;
+    &_container {
+      display: flex;
+      gap: 8px;
+    }
+  }
+}

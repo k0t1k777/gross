@@ -7,7 +7,7 @@ export const validationMessages = {
   name: 'поле заполнено не корректно',
   name_min: 'поле не заполнено до конца',
   email: 'Введите корректный email',
-  phone: 'Введите номер телефона в формате +79XXXXXXXXX',
+  phone: 'Введите номер телефона',
   date: 'Введите дату в формате гггг-мм-дд',
   required: 'Обязательное поле',
   invalid_date: 'Неправильная дата'
@@ -15,8 +15,7 @@ export const validationMessages = {
 
 export const EMAILREGEX = /\s*^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 export const NAMEREGEX = /^[а-яА-Яa-zA-Z]+$/;
-export const PHONEREGEX = /^\+79\d{9}$/;
-export const CODEREGEX = /^\d{4}$/;
+export const PHONEREGEX = /^\+7\d{10}$/;
 export const DATEREGEX = /^\d{4}-\d{2}-\d{2}$/;
 export const MINLENGTHNAME = 2;
 

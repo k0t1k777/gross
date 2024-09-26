@@ -48,11 +48,6 @@
       display: block;
     }
   }
-
-  // убирает дефолтный показ иконки пароля в Microsoft Edge
-  &::-ms-reveal {
-    display: none;
-  }
 }
 
 input[type='date']::-webkit-calendar-picker-indicator {

@@ -30,15 +30,19 @@ const validationSchemaAuthForms = Yup.object().shape({
       return isValidDate(value);
     })
     .required(validationMessages.required),
-  gender: Yup.string().required(validationMessages.required),
+  gender: Yup.string().notRequired(),
   userphone: Yup.string()
     .trim()
     .matches(PHONEREGEX, validationMessages.phone)
     .required(validationMessages.required),
-    useremail: Yup.string()
+  useremail: Yup.string()
     .trim()
-    .email(validationMessages.email)
-    .required(validationMessages.required),
+    .min(MINLENGTHNAME, validationMessages.name_min)
+    .email(validationMessages.email),
+  textarea: Yup.string().notRequired(),
 });
 
 export { validationSchemaAuthForms };
+
+
+// .nullable()

@@ -4,9 +4,10 @@ import { Input } from 'src/shared/ui/Input/Input';
 import { Subtitle } from 'src/shared/ui/Subtitle/Subtitle';
 import useFormAndValidation from 'src/shared/libs/helpers/useFormAndValidation';
 import { validationSchemaAuthForms } from 'src/shared/consts/validationSchemas';
-import Select from 'src/shared/ui/Select/Select';
+import { Select } from 'src/shared/ui/Select/Select';
 import { PROFESSION_DATA } from 'src/shared/consts/constants';
 import { Radio } from 'src/shared/ui/Radio/Radio';
+import { TextArea } from 'src/shared/ui/TextArea/TextArea';
 
 const Form = () => {
   const {
@@ -25,28 +26,32 @@ const Form = () => {
       gender: '',
       userphone: '',
       useremail: '',
+      textarea: '',
     },
     validationSchemaAuthForms
   );
 
-  const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    const char = event.key;
-    if (!/^[0-9+]*$/.test(char)) {
-      event.preventDefault();
-    }
-  };
+  // const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
+  //   const char = event.key;
+  //   if (
+  //     !/^[0-9]*$/.test(char) &&
+  //     !(char === 'Backspace' || char === 'Delete')
+  //   ) {
+  //     event.preventDefault();
+  //   }
+  // };
 
-  const handlePhoneFocus = () => {
-    if (!form.userphone) {
-      const event = {
-        target: {
-          name: 'phone',
-          value: '+79',
-        },
-      } as React.ChangeEvent<HTMLInputElement>;
-      handleChange(event);
-    }
-  };
+  // const handlePhoneFocus = () => {
+  //   if (!form.userphone) {
+  //     const event = {
+  //       target: {
+  //         name: 'userphone',
+  //         value: '+7',
+  //       },
+  //     } as React.ChangeEvent<HTMLInputElement>;
+  //     handleChange(event);
+  //   }
+  // };
 
   return (
     <section className='form'>
@@ -58,6 +63,7 @@ const Form = () => {
             options={PROFESSION_DATA}
             selectedValue={form.profession}
             handleSelectChange={handleSelectChange}
+            error={errors.profession}
             isValid={validity.profession}
           />
           <div className='form__input-wrapper'>
@@ -106,16 +112,16 @@ const Form = () => {
                 <Input
                   inputClass='input__form'
                   inputName='userphone'
-                  inputType='phone'
+                  inputType='tel'
                   inputValue={form.userphone}
                   inputLabelText='Контактый телефон *'
-                  placeholder='+7 ('
+                  placeholder='+7'
                   onChange={handleChange}
                   inputError={errors.userphone}
                   style={{ width: '255px' }}
                   isValid={validity.userphone}
-                  onKeyUp={handleKeyPress}
-                  onFocus={handlePhoneFocus}
+                  // onKeyDown={handleKeyPress}
+                  // onFocus={handlePhoneFocus}
                   maxLength={12}
                 />
               </div>
@@ -123,15 +129,25 @@ const Form = () => {
                 <Input
                   inputClass='input__form'
                   inputName='useremail'
-                  inputType='useremail'
+                  inputType='email'
                   inputValue={form.useremail}
                   inputLabelText='Электронная почта'
                   placeholder='Ведите email'
                   onChange={handleChange}
                   isValid={validity.useremail}
+                  inputError={errors.useremail}
                 />
               </div>
             </div>
+           </div>
+          <div className='form__input-wrapper'>
+            <TextArea
+              textAreaClass='input__form'
+              textAreaName='textarea'
+              textAreaValue={form.textarea}
+              textAreaLabelText='Резюме'
+              onChange={handleChange}
+            />
           </div>
           <Button
             className='button__button-form'

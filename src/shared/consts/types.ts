@@ -32,6 +32,14 @@ export interface InputProps
   isValid?: boolean;
 }
 
+export interface TextAreaProps
+extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
+  textAreaClass?: string;
+  textAreaName: string;
+  textAreaValue?: string | number;
+  textAreaLabelText?: string;
+}
+
 export interface SelectProps {
   label: string;
   options: string[];
@@ -42,10 +50,10 @@ export interface SelectProps {
 }
 
 export interface RadioProps {
-  radioLabelText: string;
-  radioName: string;
+  radioLabelText?: string;
+  radioName?: string;
   selectedValue?: string;
-  onChange: (evt: React.ChangeEvent<HTMLInputElement>) => Promise<void>;
+  onChange?: (evt: React.ChangeEvent<HTMLInputElement>) => Promise<void>;
   radioError?: string;
   isValid?: boolean;
 }
