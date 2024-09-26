@@ -8,6 +8,7 @@ import { Select } from 'src/shared/ui/Select/Select';
 import { PROFESSION_DATA } from 'src/shared/consts/constants';
 import { Radio } from 'src/shared/ui/Radio/Radio';
 import { TextArea } from 'src/shared/ui/TextArea/TextArea';
+import { FileInput } from 'src/shared/ui/FileInput/FileInput';
 
 const Form = () => {
   const {
@@ -23,35 +24,33 @@ const Form = () => {
       username: '',
       profession: '',
       userdate: '',
-      gender: '',
       userphone: '',
       useremail: '',
-      textarea: '',
     },
     validationSchemaAuthForms
   );
 
-  // const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
-  //   const char = event.key;
-  //   if (
-  //     !/^[0-9]*$/.test(char) &&
-  //     !(char === 'Backspace' || char === 'Delete')
-  //   ) {
-  //     event.preventDefault();
-  //   }
-  // };
+  const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    const char = event.key;
+    if (
+      !/^[0-9]*$/.test(char) &&
+      !(char === 'Backspace' || char === 'Delete')
+    ) {
+      event.preventDefault();
+    }
+  };
 
-  // const handlePhoneFocus = () => {
-  //   if (!form.userphone) {
-  //     const event = {
-  //       target: {
-  //         name: 'userphone',
-  //         value: '+7',
-  //       },
-  //     } as React.ChangeEvent<HTMLInputElement>;
-  //     handleChange(event);
-  //   }
-  // };
+  const handlePhoneFocus = () => {
+    if (!form.userphone) {
+      const event = {
+        target: {
+          name: 'userphone',
+          value: '+7',
+        },
+      } as React.ChangeEvent<HTMLInputElement>;
+      handleChange(event);
+    }
+  };
 
   return (
     <section className='form'>
@@ -120,8 +119,8 @@ const Form = () => {
                   inputError={errors.userphone}
                   style={{ width: '255px' }}
                   isValid={validity.userphone}
-                  // onKeyDown={handleKeyPress}
-                  // onFocus={handlePhoneFocus}
+                  onKeyDown={handleKeyPress}
+                  onFocus={handlePhoneFocus}
                   maxLength={12}
                 />
               </div>
@@ -139,7 +138,7 @@ const Form = () => {
                 />
               </div>
             </div>
-           </div>
+          </div>
           <div className='form__input-wrapper'>
             <TextArea
               textAreaClass='input__form'
@@ -147,6 +146,13 @@ const Form = () => {
               textAreaValue={form.textarea}
               textAreaLabelText='Резюме'
               onChange={handleChange}
+            />
+          </div>
+          <div className='form__input-wrapper'>
+            <FileInput
+              inputClass='custom-file-input'
+              inputName='fileUpload'
+              onFileChange={(file) => console.log(file)}
             />
           </div>
           <Button

@@ -33,7 +33,7 @@ export interface InputProps
 }
 
 export interface TextAreaProps
-extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
+  extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
   textAreaClass?: string;
   textAreaName: string;
   textAreaValue?: string | number;
@@ -56,4 +56,12 @@ export interface RadioProps {
   onChange?: (evt: React.ChangeEvent<HTMLInputElement>) => Promise<void>;
   radioError?: string;
   isValid?: boolean;
+}
+
+export interface FileInputProps
+  extends React.InputHTMLAttributes<HTMLInputElement> {
+  inputClass?: string;
+  inputName: string;
+  inputValue?: string | null;
+  onFileChange?: (file: File) => void;
 }

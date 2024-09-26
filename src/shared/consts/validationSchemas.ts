@@ -30,7 +30,7 @@ const validationSchemaAuthForms = Yup.object().shape({
       return isValidDate(value);
     })
     .required(validationMessages.required),
-  gender: Yup.string().notRequired(),
+  gender: Yup.string(),
   userphone: Yup.string()
     .trim()
     .matches(PHONEREGEX, validationMessages.phone)
@@ -39,7 +39,7 @@ const validationSchemaAuthForms = Yup.object().shape({
     .trim()
     .min(MINLENGTHNAME, validationMessages.name_min)
     .email(validationMessages.email),
-  textarea: Yup.string().notRequired(),
+  textarea: Yup.string(),
 });
 
 export { validationSchemaAuthForms };
