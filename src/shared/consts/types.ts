@@ -65,3 +65,7 @@ export interface FileInputProps
   inputValue?: string | null;
   onFileChange?: (file: File) => void;
 }
+
+export interface CheckboxProps {
+  label: string;
+}

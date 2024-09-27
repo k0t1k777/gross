@@ -1,8 +1,13 @@
 .svg {
   display: block;
-  width: 21px;
-  height: 30px;
+  width: 24px;
+  height: 24px;
   z-index: 8;
+
+  &__logo {
+    width: 21px;
+    height: 30px;
+  }
 
   &__arrow {
     width: 10.66px;
@@ -14,8 +19,6 @@
   }
 
   &__phone {
-    width: 24px;
-    height: 24px;
     display: none;
     cursor: pointer;
     @media (max-width: 767px) {
@@ -24,41 +27,10 @@
   }
 
   &__plus {
-    width: 24px;
-    height: 24px;
     cursor: pointer;
   }
 
   &__minus {
-    width: 24px;
-    height: 24px;
     cursor: pointer;
-  }
-
-  &__footer {
-    width: 24px;
-    height: 24px;
-  }
-
-  &__close {
-    width: 24px;
-    height: 24px;
-  }
-
-  &__select {
-    width: 24px;
-    height: 24px;
-  }
-
-  &__valid {
-    display: block;
-    width: 24px;
-    height: 24px;
-  }
-
-  &__upload {
-    display: block;
-    width: 24px;
-    height: 24px;
   }
 }

@@ -46,7 +46,7 @@ export const Select = ({
           {selectedValue ? selectedValue : 'Выберите вакансию'}
         </span>
         <div className={`select__icon ${isOpen && 'select__icon_open'}`}>
-          <Icon id='arrow-select' className='svg__select' />
+          <Icon id='arrow-select' />
         </div>
       </div>
       <AnimatePresence>

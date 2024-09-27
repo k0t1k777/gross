@@ -19,8 +19,8 @@ export const Footer = () => {
         <LogoGroup />
         <p className='footer__share'>поделиться</p>
         <div className='footer__container-icon'>
-          <Icon id='facebook' className='svg__footer' />
-          <Icon id='vk' className='svg__footer' />
+          <Icon id='facebook' />
+          <Icon id='vk' />
         </div>
         <p className='footer__copyright'>© Гросс маркет 2020</p>
         <p className='footer__politica' onClick={() => handleOpenPopup()}>

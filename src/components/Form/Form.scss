@@ -1,7 +1,18 @@
-.form {
-  padding: 72px calc((100vw - 1110px) / 2);
-  @include main-container;
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
+.form {
+  @include main-container;
+  padding: 72px calc((100vw - 1110px) / 2);
+  animation: fadeIn 0.5s ease forwards;
   @media (min-width: 1440px) {
     padding: 32px 165px;
   }
@@ -23,6 +34,18 @@
     @include flex-column-container;
     gap: 30px;
     width: 540px;
+    &_wrapper {
+      @include flex-row-center;
+      gap: 30px;
+    }
+    &_checkbox {
+      display: flex;
+      justify-content: space-between;
+      background: $grey;
+      padding: 12px 16px;
+      border-radius: 8px;
+      width: 255px;
+    }
   }
 
   &__input-wrapper {
@@ -66,5 +89,22 @@
   &__number {
     @include mp-null;
     @include use-font(24px, 30.43px);
+  }
+
+  &__capcha {
+    @include mp-null;
+    @include text-info;
+  }
+
+  &__required {
+    @include mp-null;
+    @include text-info;
+    color: $blackTextOpacity;
+  }
+
+  &__agry {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
   }
 }

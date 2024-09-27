@@ -61,7 +61,7 @@ export const FileInput = ({
             inputElement?.click();
           }}
         >
-          <Icon id='upload' className='svg__upload'/>
+          <Icon id='upload' />
           <span className='file-input__text'>
             {fileName || 'Выберите или перетащите файл'}
           </span>

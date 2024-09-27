@@ -1,11 +1,8 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { CheckboxProps } from 'src/shared/consts/types';
 import 'src/shared/ui/Checkbox/Checkbox.scss';
 
-interface CheckboxProps {
-  label: string;
-}
-
-const Checkbox: React.FC<CheckboxProps> = ({ label }) => {
+const Checkbox = ({ label }: CheckboxProps) => {
   const [isChecked, setIsChecked] = useState<boolean>(false);
 
   const handleCheckboxChange = () => {

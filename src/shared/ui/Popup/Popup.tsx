@@ -39,11 +39,11 @@ export const Popup: React.FC<PopupProps> = ({
           >
             <p className='popup__sticky-title'>{APROVE_TITLE.title}</p>
             <Button onClick={handleClosePopup} className='button__popup_close'>
-              <Icon id='close' className='svg__close' />
+              <Icon id='close' />
             </Button>
           </div>
           <Button onClick={handleClosePopup} className='button__popup_close'>
-            <Icon id='close' className='svg__close' />
+            <Icon id='close' />
           </Button>
         </div>
       </div>

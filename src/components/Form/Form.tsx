@@ -9,6 +9,8 @@ import { PROFESSION_DATA } from 'src/shared/consts/constants';
 import { Radio } from 'src/shared/ui/Radio/Radio';
 import { TextArea } from 'src/shared/ui/TextArea/TextArea';
 import { FileInput } from 'src/shared/ui/FileInput/FileInput';
+import { Icon } from 'src/shared/ui/Icon/Icon';
+import Checkbox from 'src/shared/ui/Checkbox/Checkbox';
 
 const Form = () => {
   const {
@@ -154,6 +156,28 @@ const Form = () => {
               inputName='fileUpload'
               onFileChange={(file) => console.log(file)}
             />
+          </div>
+          <div className='form__input_container_mini'>
+            <div className='form__input_container_mini-flex'>
+              <div className='form__input_container_wrapper'>
+                <p className='form__capcha'>Капча</p>
+                <div className='form__agry'>
+                  <div className='form__container_wrapper'>
+                    <div className='form__container_checkbox'>
+                      <Checkbox label='я не робот' />
+                      <Icon id='capcha' />
+                    </div>
+                    <p className='form__required'>
+                      * поля для обязательного заполнения
+                    </p>
+                  </div>
+                  <Checkbox
+                    label='я подтверждаю согласие на обработку персональных данных и
+                    принимаю условия рассмотрения обращений *'
+                  />
+                </div>
+              </div>
+            </div>
           </div>
           <Button
             className='button__button-form'

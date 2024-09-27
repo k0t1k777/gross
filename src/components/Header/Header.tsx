@@ -25,7 +25,7 @@ export const Header = () => {
       <LogoGroup />
       {formRoute ? (
         <Button onClick={handleBack} className='button__header_back'>
-          <Icon id='close' className='svg__close' />
+          <Icon id='close' />
         </Button>
       ) : (
         <div className='header__container-button'>

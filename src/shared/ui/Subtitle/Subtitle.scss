@@ -1,7 +1,19 @@
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .subtitle {
   @include mp-null;
   @include use-font;
-  &__map {
+  animation: fadeIn 0.5s ease forwards;
+    &__map {
     margin-bottom: 32px;
     padding: 0 calc((100vw - 1110px) / 2) 0;
     @media (min-width: 1440px) {
@@ -27,6 +39,5 @@
     }
   }
   &__form {
-    
   }
 }

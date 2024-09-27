@@ -1,3 +1,14 @@
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .baner {
   height: 400px;
   background: $grey;
@@ -20,6 +31,7 @@
   &__title {
     @include mp-null;
     @include use-font(72px, 66px);
+    animation: fadeIn 0.5s ease forwards;
     width: 445px;
     @media (max-width: 767px) {
       @include use-font(48px, 44px);
