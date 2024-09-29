@@ -10,7 +10,7 @@
 }
 
 .baner {
-  height: 400px;
+  min-height: 400px;
   background: $grey;
   padding: 48px 0 0 calc((100vw - 1275px));
   position: relative;

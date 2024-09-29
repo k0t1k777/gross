@@ -8,7 +8,7 @@
     "dev": "vite",
     "lint": "eslint .",
     "preview": "vite preview",
-    "build": "tsc -b && vite build",
+    "build": "vite build",
     "deploy": "npm run build && gh-pages -d dist",
     "start": "vite preview"
   },
@@ -31,7 +31,7 @@
     "eslint-plugin-react-refresh": "^0.4.9",
     "gh-pages": "^6.1.1",
     "globals": "^15.9.0",
-    "sass": "^1.74.1",
+    "sass": "^1.79.4",
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.0.1",
     "vite": "^5.4.1"

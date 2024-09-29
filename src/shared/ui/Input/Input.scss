@@ -25,6 +25,9 @@
   &__text {
     @include text-info;
     align-self: self-start;
+    position: absolute;
+    top: 0;
+    left: 0;
 
     &_error {
       color: $red;
