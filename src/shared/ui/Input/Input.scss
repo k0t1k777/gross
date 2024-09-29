@@ -3,6 +3,11 @@
   background: $grey;
   border-radius: 8px;
   border: none;
+  width: inherit;  
+  
+  &_size-l {
+    width: inherit;
+  }
   &_date {
     width: 100%;
   }

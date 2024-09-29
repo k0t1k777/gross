@@ -40,9 +40,10 @@ const validationSchemaAuthForms = Yup.object().shape({
     .min(MINLENGTHNAME, validationMessages.name_min)
     .email(validationMessages.email),
   textarea: Yup.string(),
+  checkboxCapcha: Yup.boolean()
+    .oneOf([false], validationMessages.required),
+  checkboxAgry: Yup.boolean()
+    .oneOf([false], validationMessages.required), 
 });
 
 export { validationSchemaAuthForms };
-
-
-// .nullable()

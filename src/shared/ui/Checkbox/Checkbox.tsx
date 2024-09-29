@@ -1,25 +1,27 @@
-import { useState } from 'react';
 import { CheckboxProps } from 'src/shared/consts/types';
 import 'src/shared/ui/Checkbox/Checkbox.scss';
 
-const Checkbox = ({ label }: CheckboxProps) => {
-  const [isChecked, setIsChecked] = useState<boolean>(false);
-
-  const handleCheckboxChange = () => {
-    setIsChecked(prevState => !prevState);
-  };
-
+const Checkbox = ({
+  isChecked,
+  checkboxLabel,
+  checkboxName,
+  checkboxClass,
+  handleCheckboxChange,
+}: CheckboxProps) => {
   return (
     <div className='checkbox-container'>
       <input
         className='checkbox-input'
         type='checkbox'
+        name={checkboxName}
         checked={isChecked}
         onChange={handleCheckboxChange}
-        id='customCheckbox'
       />
-      <label htmlFor='customCheckbox' className='checkbox-label'>
-        {label}
+      <label
+        htmlFor={checkboxName}
+        className={`checkbox-label ${checkboxClass}`}
+      >
+        {checkboxLabel}
       </label>
     </div>
   );

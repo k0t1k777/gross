@@ -44,18 +44,18 @@ export interface SelectProps {
   label: string;
   options: string[];
   selectedValue?: string;
-  handleSelectChange: (selectedValue: string) => void;
   error?: string;
   isValid?: boolean;
+  handleSelectChange: (selectedValue: string) => void;
 }
 
 export interface RadioProps {
   radioLabelText?: string;
   radioName?: string;
   selectedValue?: string;
-  onChange?: (evt: React.ChangeEvent<HTMLInputElement>) => Promise<void>;
   radioError?: string;
   isValid?: boolean;
+  onChange?: (evt: React.ChangeEvent<HTMLInputElement>) => Promise<void>;
 }
 
 export interface FileInputProps
@@ -67,5 +67,10 @@ export interface FileInputProps
 }
 
 export interface CheckboxProps {
-  label: string;
+  checkboxLabel: string;
+  checkboxName: string;
+  checkboxError?: string;
+  isChecked?: boolean;
+  checkboxClass?: string;
+  handleCheckboxChange?: (evt: React.ChangeEvent<HTMLInputElement>) => Promise<void>;
 }

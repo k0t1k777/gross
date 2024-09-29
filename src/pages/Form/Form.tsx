@@ -1,4 +1,4 @@
-import 'src/components/Form/Form.scss';
+import 'src/pages/Form/Form.scss';
 import { Button } from 'src/shared/ui/Button/Button';
 import { Input } from 'src/shared/ui/Input/Input';
 import { Subtitle } from 'src/shared/ui/Subtitle/Subtitle';
@@ -21,6 +21,7 @@ const Form = () => {
     handleChange,
     handleRadioChange,
     handleSelectChange,
+    handleCheckboxChange,
   } = useFormAndValidation(
     {
       username: '',
@@ -28,6 +29,8 @@ const Form = () => {
       userdate: '',
       userphone: '',
       useremail: '',
+      checkboxCapcha: false,
+      checkboxAgry: false,
     },
     validationSchemaAuthForms
   );
@@ -81,64 +84,58 @@ const Form = () => {
             />
           </div>
           <div className='form__input_container_mini'>
-            <div className='form__input_container_mini-flex'>
-              <div>
-                <Input
-                  inputClass='input__form'
-                  inputName='userdate'
-                  inputType='date'
-                  inputValue={form.userdate}
-                  inputLabelText='Дата рождения *'
-                  placeholder='28.07.2002'
-                  onChange={handleChange}
-                  inputError={errors.userdate}
-                  style={{ width: '255px' }}
-                  isValid={validity.userdate}
-                />
-              </div>
-              <div>
-                <Radio
-                  isValid={validity.gender}
-                  radioName='gender'
-                  selectedValue={form.gender}
-                  radioLabelText='Пол'
-                  onChange={handleRadioChange}
-                />
-              </div>
+            <div className='form__wrapper_input_item'>
+              <Input
+                inputClass='input__form'
+                inputName='userdate'
+                inputType='date'
+                inputValue={form.userdate}
+                inputLabelText='Дата рождения *'
+                placeholder='28.07.2002'
+                onChange={handleChange}
+                inputError={errors.userdate}
+                isValid={validity.userdate}
+              />
+            </div>
+            <div className='form__wrapper_input_item'>
+              <Radio
+                isValid={validity.gender}
+                radioName='gender'
+                selectedValue={form.gender}
+                radioLabelText='Пол'
+                onChange={handleRadioChange}
+              />
             </div>
           </div>
           <div className='form__input_container_mini'>
-            <div className='form__input_container_mini-flex'>
-              <div>
-                <Input
-                  inputClass='input__form'
-                  inputName='userphone'
-                  inputType='tel'
-                  inputValue={form.userphone}
-                  inputLabelText='Контактый телефон *'
-                  placeholder='+7'
-                  onChange={handleChange}
-                  inputError={errors.userphone}
-                  style={{ width: '255px' }}
-                  isValid={validity.userphone}
-                  onKeyDown={handleKeyPress}
-                  onFocus={handlePhoneFocus}
-                  maxLength={12}
-                />
-              </div>
-              <div>
-                <Input
-                  inputClass='input__form'
-                  inputName='useremail'
-                  inputType='email'
-                  inputValue={form.useremail}
-                  inputLabelText='Электронная почта'
-                  placeholder='Ведите email'
-                  onChange={handleChange}
-                  isValid={validity.useremail}
-                  inputError={errors.useremail}
-                />
-              </div>
+            <div className='form__wrapper_input_item'>
+              <Input
+                inputClass='input__form'
+                inputName='userphone'
+                inputType='tel'
+                inputValue={form.userphone}
+                inputLabelText='Контактый телефон *'
+                placeholder='+7'
+                onChange={handleChange}
+                inputError={errors.userphone}
+                isValid={validity.userphone}
+                onKeyDown={handleKeyPress}
+                onFocus={handlePhoneFocus}
+                maxLength={12}
+              />
+            </div>
+            <div className='form__wrapper_input_item'>
+              <Input
+                inputClass='input__form'
+                inputName='useremail'
+                inputType='email'
+                inputValue={form.useremail}
+                inputLabelText='Электронная почта'
+                placeholder='Ведите email'
+                onChange={handleChange}
+                isValid={validity.useremail}
+                inputError={errors.useremail}
+              />
             </div>
           </div>
           <div className='form__input-wrapper'>
@@ -158,21 +155,34 @@ const Form = () => {
             />
           </div>
           <div className='form__input_container_mini'>
-            <div className='form__input_container_mini-flex'>
-              <div className='form__input_container_wrapper'>
-                <p className='form__capcha'>Капча</p>
-                <div className='form__agry'>
-                  <div className='form__container_wrapper'>
-                    <div className='form__container_checkbox'>
-                      <Checkbox label='я не робот' />
+            <div className='form__input_container_wrapper'>
+              <p className='form__capcha'>Капча</p>
+              <div className='form__agry'>
+                <div className='form__container_wrapper'>
+                  <div className='form__wrapper_input_item'>
+                    <div className='form__wrapper_input_item-checkbox'>
+                      <Checkbox
+                        checkboxName='checkboxCapcha'
+                        checkboxLabel='я не робот'
+                        isChecked={form.checkboxCapcha}
+                        handleCheckboxChange={handleCheckboxChange}
+                      />
                       <Icon id='capcha' />
                     </div>
+                  </div>
+                  <div className='form__wrapper_input_item'>
                     <p className='form__required'>
                       * поля для обязательного заполнения
                     </p>
                   </div>
+                </div>
+                <div style={{ position: 'relative'}}>
                   <Checkbox
-                    label='я подтверждаю согласие на обработку персональных данных и
+                    checkboxName='checkboxAgry'
+                    isChecked={form.checkboxAgry}
+                    checkboxClass='checkbox-label_type_agry'
+                    handleCheckboxChange={handleCheckboxChange}
+                    checkboxLabel='я подтверждаю согласие на обработку персональных данных и
                     принимаю условия рассмотрения обращений *'
                   />
                 </div>

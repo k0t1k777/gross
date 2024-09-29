@@ -24,6 +24,9 @@
   &__options {
     display: flex;
     gap: 32px;
+    @media (max-width: 767px) {
+      gap: 91px;
+    }
   }
 
   &__option {

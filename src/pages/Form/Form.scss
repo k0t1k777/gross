@@ -28,23 +28,49 @@
     display: flex;
     gap: 125px;
     margin: 48px 0 0 0;
+    &_input_item {
+      width: 255px;
+      @media (max-width: 1024px) {
+        width: 330px;
+      }
+      @media (max-width: 767px) {
+        width: 100%;
+      }
+      &-checkbox {
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        background: $grey;
+        padding: 12px 16px;
+        border-radius: 8px;
+      }
+    }
+    @media (max-width: 1188px) {
+      gap: 25px;
+    }
+    @media (max-width: 1024px) {
+      flex-direction: column;
+    }
   }
 
   &__container {
     @include flex-column-container;
     gap: 30px;
     width: 540px;
+    @media (max-width: 1024px) {
+      margin: 0 auto;
+      width: 690px;
+    }
+    @media (max-width: 767px) {
+      min-width: 346px;
+      width: 100%;
+    }
     &_wrapper {
       @include flex-row-center;
       gap: 30px;
-    }
-    &_checkbox {
-      display: flex;
-      justify-content: space-between;
-      background: $grey;
-      padding: 12px 16px;
-      border-radius: 8px;
-      width: 255px;
+      @media (max-width: 767px) {
+        flex-direction: column;
+      }
     }
   }
 
@@ -57,9 +83,10 @@
 
   &__input_container_mini {
     width: 100%;
-    &-flex {
-      display: flex;
-      gap: 30px;
+    display: flex;
+    gap: 30px;
+    @media (max-width: 767px) {
+      flex-direction: column;
     }
   }
 
@@ -67,6 +94,13 @@
     @include flex-column-container;
     width: 445px;
     gap: 24px;
+    @media (max-width: 1024px) {
+      margin: 0 auto;
+      width: 690px;
+    }
+    @media (max-width: 767px) {
+      width: inherit;
+    }
     &_title {
       @include mp-null;
       @include use-font(32px, 40.58px);
@@ -100,6 +134,7 @@
     @include mp-null;
     @include text-info;
     color: $blackTextOpacity;
+    text-align: start;
   }
 
   &__agry {
