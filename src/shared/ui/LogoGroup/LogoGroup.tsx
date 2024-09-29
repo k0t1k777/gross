@@ -8,6 +8,7 @@ export default function LogoGroup() {
   function goToMain() {
     navigate('/');
   }
+  
   return (
     <div className='logo'>
       <div onClick={goToMain}>

@@ -1,10 +1,6 @@
 .select {
   position: relative;
   width: 100%;
-  &__error {
-    @include text-info;
-    color: $red;
-  }
 
   &__label {
     @include use-font(14px, 17.75px);
@@ -14,10 +10,6 @@
     &_container {
       display: flex;
       gap: 8px;
-    }
-    &_error {
-      color: $red;
-      @include text-info;
     }
   }
 
@@ -40,9 +32,7 @@
     &_open {
       border-radius: 8px 8px 0 0;
     }
-    &_error {
-      background: $redOpacity;
-    }
+
     &:focus {
       border: none;
       outline: none;

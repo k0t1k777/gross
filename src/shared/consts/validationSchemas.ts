@@ -1,6 +1,7 @@
 import * as Yup from 'yup';
 import {
   DATEREGEX,
+  EMAILREGEX,
   MINLENGTHNAME,
   NAMEREGEX,
   PHONEREGEX,
@@ -20,7 +21,7 @@ const validationSchemaAuthForms = Yup.object().shape({
     .min(MINLENGTHNAME, validationMessages.name_min)
     .matches(NAMEREGEX, validationMessages.name)
     .required(validationMessages.required),
-  profession: Yup.string().required(validationMessages.required),
+  profession: Yup.string().trim(),
   userdate: Yup.string()
     .required(validationMessages.required)
     .test('is-valid-date', validationMessages.invalid_date, (value) => {
@@ -36,14 +37,12 @@ const validationSchemaAuthForms = Yup.object().shape({
     .matches(PHONEREGEX, validationMessages.phone)
     .required(validationMessages.required),
   useremail: Yup.string()
-    .trim()
-    .min(MINLENGTHNAME, validationMessages.name_min)
-    .email(validationMessages.email),
+  .trim()
+  .matches(EMAILREGEX, validationMessages.email)
+  .required(validationMessages.required),
   textarea: Yup.string(),
-  checkboxCapcha: Yup.boolean()
-    .oneOf([false], validationMessages.required),
-  checkboxAgry: Yup.boolean()
-    .oneOf([false], validationMessages.required), 
+  checkboxCapcha: Yup.boolean().oneOf([false], validationMessages.required),
+  checkboxAgry: Yup.boolean().oneOf([false], validationMessages.required),
 });
 
 export { validationSchemaAuthForms };

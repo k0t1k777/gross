@@ -10,7 +10,6 @@ export const Select = ({
   label,
   options,
   selectedValue,
-  error,
   handleSelectChange,
 }: SelectProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -26,9 +25,7 @@ export const Select = ({
     <div className='select' ref={isOpen ? ref : null}>
       {label && (
         <div className='select__label_container'>
-          <label className={`select__label ${error && 'select__label_error'}`}>
-            {label}
-          </label>
+          <label className='select__label'>{label}</label>
           <div
             className={`select__container-svg ${
               isValid ? 'select__container-svg_ok' : ''
@@ -39,7 +36,8 @@ export const Select = ({
         </div>
       )}
       <div
-        className={`select__dropdown ${isOpen && 'select__dropdown_open'} ${error && 'select__dropdown_error'}`}
+        className={`select__dropdown ${isOpen && 'select__dropdown_open'}'
+        }`}
         onClick={toggleOpen}
       >
         <span className='select__selected'>
@@ -78,7 +76,6 @@ export const Select = ({
           </motion.ul>
         )}
       </AnimatePresence>
-      {error && <span className='select__error'>{error}</span>}
     </div>
   );
 };

@@ -44,7 +44,6 @@ export interface SelectProps {
   label: string;
   options: string[];
   selectedValue?: string;
-  error?: string;
   isValid?: boolean;
   handleSelectChange: (selectedValue: string) => void;
 }

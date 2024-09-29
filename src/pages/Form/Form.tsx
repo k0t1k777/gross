@@ -11,8 +11,11 @@ import { TextArea } from 'src/shared/ui/TextArea/TextArea';
 import { FileInput } from 'src/shared/ui/FileInput/FileInput';
 import { Icon } from 'src/shared/ui/Icon/Icon';
 import Checkbox from 'src/shared/ui/Checkbox/Checkbox';
+import { useNavigate } from 'react-router-dom';
 
 const Form = () => {
+  const navigate = useNavigate();
+
   const {
     form,
     errors,
@@ -35,12 +38,23 @@ const Form = () => {
     validationSchemaAuthForms
   );
 
+  // const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
+  //   const char = event.key;
+  //   if (
+  //     !/^[0-9]*$/.test(char) &&
+  //     !(char === 'Backspace' || char === 'Delete')
+  //   ) {
+  //     event.preventDefault();
+  //   }
+  // };
+
+  function goNext() {
+    navigate('/');
+  }
+
   const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
     const char = event.key;
-    if (
-      !/^[0-9]*$/.test(char) &&
-      !(char === 'Backspace' || char === 'Delete')
-    ) {
+    if (!/^[0-9+]*$/.test(char)) {
       event.preventDefault();
     }
   };
@@ -67,7 +81,6 @@ const Form = () => {
             options={PROFESSION_DATA}
             selectedValue={form.profession}
             handleSelectChange={handleSelectChange}
-            error={errors.profession}
             isValid={validity.profession}
           />
           <div className='form__input-wrapper'>
@@ -119,7 +132,7 @@ const Form = () => {
                 onChange={handleChange}
                 inputError={errors.userphone}
                 isValid={validity.userphone}
-                onKeyDown={handleKeyPress}
+                onKeyPress={handleKeyPress}
                 onFocus={handlePhoneFocus}
                 maxLength={12}
               />
@@ -130,7 +143,7 @@ const Form = () => {
                 inputName='useremail'
                 inputType='email'
                 inputValue={form.useremail}
-                inputLabelText='Электронная почта'
+                inputLabelText='Электронная почта *'
                 placeholder='Ведите email'
                 onChange={handleChange}
                 isValid={validity.useremail}
@@ -176,7 +189,7 @@ const Form = () => {
                     </p>
                   </div>
                 </div>
-                <div style={{ position: 'relative'}}>
+                <div style={{ position: 'relative' }}>
                   <Checkbox
                     checkboxName='checkboxAgry'
                     isChecked={form.checkboxAgry}
@@ -210,7 +223,7 @@ const Form = () => {
               если вместе с тобой.
             </span>
           </p>
-          <div className='form__container_number'>
+          <div className='form__container_number' onClick={goNext}>
             <h3 className='form__number'>+7 (926) 433-14-16</h3>
           </div>
         </div>

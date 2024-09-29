@@ -21,10 +21,6 @@ const useFormAndValidation = (
   initialState: FormFields,
   validationSchema: Yup.ObjectSchema<FormFields>
 ) => {
-  // const [form, setForm] = useState<FormFields>(() => {
-  //   const savedForm = localStorage.getItem('form');
-  //   return savedForm ? JSON.parse(savedForm) : initialState;
-  // });
   const [form, setForm] = useState<FormFields>(initialState);
   const [errors, setErrors] = useState<Errors>({});
   const [validity, setValidity] = useState<{ [key: string]: boolean }>({});
@@ -32,13 +28,6 @@ const useFormAndValidation = (
   const [isActiveInput, setIsActiveInput] = useState<{
     [key: string]: boolean;
   }>({});
-
-  // const [validity, setValidity] = useState<{ [key: string]: boolean }>({
-  //   username: false,
-  //   profession: false,
-  //   userdate: false,
-  //   userphone: false,
-  // });
 
   const handleFocus = (evt: React.FocusEvent<HTMLInputElement>) => {
     setIsActiveInput({ [evt.target.name]: true });
@@ -71,6 +60,7 @@ const useFormAndValidation = (
   };
 
   const handleSelectChange = async (selectedValue: string) => {
+    console.log('Selected Value:', selectedValue);
     const updatedForm = { ...form, profession: selectedValue };
     setForm(updatedForm);
     localStorage.setItem('form', JSON.stringify(updatedForm));
@@ -84,7 +74,6 @@ const useFormAndValidation = (
     console.log('input: ', input);
     const updatedForm = { ...form, gender: input.value || undefined };
     setForm(updatedForm);
-    // localStorage.setItem('form', JSON.stringify(updatedForm));
     await handleValidation(input.name);
   };
 
@@ -119,44 +108,11 @@ const useFormAndValidation = (
 
   useEffect(() => {
     const isValid =
-      Object.values(form).every((value) => 
-        value !== '' && value !== false && value !== undefined
-      ) && !Object.values(errors).some((value) => value !== '');
-  
+      Object.values(form).every((value) => value !== '' && value !== false) &&
+      !Object.values(errors).some((value) => value !== '');
+
     setIsFormValid(isValid);
   }, [form, errors]);
-  
-
-  // useEffect(() => {
-  //   const validateAllFields = async () => {
-  //     for (const field in form) {
-  //       await handleValidation(field);
-  //     }
-  //   };
-  //   validateAllFields();
-  // }, []);
-
-  // useEffect(() => {
-  //   const isValid =
-  //     Object.entries(form).every(([, value]) => {
-  //       // Проверяем, что значение не пустое или не false
-  //       return value !== '' && value !== false && value !== undefined;
-  //     }) && !Object.values(errors).some((value) => value !== '');
-
-  //   setIsFormValid(isValid);
-  // }, [form, errors]);
-
-  // useEffect(() => {
-  //   const isValid =
-  //     Object.values(form).every(
-  //       (value) => value !== '' || value === undefined && value !== false
-  //     ) && !Object.values(errors).some((value) => value !== '');
-  //   setIsFormValid(isValid);
-  // }, [form, errors]);
-
-  console.log('validity: ', validity);
-  console.log('errors: ', errors);
-  console.log('form: ', form);
 
   return {
     form,

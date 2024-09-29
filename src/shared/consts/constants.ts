@@ -10,12 +10,13 @@ export const validationMessages = {
   phone: 'Введите номер телефона',
   date: 'Введите дату в формате гггг-мм-дд',
   required: 'Обязательное поле',
-  invalid_date: 'Неправильная дата'
+  invalid_date: 'Неправильная дата',
+  invalid_year: 'Неправильный год'
 };
 
-export const EMAILREGEX = /\s*^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+export const EMAILREGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{1,}$/;
 export const NAMEREGEX = /^[а-яА-Яa-zA-Z]+$/;
-export const PHONEREGEX = /^\+7\d{10}$/;
+export const PHONEREGEX = /^\+7\d{9}$/;
 export const DATEREGEX = /^\d{4}-\d{2}-\d{2}$/;
 export const MINLENGTHNAME = 2;
 
