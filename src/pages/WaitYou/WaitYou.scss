@@ -1,20 +1,9 @@
-// @keyframes fadeIn {
-//   0% {
-//     opacity: 0;
-//     transform: translateY(-40px);
-//   }
-//   100% {
-//     opacity: 1;
-//     transform: translateY(0);
-//   }
-// }
-
 .wait-you {
   @include main-container;
   padding: 72px calc((100vw - 1110px) / 2);
-  animation: fadeIn 0.5s ease forwards;
+  flex: 1;
   @media (min-width: 1440px) {
-    padding: 32px 165px;
+    padding: 72px 165px;
   }
   @media (max-width: 1188px) {
     padding: 32px 39px;

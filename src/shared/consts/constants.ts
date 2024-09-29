@@ -20,8 +20,6 @@ export const PHONEREGEX = /^\+7\d{9}$/;
 export const DATEREGEX = /^\d{4}-\d{2}-\d{2}$/;
 export const MINLENGTHNAME = 2;
 
-export const APROVE_TITLE = { title: 'Обработка данных' };
-
 export const PROFESSION_DATA = [
   'товаровед',
   'водитель',

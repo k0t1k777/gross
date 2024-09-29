@@ -10,6 +10,7 @@ export const Header = () => {
   const cx = cn.bind({});
   const navigate = useNavigate();
   const formRoute = location.pathname === '/form';
+  const waitYouRoute = location.pathname === '/form/wait-you';
   const { isOpenPopup, isStickyButton } = usePopupOpen();
 
   function createForm() {
@@ -21,9 +22,9 @@ export const Header = () => {
   }
 
   return (
-    <header className={cx('header', { header_type_grey: formRoute })}>
+    <header className={cx('header', { header_type_grey: formRoute || waitYouRoute })}>
       <LogoGroup />
-      {formRoute ? (
+      {formRoute || waitYouRoute ? (
         <Button onClick={handleBack} className='button__header_back'>
           <Icon id='close' />
         </Button>

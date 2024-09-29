@@ -39,18 +39,17 @@
 
   .checkbox-label {
     @include use-font(14px, 16px, 400);
+    &_type_agry {
+      padding: 0 0 0 36px !important;
+      &::before {
+        left: 0 !important;
+        top: 5px !important;
+      }
+    }
   }
 
   &__text {
     @include text-info;
     align-self: self-start;
   }
-}
-
-.checkbox-label_type_agry {
-  padding: 0 0 0 36px!important;
-&::before {
-  left: 0!important;
-  top: 5px!important;
-}
 }

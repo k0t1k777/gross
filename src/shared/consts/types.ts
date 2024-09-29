@@ -20,6 +20,11 @@ export interface SubtitleProps {
   className?: string;
 }
 
+export interface TitleProps {
+  text: string;
+  className?: string;
+}
+
 export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
   inputClass?: string;

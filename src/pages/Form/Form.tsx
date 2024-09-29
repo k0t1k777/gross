@@ -1,7 +1,6 @@
 import 'src/pages/Form/Form.scss';
 import { Button } from 'src/shared/ui/Button/Button';
 import { Input } from 'src/shared/ui/Input/Input';
-import { Subtitle } from 'src/shared/ui/Subtitle/Subtitle';
 import useFormAndValidation from 'src/shared/libs/helpers/useFormAndValidation';
 import { validationSchemaAuthForms } from 'src/shared/consts/validationSchemas';
 import { Select } from 'src/shared/ui/Select/Select';
@@ -12,6 +11,7 @@ import { FileInput } from 'src/shared/ui/FileInput/FileInput';
 import { Icon } from 'src/shared/ui/Icon/Icon';
 import Checkbox from 'src/shared/ui/Checkbox/Checkbox';
 import { useNavigate } from 'react-router-dom';
+import { Title } from 'src/shared/ui/Title/Title';
 
 const Form = () => {
   const navigate = useNavigate();
@@ -49,7 +49,8 @@ const Form = () => {
   };
 
   function goNext() {
-    navigate('/');
+    console.log('goNext: ');
+    navigate('/form/wait-you');
   }
 
   const handlePhoneFocus = () => {
@@ -66,7 +67,7 @@ const Form = () => {
 
   return (
     <section className='form'>
-      <Subtitle text={'Работа твоей мечты'} className='subtitle__form' />
+      <Title text={'Работа твоей мечты'} className='subtitle__form' />
       <div className='form__wrapper'>
         <div className='form__container'>
           <Select
@@ -199,6 +200,7 @@ const Form = () => {
             className='button__button-form'
             type='submit'
             disabled={!isFormValid}
+            onClick={goNext}
           >
             Отправить
           </Button>
@@ -216,7 +218,7 @@ const Form = () => {
               если вместе с тобой.
             </span>
           </p>
-          <div className='form__container_number' onClick={goNext}>
+          <div className='form__container_number'>
             <h3 className='form__number'>+7 (926) 433-14-16</h3>
           </div>
         </div>

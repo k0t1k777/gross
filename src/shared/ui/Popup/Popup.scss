@@ -58,19 +58,6 @@
     }
   }
 
-  &__sticky-title {
-    @include mp-null;
-    @include use-font(24px, 30.43px);
-  }
-
-  &__title {
-    @include mp-null;
-    @include use-font(72px, 66px);
-    @media (max-width: 767px) {
-      @include use-font(48px, 44px);
-    }
-  }
-
   &__point {
     @include mp-null;
     @include use-font(18px, 22.82px);
