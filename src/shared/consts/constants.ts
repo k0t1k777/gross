@@ -15,7 +15,7 @@ export const validationMessages = {
 };
 
 export const EMAILREGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{1,}$/;
-export const NAMEREGEX = /^[а-яА-Яa-zA-Z]+$/;
+export const NAMEREGEX = /^[А-ЯЁа-яё]+(?:\s+[А-ЯЁа-яё]+){0,2}$/;
 export const PHONEREGEX = /^\+7\d{9}$/;
 export const DATEREGEX = /^\d{4}-\d{2}-\d{2}$/;
 export const MINLENGTHNAME = 2;

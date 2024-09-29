@@ -38,33 +38,26 @@ const Form = () => {
     validationSchemaAuthForms
   );
 
-  // const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
-  //   const char = event.key;
-  //   if (
-  //     !/^[0-9]*$/.test(char) &&
-  //     !(char === 'Backspace' || char === 'Delete')
-  //   ) {
-  //     event.preventDefault();
-  //   }
-  // };
+  const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    const char = event.key;
+    if (
+      !/^[0-9]*$/.test(char) &&
+      !(char === 'Backspace' || char === 'Delete')
+    ) {
+      event.preventDefault();
+    }
+  };
 
   function goNext() {
     navigate('/');
   }
-
-  const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    const char = event.key;
-    if (!/^[0-9+]*$/.test(char)) {
-      event.preventDefault();
-    }
-  };
 
   const handlePhoneFocus = () => {
     if (!form.userphone) {
       const event = {
         target: {
           name: 'userphone',
-          value: '+7',
+          value: '+79',
         },
       } as React.ChangeEvent<HTMLInputElement>;
       handleChange(event);
@@ -132,7 +125,7 @@ const Form = () => {
                 onChange={handleChange}
                 inputError={errors.userphone}
                 isValid={validity.userphone}
-                onKeyPress={handleKeyPress}
+                onKeyDown={handleKeyPress}
                 onFocus={handlePhoneFocus}
                 maxLength={12}
               />

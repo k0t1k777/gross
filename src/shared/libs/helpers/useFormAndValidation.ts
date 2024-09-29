@@ -60,10 +60,8 @@ const useFormAndValidation = (
   };
 
   const handleSelectChange = async (selectedValue: string) => {
-    console.log('Selected Value:', selectedValue);
     const updatedForm = { ...form, profession: selectedValue };
     setForm(updatedForm);
-    localStorage.setItem('form', JSON.stringify(updatedForm));
     await handleValidation('profession');
   };
 

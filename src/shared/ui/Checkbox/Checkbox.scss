@@ -11,6 +11,7 @@
 
   .checkbox-input + .checkbox-label {
     padding: 0 0 0 52px;
+    transition: color 0.3s ease;
     &::before {
       content: '';
       position: absolute;
@@ -22,11 +23,18 @@
       border-radius: 8px;
       background-color: $white;
       pointer-events: none;
+      transition: background-color 0.3s ease, transform 0.3s ease;
     }
   }
 
   .checkbox-input:checked + .checkbox-label::before {
     background: url('src/shared/assets/checked.svg') $grey no-repeat center;
+    transform: scale(1.1);
+  }
+
+  .checkbox-input:not(:checked) + .checkbox-label:hover::before {
+    border-color: $yellow;
+    transform: scale(1.05);
   }
 
   .checkbox-label {
@@ -36,10 +44,6 @@
   &__text {
     @include text-info;
     align-self: self-start;
-
-    &_error {
-      color: $red;
-    }
   }
 }
 
