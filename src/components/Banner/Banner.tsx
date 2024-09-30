@@ -6,9 +6,9 @@ import { useRef, useState } from 'react';
 import { Swiper as SwiperComponent, SwiperSlide } from 'swiper/react';
 import { Swiper as SwiperType } from 'swiper';
 import { FreeMode } from 'swiper/modules';
+import { Button } from 'src/shared/ui/Button/Button';
 import 'swiper/css';
 import 'swiper/css/free-mode';
-import { Button } from 'src/shared/ui/Button/Button';
 
 function Baner() {
   const [statusBtnSlide, setStatusBtnSlide] = useState({

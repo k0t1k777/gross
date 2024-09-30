@@ -80,27 +80,7 @@
       height: 600px;
     }
 
-    // background: grayscale(1);
-    // filter: grayscale(100%);
-    //  background: gray!important;
-    // box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.05)!important;
-    // &::after {
-    //   content: '';
-    // background-color: rgba(255, 255, 255, 0.5);
-    // }
   }
-}
-
-.map__container .ymaps-2-1-79-image {
-  // filter: invert(1) hue-rotate(180deg)!important;
-  // filter: none!important;
-  // // background: white;
-  // background-image: url('src/shared/Новая папка/Group 42.png')!important;
-  // filter: invert(1)!important;
-  // filter: invert(1) hue-rotate(180deg)!important;
-
-  // mix-blend-mode: normal!important;
-  // z-index: 555!important;
 }
 
 .ymaps-2-1-79-gototech,
@@ -118,18 +98,14 @@
   }
 }
 
-.ymaps-2-1-79-map {
-  filter: grayscale(100%);
+.ymaps-layers-pane {
+	filter: grayscale(1);
+	-ms-filter: grayscale(1);
+	-webkit-filter: grayscale(1);
+	-moz-filter: grayscale(1);
+	-o-filter: grayscale(1);
 }
 
-// .ymaps-2-1-79-image  {
-//   filter: none!important;
-//   // background: white;
-//   background-image: url('src/shared/Новая папка/Group 42.png')!important;
-//   // filter: invert(1)!important;
-//   // filter: invert(1) hue-rotate(180deg)!important;
-
-//   mix-blend-mode: normal!important;
-//   z-index: 555!important;
-
-// }
+[class*="ymaps-"][class*="-ground-pane"] {
+  filter: grayscale(100);
+}
