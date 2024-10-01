@@ -1,7 +1,12 @@
-import { RefObject, useEffect } from 'react';
+import React from 'react';
 
-const useOutsideClick = (ref: RefObject<HTMLElement>, handler: () => void) => {
-  useEffect(() => {
+// кастомный хук для закрытия кастомного силекта по оверлею
+
+const useOutsideClick = (
+  ref: React.RefObject<HTMLElement>,
+  handler: () => void
+) => {
+  React.useEffect(() => {
     const handleClickOutside = (event: MouseEvent | TouchEvent): void => {
       if (ref.current && !ref.current.contains(event.target as Node)) {
         handler();

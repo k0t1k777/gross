@@ -12,6 +12,7 @@ import { Icon } from 'src/shared/ui/Icon/Icon';
 import Checkbox from 'src/shared/ui/Checkbox/Checkbox';
 import { useNavigate } from 'react-router-dom';
 import { Title } from 'src/shared/ui/Title/Title';
+import { Subtitle } from 'src/shared/ui/Subtitle/Subtitle';
 
 const Form = () => {
   const navigate = useNavigate();
@@ -22,6 +23,8 @@ const Form = () => {
     validity,
     isFormValid,
     handleChange,
+    handleKeyPress,
+    handlePhoneFocus,
     handleRadioChange,
     handleSelectChange,
     handleCheckboxChange,
@@ -38,36 +41,13 @@ const Form = () => {
     validationSchemaAuthForms
   );
 
-  const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    const char = event.key;
-    if (
-      !/^[0-9]*$/.test(char) &&
-      !(char === 'Backspace' || char === 'Delete')
-    ) {
-      event.preventDefault();
-    }
-  };
-
   function goNext() {
-    console.log('goNext: ');
     navigate('/form/wait-you');
   }
 
-  const handlePhoneFocus = () => {
-    if (!form.userphone) {
-      const event = {
-        target: {
-          name: 'userphone',
-          value: '+79',
-        },
-      } as React.ChangeEvent<HTMLInputElement>;
-      handleChange(event);
-    }
-  };
-
   return (
     <section className='form'>
-      <Title text={'Работа твоей мечты'} className='subtitle__form' />
+      <Title text={'Работа твоей мечты'} />
       <div className='form__wrapper'>
         <div className='form__container'>
           <Select
@@ -145,21 +125,23 @@ const Form = () => {
               />
             </div>
           </div>
-          <div className='form__input-wrapper'>
-            <TextArea
-              textAreaClass='input__form'
-              textAreaName='textarea'
-              textAreaValue={form.textarea}
-              textAreaLabelText='Резюме'
-              onChange={handleChange}
-            />
-          </div>
-          <div className='form__input-wrapper'>
-            <FileInput
-              inputClass='custom-file-input'
-              inputName='fileUpload'
-              onFileChange={(file) => console.log(file)}
-            />
+          <div className='form__wrapper_input_item_type_gap'>
+            <div className='form__input-wrapper'>
+              <TextArea
+                textAreaClass='input__form'
+                textAreaName='textarea'
+                textAreaValue={form.textarea}
+                textAreaLabelText='Резюме'
+                onChange={handleChange}
+              />
+            </div>
+            <div className='form__input-wrapper'>
+              <FileInput
+                inputClass='custom-file-input'
+                inputName='fileUpload'
+                onFileChange={(file) => console.log(file)}
+              />
+            </div>
           </div>
           <div className='form__input_container_mini'>
             <div className='form__input_container_wrapper'>
@@ -202,11 +184,11 @@ const Form = () => {
             disabled={!isFormValid}
             onClick={goNext}
           >
-            Отправить
+            oтправить
           </Button>
         </div>
         <div className='form__info'>
-          <h2 className='form__info_title'>Наша суперцель </h2>
+          <Subtitle text='Наша суперцель' className='subtitle__form'/>
           <p className='form__info_text'>
             <span>— стать любимым магазином для каждой российской семьи.</span>{' '}
             <span className='form__info_span'>

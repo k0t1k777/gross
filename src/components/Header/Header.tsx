@@ -9,6 +9,7 @@ import usePopupOpen from 'src/shared/libs/helpers/usePopupOpen';
 export const Header = () => {
   const cx = cn.bind({});
   const navigate = useNavigate();
+  const mainRouter = location.pathname === '/';
   const formRoute = location.pathname === '/form';
   const waitYouRoute = location.pathname === '/form/wait-you';
   const { isOpenPopup, isStickyButton } = usePopupOpen();
@@ -22,7 +23,9 @@ export const Header = () => {
   }
 
   return (
-    <header className={cx('header', { header_type_grey: formRoute || waitYouRoute })}>
+    <header
+      className={cx('header', { header_type_grey: formRoute || waitYouRoute })}
+    >
       <LogoGroup />
       {formRoute || waitYouRoute ? (
         <Button onClick={handleBack} className='button__header_back'>
@@ -37,11 +40,10 @@ export const Header = () => {
           <Icon id='phone' className='svg__phone' />
         </div>
       )}
-      {isStickyButton && !isOpenPopup && (
-        <Button className='button__header_type-sticky' onClick={createForm}>заполнить анкету</Button>
-        // <div className={`button_y ${isOpenPopup && 'header__none'}`}>
-        // <Button className='button__header_type-sticky'>заполнить анкету</Button>
-        // </div>
+      {isStickyButton && mainRouter && !isOpenPopup && (
+        <Button className='button__header_type-sticky' onClick={createForm}>
+          заполнить анкету
+        </Button>
       )}
     </header>
   );

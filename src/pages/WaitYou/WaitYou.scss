@@ -6,11 +6,92 @@
     padding: 72px 165px;
   }
   @media (max-width: 1188px) {
-    padding: 32px 39px;
+    padding: 72px 39px;
   }
   @media (max-width: 767px) {
-    transition: padding 0.5s ease;
-    padding: 24px 32px 15px;
+    padding: 24px 15px 72px 14px;
+    width: inherit;
+  }
+  @media (max-width: 550px) {
+    padding: 48px 15px 72px 14px;
+  }
+  &__wrapper {
+    display: flex;
+    gap: 125px;
+    margin: 48px 0 0 0;
+    @media (max-width: 1188px) {
+      gap: 25px;
+      justify-content: space-between;
+      margin: 72px 0 0 0;
+    }
+    @media (max-width: 1024px) {
+      flex-direction: column;
+    }
+    @media (max-width: 768px) {
+      margin: 48px 0 0 0;
+      gap: 72px;
+    }
+    @media (max-width: 550px) {
+      margin: 32px 0 0 0;
+      gap: 48px;
+    }
   }
 
+  &__container {
+    @include flex-column-container;
+    gap: 24px;
+    width: 540px;
+    @media (max-width: 1024px) {
+      margin: 0 auto;
+      width: 690px;
+    }
+    @media (max-width: 767px) {
+      min-width: 346px;
+      width: 100%;
+    }
+    &_border_left {
+      border-left: 3px solid $yellow;
+      padding: 0 0 0 12px;
+    }
   }
+
+  &__info {
+    @include flex-column-container;
+    width: 445px;
+    gap: 32px;
+    @media (max-width: 1024px) {
+      margin: 0 auto;
+      width: 690px;
+    }
+    @media (max-width: 767px) {
+      width: inherit;
+      margin: 0;
+    }
+    &_title {
+      @include mp-null;
+      @include use-font(32px, 40.58px);
+    }
+    &_text {
+      @include mp-null;
+      @include use-font(18px, 22.82px);
+    }
+    &_little-text {
+      @include mp-null;
+      @include use-font(14px, 17.75px);
+    }
+    &_span {
+      display: block;
+      margin: 23px 0;
+    }
+  }
+  &__container_number {
+    border-radius: 8px;
+    background: $grey;
+    text-align: center;
+    padding: 22px 0;
+  }
+  &__number {
+    @include mp-null;
+    @include use-font(24px, 30.43px);
+  }
+}

@@ -3,7 +3,7 @@
   background: $grey;
   border-radius: 8px;
   border: none;
-  width: inherit;  
+  width: inherit;
   
   &_size-l {
     width: inherit;
@@ -25,9 +25,6 @@
   &__text {
     @include text-info;
     align-self: self-start;
-    position: absolute;
-    top: 0;
-    left: 0;
 
     &_error {
       color: $red;
@@ -36,7 +33,7 @@
 
   &__form {
     padding: 12px 0 12px 16px;
-    margin: 12px 0 2px 0;
+    margin: 9px 0 0 0;
   }
 
   &__label {

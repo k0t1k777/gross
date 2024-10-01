@@ -1,13 +1,14 @@
 import React from 'react';
+import { usePopupContext } from 'src/contexts/usePopupContext';
+
 // кастомный хук для плавного открытия попапа,
 // его закрытие по оверлею, иконке и кнопке esc,
 // a так же fixed позициоинирование при скролле
 // и липкая кнопка с хедера
 
 export default function usePopupOpen() {
-  const [isOpenPopup, setIsOpenPopup] = React.useState<boolean>(false);
-  // console.log('isOpenPopup: ', isOpenPopup);
-  const [isStickyButton, setStickyButton] = React.useState<boolean>(false);
+  const { isOpenPopup, setIsOpenPopup, isStickyButton, setStickyButton } =
+    usePopupContext();
   const [isStickyPopup, setIsStickyPopup] = React.useState<boolean>(false);
   const popupContainerRef = React.useRef<HTMLDivElement | null>(null);
   const modalRef = React.useRef<HTMLDivElement | null>(null);
@@ -19,7 +20,7 @@ export default function usePopupOpen() {
   };
 
   const handleClosePopup = React.useCallback(() => {
-    setIsOpenPopup(false)
+    setIsOpenPopup(false);
     document.body.style.overflow = 'auto';
   }, []);
 

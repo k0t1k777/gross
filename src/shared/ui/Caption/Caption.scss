@@ -11,20 +11,20 @@
 }
 
 .baner__caption-profession {
-  top: 152px;
+  top: 156px;
   right: 120px;
   transition: right 0.5s ease;
   @media (max-width: 920px) {
     right: 285px;
   }
   @media (max-width: 767px) {
-    right: 106px;
-    top: 100px;
+    right: 96px;
+    top: 83px;
   }
 }
 
 .baner__caption-professionUp {
-  top: 402px;
+  top: 404px;
   right: 78px;
   @media (max-width: 920px) {
     right: 285px;
@@ -36,20 +36,20 @@
 }
 
 .baner__caption-name {
-  top: 402px;
+  top: 406px;
   right: 348px;
   transition: right 0.5s ease;
   @media (max-width: 768px) {
     right: 388px;
   }
   @media (max-width: 767px) {
-    right: 296px;
-    top: 257px;
+    right: 299px;
+    top: 254px;
   }
 }
 
 .baner__caption-nameUp {
-  top: 152px;
+  top: 155px;
   right: 378px;
   @media (max-width: 920px) {
     right: 446px;
@@ -63,4 +63,7 @@
 .vacancy__caption {
   top: 24px;
   left: 24px;
+  @media (max-width: 1188px) {
+    top: 20px;
+  }
 }

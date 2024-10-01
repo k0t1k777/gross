@@ -1,9 +1,9 @@
 import { useRef, useState } from 'react';
 import { SelectProps } from 'src/shared/consts/types';
-import useOutsideClick from 'src/shared/libs/helpers/useOutsideClick';
 import 'src/shared/ui/Select/Select.scss';
 import { Icon } from 'src/shared/ui/Icon/Icon';
 import { motion, AnimatePresence } from 'framer-motion';
+import useOutsideClick from 'src/shared/libs/helpers/useOutsideClick';
 
 export const Select = ({
   isValid,

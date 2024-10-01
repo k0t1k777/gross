@@ -13,21 +13,34 @@
   @include main-container;
   padding: 72px calc((100vw - 1110px) / 2);
   animation: fadeIn 0.5s ease forwards;
+  flex: 1;
   @media (min-width: 1440px) {
     padding: 72px 165px;
   }
   @media (max-width: 1188px) {
-    padding: 32px 39px;
+    padding: 72px 39px;
   }
-  @media (max-width: 767px) {
-    transition: padding 0.5s ease;
-    padding: 24px 32px 15px;
-  }
+  @media (max-width: 550px) {
+    padding: 48px 15px 48px 14px;
+}
 
   &__wrapper {
     display: flex;
     gap: 125px;
     margin: 48px 0 0 0;
+    @media (max-width: 1188px) {
+      gap: 25px;
+      justify-content: space-between;
+      margin: 72px 0 0 0;
+    }
+    @media (max-width: 1024px) {
+      flex-direction: column;
+      gap: 72px;
+    }
+    @media (max-width: 529px) {
+      margin: 48px 0 0 0;
+      gap: 48px;
+    }
     &_input_item {
       width: 255px;
       @media (max-width: 1024px) {
@@ -35,6 +48,10 @@
       }
       @media (max-width: 767px) {
         width: 100%;
+      }
+      &_type_gap {
+        @include flex-column-container;
+        gap: 10px;
       }
       &-checkbox {
         display: flex;
@@ -45,17 +62,11 @@
         border-radius: 8px;
       }
     }
-    @media (max-width: 1188px) {
-      gap: 25px;
-    }
-    @media (max-width: 1024px) {
-      flex-direction: column;
-    }
   }
 
   &__container {
     @include flex-column-container;
-    gap: 30px;
+    gap: 27px;
     width: 540px;
     @media (max-width: 1024px) {
       margin: 0 auto;
@@ -92,6 +103,7 @@
 
   &__info {
     @include flex-column-container;
+    margin-top: 33px;
     width: 445px;
     gap: 24px;
     @media (max-width: 1024px) {
@@ -101,13 +113,10 @@
     @media (max-width: 767px) {
       width: inherit;
     }
-    &_title {
-      @include mp-null;
-      @include use-font(32px, 40.58px);
-    }
     &_text {
       @include mp-null;
       @include use-font(18px, 22.82px);
+      width: inherit;
     }
     &_span {
       display: block;
@@ -128,6 +137,7 @@
   &__capcha {
     @include mp-null;
     @include text-info;
+    margin-bottom: 12px
   }
 
   &__required {

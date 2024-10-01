@@ -31,10 +31,12 @@
 
   &__option {
     @include use-font(14px, 17.75px);
+    @include flex-row-center;
     cursor: pointer;
-    display: flex;
-    text-align: center;
     gap: 12px;
+    &:hover .radio__custom {
+      background-color: $yellow;
+    }
   }
 
   &__input {
@@ -48,10 +50,6 @@
     background: $grey;
     position: relative;
     transition: background-color 0.3s;
-
-    &:hover {
-      background-color: $yellow;
-    }
 
     &::after {
       content: '';

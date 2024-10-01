@@ -31,7 +31,7 @@
     @include mp-null;
     @include use-font(32px, 40.58px);
     position: absolute;
-    left: calc(100% - 530px);
+    left: calc(100% - 540px);
     @media (max-width: 968px) {
       left: 360px;
     }

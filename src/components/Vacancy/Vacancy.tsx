@@ -56,7 +56,10 @@ function Vacancy() {
   return (
     <section className='vacancy'>
       <div className='vacancy__head'>
-      <Subtitle text={'вакансии в гросс маркете'} className='subtitle__vacancy'/>
+        <Subtitle
+          text={'вакансии в гросс маркете'}
+          className='subtitle__vacancy'
+        />
         <div className='vacancy__buttons'>
           <Button
             className='button__button-vacancy'
@@ -81,8 +84,7 @@ function Vacancy() {
           loop={false}
           tag='ul'
           freeMode={true}
-          // slidesPerView={3.5}
-          spaceBetween={30} 
+          spaceBetween={30}
           pagination={{
             clickable: true,
           }}
@@ -90,18 +92,13 @@ function Vacancy() {
             1440: {
               slidesPerView: 3.48,
             },
-            768: {
+            1000: {
               slidesPerView: 3,
             },
             375: {
               slidesPerView: 3,
             },
-            // 1024: {
-            //   slidesPerView: 3,
-            // },
-            // 768: {
-            //   slidesPerView: 3,
-            // },
+
           }}
           modules={[FreeMode]}
           onSwiper={(swiper) => (swiperRef.current = swiper)}

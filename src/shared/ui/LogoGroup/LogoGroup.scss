@@ -1,7 +1,9 @@
 .logo {
-  display: flex;
-  align-items: center;
+  @include flex-row-center;
   gap: 16px;
+  @media (max-width: 767px) {
+    gap: 12px;
+  }
 
   &__text {
     @include use-font;

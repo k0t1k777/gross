@@ -1,3 +1,14 @@
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .button {
   @include flex-row-center;
   justify-content: center;
@@ -6,6 +17,7 @@
   border-radius: 8px;
   cursor: pointer;
   color: $black;
+  animation: fadeIn 0.5s ease forwards;
 
   &__header {
     @include use-font(18px, 22.82px, 500);
@@ -62,7 +74,7 @@
     }
   }
 
-  &__button-insta {
+  &__button-instagram {
     @include use-font(18px, 22.82px);
     background: $grey;
     width: inherit;
@@ -101,6 +113,7 @@
     background: none;
     @media (max-width: 767px) {
       top: 24px;
+      right: 32px;
     }
   }
 

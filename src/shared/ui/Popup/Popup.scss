@@ -62,6 +62,9 @@
     @include mp-null;
     @include use-font(18px, 22.82px);
     margin: 48px 0 24px;
+    @media (max-width: 767px) {
+      margin: 32px 0 24px;
+    }
   }
 
   &__description {

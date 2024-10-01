@@ -5,7 +5,7 @@ export const Button: React.FC<ButtonProps> = (props) => {
   const { className, children, type = 'button', ...otherProps } = props;
 
   return (
-    <button className={`button ${className}`} type={type} {...otherProps}>
+    <button className={`button ${className ? className : ''}`} type={type} {...otherProps}>
       {children}
     </button>
   );

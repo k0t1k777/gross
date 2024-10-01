@@ -13,7 +13,7 @@
   @include mp-null;
   @include use-font(72px, 66px);
   animation: fadeIn 0.5s ease forwards;
-  @media (max-width: 767px) {
+  @media (max-width: 550px) {
     @include use-font(48px, 44px);
   }
   &__sticky {

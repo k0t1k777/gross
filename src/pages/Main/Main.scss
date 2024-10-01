@@ -2,5 +2,8 @@
   @include main-container;
   @include flex-column-container;
   gap: 72px;
+  @media (max-width: 767px) {
+    gap: 48px;
+  }
 }
 
