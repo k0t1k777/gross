@@ -15,37 +15,37 @@ export const BANER_DATA = [
 
 export const VACANCY_DATA = [
   {
-    image: 'src/shared/assets/worker.png',
+    image: `${BASE_URL}/shared/assets/worker.png`,
     profession: 'товаровед',
     text: 'Доставка товара по магазинам и гипермаркетам компании в обслуживаемом регионе',
   },
   {
-    image: 'src/shared/assets/shutterst.png',
+    image: `${BASE_URL}/shared/assets/shutterst.png`,
     profession: 'водитель',
     text: 'Доставка товара по магазинам и гипермаркетам компании в обслуживаемом регионе',
   },
   {
-    image: 'src/shared/assets/worker-and.png',
+    image: `${BASE_URL}/shared/assets/worker-and.png`,
     profession: 'пекарь',
     text: 'Доставка товара по магазинам и гипермаркетам компании в обслуживаемом регионе',
   },
   {
-    image: 'src/shared/assets/image.png',
+    image: `${BASE_URL}/shared/assets/image.png`,
     profession: 'кассир',
     text: 'Доставка товара по магазинам и гипермаркетам компании в обслуживаемом регионе',
   },
   {
-    image: 'src/shared/assets/shutte.png',
+    image: `${BASE_URL}/shared/assets/shutte.png`,
     profession: 'продавец',
     text: 'Доставка товара по магазинам и гипермаркетам компании в обслуживаемом регионе',
   },
   {
-    image: 'src/shared/assets/man-with.png',
+    image: `${BASE_URL}/shared/assets/man-with.png`,
     profession: 'повар',
     text: 'Доставка товара по магазинам и гипермаркетам компании в обслуживаемом регионе',
   },
   {
-    image: 'src/shared/assets/shutterstock.png',
+    image: `${BASE_URL}/shared/assets/shutterstock.png`,
     profession: 'приёмщик',
     text: 'Доставка товара по магазинам и гипермаркетам компании в обслуживаемом регионе',
   },
