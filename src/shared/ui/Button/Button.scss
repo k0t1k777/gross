@@ -17,8 +17,6 @@
   border-radius: 8px;
   cursor: pointer;
   color: $black;
-  animation: fadeIn 0.5s ease forwards;
-
   &__header {
     @include use-font(18px, 22.82px, 500);
     background: $yellow;
@@ -26,6 +24,7 @@
       display: none;
     }
     &_type-sticky {
+      animation: fadeIn 0.5s ease forwards;
       @media (min-width: 767px) {
         display: none;
       }

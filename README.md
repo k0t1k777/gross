@@ -75,12 +75,10 @@ npm run dev
 
 ## Скриншоты
 
-<!-- ![alt text](./src/assets/screenshots/pic1.JPG)
-![alt text](./src/assets/screenshots/pic2.JPG)
-![alt text](./src/assets/screenshots/pic3.JPG)
-![alt text](./src/assets/screenshots/pic4.JPG)
-![alt text](./src/assets/screenshots/pic5.JPG)
-![alt text](./src/assets/screenshots/pic6.JPG)
-![alt text](./src/assets/screenshots/pic7.JPG)
-![alt text](./src/assets/screenshots/pic8.JPG)
-![alt text](./src/assets/screenshots/pic9.JPG) -->
+![alt text](./src/shared/assets/screenshots/1.JPG)
+![alt text](./src/shared/assets/screenshots/2.JPG)
+![alt text](./src/shared/assets/screenshots/3.JPG)
+![alt text](./src/shared/assets/screenshots/4.JPG)
+![alt text](./src/shared/assets/screenshots/5.JPG)
+![alt text](./src/shared/assets/screenshots/6.JPG)
+![alt text](./src/shared/assets/screenshots/7.JPG)

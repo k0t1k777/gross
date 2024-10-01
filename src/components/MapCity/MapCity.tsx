@@ -1,6 +1,6 @@
+import 'src/components/MapCity/MapCity.scss';
 import { useState } from 'react';
 import { YMaps, Map, Placemark } from '@r3flector/react-yandex-maps';
-import 'src/components/MapCity/MapCity.scss';
 import { Button } from 'src/shared/ui/Button/Button';
 import { Icon } from 'src/shared/ui/Icon/Icon';
 import IconMap from 'src/shared/assets/IconMap.svg';

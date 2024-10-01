@@ -139,7 +139,6 @@ const Form = () => {
               <FileInput
                 inputClass='custom-file-input'
                 inputName='fileUpload'
-                onFileChange={(file) => console.log(file)}
               />
             </div>
           </div>

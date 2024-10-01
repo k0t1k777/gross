@@ -2,39 +2,19 @@ import 'src/components/Banner/Banner.scss';
 import { Icon } from 'src/shared/ui/Icon/Icon';
 import { Caption } from 'src/shared/ui/Caption/Caption';
 import { BANER_DATA } from 'src/shared/mock/mock';
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import { Swiper as SwiperComponent, SwiperSlide } from 'swiper/react';
 import { Swiper as SwiperType } from 'swiper';
 import { FreeMode } from 'swiper/modules';
 import { Button } from 'src/shared/ui/Button/Button';
 import 'swiper/css';
 import 'swiper/css/free-mode';
+import { useSwiperControls } from 'src/shared/hooks/useSwiperControls';
 
 function Baner() {
-  const [statusBtnSlide, setStatusBtnSlide] = useState({
-    start: true,
-    end: false,
-  });
   const swiperRef = useRef<SwiperType | null>(null);
-
-  const handleDisBtn = () => {
-    if (swiperRef.current) {
-      setStatusBtnSlide({
-        start: swiperRef.current.isBeginning,
-        end: swiperRef.current.isEnd,
-      });
-    }
-  };
-
-  const changeSlideBtn = (side: 'prev' | 'next') => {
-    if (swiperRef.current) {
-      if (side === 'prev') {
-        swiperRef.current.slidePrev();
-      } else if (side === 'next') {
-        swiperRef.current.slideNext();
-      }
-    }
-  };
+  const { statusBtnSlide, changeSlideBtn, handleDisBtn } =
+    useSwiperControls(swiperRef);
 
   return (
     <section className='baner'>

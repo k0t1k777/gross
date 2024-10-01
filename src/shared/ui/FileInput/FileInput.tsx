@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
 import { FileInputProps } from 'src/shared/consts/types';
+import { useFileInput } from 'src/shared/hooks/useFileInput';
 import 'src/shared/ui/FileInput/FileInput.scss';
 import { Icon } from 'src/shared/ui/Icon/Icon';
 
@@ -9,34 +9,8 @@ export const FileInput = ({
   onFileChange,
   ...otherProps
 }: FileInputProps) => {
-  const [fileName, setFileName] = useState<string | null>(null);
-
-  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    if (file) {
-      setFileName(file.name);
-      if (onFileChange) {
-        onFileChange(file);
-      }
-    }
-  };
-
-  const handleDragOver = (event: React.DragEvent<HTMLDivElement>) => {
-    event.preventDefault();
-    event.stopPropagation();
-  };
-
-  const handleDrop = (event: React.DragEvent<HTMLDivElement>) => {
-    event.preventDefault();
-    event.stopPropagation();
-    const file = event.dataTransfer.files[0];
-    if (file) {
-      setFileName(file.name);
-      if (onFileChange) {
-        onFileChange(file);
-      }
-    }
-  };
+  const { fileName, handleFileChange, handleDragOver, handleDrop } =
+    useFileInput(onFileChange);
 
   return (
     <div className={`file-input ${inputClass}`}>

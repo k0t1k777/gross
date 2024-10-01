@@ -2,24 +2,16 @@ import { Icon } from 'src/shared/ui/Icon/Icon';
 import 'src/shared/ui/Popup/Popup.scss';
 import { Button } from 'src/shared/ui/Button/Button';
 import { APROVE_DATA } from 'src/shared/consts/constants';
-import { RefObject } from 'react';
 import { Title } from 'src/shared/ui/Title/Title';
+import { PopupProps } from 'src/shared/consts/types';
 
-interface PopupProps {
-  isOpenPopup: boolean;
-  isStickyPopup: boolean;
-  handleClosePopup: () => void;
-  modalRef: RefObject<HTMLDivElement>;
-  popupContainerRef: RefObject<HTMLDivElement>;
-}
-
-export const Popup: React.FC<PopupProps> = ({
+export const Popup= ({
   modalRef,
   popupContainerRef,
   isStickyPopup,
   isOpenPopup,
   handleClosePopup,
-}) => {
+}: PopupProps) => {
   
   return (
     isOpenPopup && (

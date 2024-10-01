@@ -1,3 +1,5 @@
+import { RefObject } from 'react';
+
 export interface CaptionProps {
   name: string;
   className?: string;
@@ -24,6 +26,15 @@ export interface TitleProps {
   text: string;
   className?: string;
 }
+
+export interface PopupProps {
+  isOpenPopup: boolean;
+  isStickyPopup: boolean;
+  handleClosePopup: () => void;
+  modalRef: RefObject<HTMLDivElement>;
+  popupContainerRef: RefObject<HTMLDivElement>;
+}
+
 
 export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {

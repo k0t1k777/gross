@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import * as Yup from 'yup';
 
-// кастомный хук для формы
+// кастомный хук для для формы и валидация
 
 export interface FormFields {
   username?: string;

@@ -2,22 +2,18 @@ import { RadioProps } from 'src/shared/consts/types';
 import 'src/shared/ui/Radio/Radio.scss';
 import { Icon } from 'src/shared/ui/Icon/Icon';
 
-export const Radio: React.FC<RadioProps> = ({
+export const Radio = ({
   isValid,
   radioName,
   selectedValue,
   radioLabelText,
   onChange,
-}) => {
+}: RadioProps) => {
   return (
     <div className='radio'>
       {radioLabelText && (
         <div className='radio__label_container'>
-          <label
-            className='radio__label'
-          >
-            {radioLabelText}
-          </label>
+          <label className='radio__label'>{radioLabelText}</label>
           <div
             className={`radio__container-svg ${
               isValid ? 'radio__container-svg_ok' : ''

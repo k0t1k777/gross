@@ -9,9 +9,9 @@ import usePopupOpen from 'src/shared/hooks/usePopupOpen';
 export const Header = () => {
   const cx = cn.bind({});
   const navigate = useNavigate();
-  const mainRouter = location.pathname === '/';
-  const formRoute = location.pathname === '/form';
-  const waitYouRoute = location.pathname === '/form/wait-you';
+  const mainRouter =  window.location.hash === '#/';
+  const formRoute =  window.location.hash === '#/form';
+  const waitYouRoute =  window.location.hash === '#/form/wait-you';
   const { isOpenPopup, isStickyButton } = usePopupOpen();
 
   function createForm() {

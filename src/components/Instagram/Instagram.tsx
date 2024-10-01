@@ -1,6 +1,6 @@
+import 'src/components/Instagram/Instagram.scss';
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import 'src/components/Instagram/Instagram.scss';
 import { DESCTOP_SCREEN, TABLET_SCREEN } from 'src/shared/consts/constants';
 import { Button } from 'src/shared/ui/Button/Button';
 import { Subtitle } from 'src/shared/ui/Subtitle/Subtitle';
@@ -27,17 +27,19 @@ function Instagram() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   function addMoreSquares() {
-    setSmallSquares(
-      (prev) =>
-        prev +
-        (windowWidth >= DESCTOP_SCREEN
-          ? 4
-          : windowWidth >= TABLET_SCREEN
-          ? 3
-          : 1)
-    );
+    setSmallSquares((prev) => {
+      let additionalSquares;
+        if (windowWidth >= DESCTOP_SCREEN) {
+        additionalSquares = 4;
+      } else if (windowWidth >= TABLET_SCREEN) {
+        additionalSquares = 3;
+      } else {
+        additionalSquares = 1;
+      }
+        return prev + additionalSquares;
+    });
   }
-
+  
   return (
     <section className='instagram'>
       <Subtitle text={'мы в инстаграме'} className='subtitle__instagram' />

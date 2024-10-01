@@ -7,51 +7,15 @@ import { Swiper as SwiperType } from 'swiper';
 import { FreeMode } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/free-mode';
-import { useEffect, useRef, useState } from 'react';
+import { useRef } from 'react';
 import { VACANCY_DATA } from 'src/shared/mock/mock';
 import { Subtitle } from 'src/shared/ui/Subtitle/Subtitle';
+import { useSwiperControls } from 'src/shared/hooks/useSwiperControls';
 
 function Vacancy() {
-  const [statusBtnSlide, setStatusBtnSlide] = useState({
-    start: true,
-    end: false,
-  });
   const swiperRef = useRef<SwiperType | null>(null);
-
-  const handleDisBtn = () => {
-    if (swiperRef.current) {
-      setStatusBtnSlide({
-        start: swiperRef.current.isBeginning,
-        end: swiperRef.current.isEnd,
-      });
-    }
-  };
-
-  const changeSlideBtn = (side: 'prev' | 'next') => {
-    if (swiperRef.current) {
-      if (side === 'prev') {
-        swiperRef.current.slidePrev();
-      } else if (side === 'next') {
-        swiperRef.current.slideNext();
-      }
-    }
-  };
-
-  useEffect(() => {
-    const handleResize = () => {
-      handleDisBtn();
-    };
-
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
-
-  useEffect(() => {
-    handleDisBtn();
-  }, []);
+  const { statusBtnSlide, changeSlideBtn, handleDisBtn } =
+    useSwiperControls(swiperRef);
 
   return (
     <section className='vacancy'>
@@ -98,7 +62,6 @@ function Vacancy() {
             375: {
               slidesPerView: 3,
             },
-
           }}
           modules={[FreeMode]}
           onSwiper={(swiper) => (swiperRef.current = swiper)}
