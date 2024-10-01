@@ -6,12 +6,7 @@
 
 [**Макет Фигма**](https://www.figma.com/design/pHG1CEk8CHKHDd9Zxk9XcT/%D0%A2%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D0%BE%D0%B5-%D0%B7%D0%B0%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5?node-id=46-417&node-type=frame&t=jyG2swpKhEDTlzZI-0)
 
-[**Ссылка на билд**]()
-https://github.com/k0t1k777/gross
-
-## О команде
-
-[Николай](https://github.com/k0t1k777) [<span><img src="https://cdn-icons-png.flaticon.com/128/906/906377.png" height="25" align="center" alt="Telegram" title="Telegram" style="right" /></span>](https://t.me/ni_kolyaus)
+[**Ссылка на билд**](https://github.com/k0t1k777/gross)
 
 ## Стек технологий
 
@@ -26,7 +21,7 @@ https://github.com/k0t1k777/gross
 Клонируйте репозиторий и перейдите в его директорию:
 
 ```bash
-git clone git@github.com:hackathon-Gazprom/gross.git
+git clone git@github.com:k0t1k777/gross.git
 cd gross
 ```
 
@@ -73,12 +68,13 @@ npm run dev
 
 Проект сверстан для просмотра c разрешением 375px, 768px, 1440px и более.
 
+Вся логика вынесена в кастомные хуки, которые находятся по пути `src/shared/hooks/`
+
 ## Скриншоты
 
 ![alt text](./src/shared/assets/screenshots/1.JPG)
 ![alt text](./src/shared/assets/screenshots/2.JPG)
 ![alt text](./src/shared/assets/screenshots/3.JPG)
-![alt text](./src/shared/assets/screenshots/4.JPG)
+![alt text](./src/shared/assets/screenshots/7.JPG)
 ![alt text](./src/shared/assets/screenshots/5.JPG)
 ![alt text](./src/shared/assets/screenshots/6.JPG)
-![alt text](./src/shared/assets/screenshots/7.JPG)
