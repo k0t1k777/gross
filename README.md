@@ -1,50 +1,86 @@
-# React + TypeScript + Vite
+# Проект "Gross"
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Тестовая работа в компанию АЙДЕМ
 
-Currently, two official plugins are available:
+[**Ссылка на сайт**](https://k0t1k777.github.io/gross/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[**Макет Фигма**](https://www.figma.com/design/pHG1CEk8CHKHDd9Zxk9XcT/%D0%A2%D0%B5%D1%81%D1%82%D0%BE%D0%B2%D0%BE%D0%B5-%D0%B7%D0%B0%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5?node-id=46-417&node-type=frame&t=jyG2swpKhEDTlzZI-0)
 
-## Expanding the ESLint configuration
+[**Ссылка на билд**]()
+https://github.com/k0t1k777/gross
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## О команде
 
-- Configure the top-level `parserOptions` property like this:
+[Николай](https://github.com/k0t1k777) [<span><img src="https://cdn-icons-png.flaticon.com/128/906/906377.png" height="25" align="center" alt="Telegram" title="Telegram" style="right" /></span>](https://t.me/ni_kolyaus)
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Стек технологий
+
+![Static Badge](https://img.shields.io/badge/react-20232a?style=for-the-badge&logo=react)
+![Static Badge](https://img.shields.io/badge/typescript-3178c6?style=for-the-badge&logo=typescript&logoColor=white)
+![Static Badge](https://img.shields.io/badge/react_router-faf9f6?style=for-the-badge&logo=react%20router)
+![Static Badge](https://img.shields.io/badge/scss-hotpink?style=for-the-badge&logo=sass&logoColor=white)
+![Static Badge](https://img.shields.io/badge/html5-e34c26?style=for-the-badge&logo=html5&logoColor=white)
+
+## Установка и запуск
+
+Клонируйте репозиторий и перейдите в его директорию:
+
+```bash
+git clone git@github.com:hackathon-Gazprom/gross.git
+cd gross
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+Установите зависимости:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```bash
+npm i
 ```
+
+Для запуска в режиме разработки выполните команду:
+
+```bash
+npm run dev
+```
+
+Приложение будет доступно по адресу: [http://localhost:5173](http://localhost:5173/)
+
+## Ссылки на материалы
+
+**Библиотеки**
+
+В приложении использовались следующие библиотеки:
+
+- react-yandex-maps
+- simplebar-react
+- framer-motion
+- classnames
+- yup
+- swiper
+
+## SCSS
+
+Все основные переменные находятся по пути `src/shared/styles/variables.scss`. Переменные, начинающиеся с
+
+- font - переменные семейства шрифтов
+- color - являются цветовой палитрой приложения
+
+Все основные миксины находятся по пути `src/shared/styles/mixins.scss`. Миксины, начинающиеся с
+
+- reset - обнуляют стандартные стили
+- text - являются стилями для типографики на основе UI-kit
+
+## Примечание
+
+Проект сверстан для просмотра c разрешением 375px, 768px, 1440px и более.
+
+## Скриншоты
+
+<!-- ![alt text](./src/assets/screenshots/pic1.JPG)
+![alt text](./src/assets/screenshots/pic2.JPG)
+![alt text](./src/assets/screenshots/pic3.JPG)
+![alt text](./src/assets/screenshots/pic4.JPG)
+![alt text](./src/assets/screenshots/pic5.JPG)
+![alt text](./src/assets/screenshots/pic6.JPG)
+![alt text](./src/assets/screenshots/pic7.JPG)
+![alt text](./src/assets/screenshots/pic8.JPG)
+![alt text](./src/assets/screenshots/pic9.JPG) -->
