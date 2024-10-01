@@ -1,7 +1,7 @@
 import 'src/components/Footer/Footer.scss';
 import { Icon } from 'src/shared/ui/Icon/Icon';
 import LogoGroup from 'src/shared/ui/LogoGroup/LogoGroup';
-import usePopupOpen from 'src/shared/libs/helpers/usePopupOpen';
+import usePopupOpen from 'src/shared/hooks/usePopupOpen';
 import { Popup } from 'src/shared/ui/Popup/Popup';
 
 export const Footer = () => {

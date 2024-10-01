@@ -4,7 +4,7 @@ import { Button } from 'src/shared/ui/Button/Button';
 import { Icon } from 'src/shared/ui/Icon/Icon';
 import LogoGroup from 'src/shared/ui/LogoGroup/LogoGroup';
 import cn from 'classnames/bind';
-import usePopupOpen from 'src/shared/libs/helpers/usePopupOpen';
+import usePopupOpen from 'src/shared/hooks/usePopupOpen';
 
 export const Header = () => {
   const cx = cn.bind({});

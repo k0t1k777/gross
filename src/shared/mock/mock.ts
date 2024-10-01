@@ -1,11 +1,13 @@
+const BASE_URL = import.meta.env.VITE_PUBLIC_URL;
+
 export const BANER_DATA = [
   {
-    image: 'src/shared/assets/valentin.png',
+    image: `${BASE_URL}/shared/assets/valentin.png`,
     name: 'валентин',
     profession: 'пекарь',
   },
   {
-    image: 'src/shared/assets/kseniya.png',
+    image: `${BASE_URL}/shared/assets/kseniya.png`,
     name: 'ксения',
     profession: 'товаровед',
   },

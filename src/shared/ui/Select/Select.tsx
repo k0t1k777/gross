@@ -3,7 +3,7 @@ import { SelectProps } from 'src/shared/consts/types';
 import 'src/shared/ui/Select/Select.scss';
 import { Icon } from 'src/shared/ui/Icon/Icon';
 import { motion, AnimatePresence } from 'framer-motion';
-import useOutsideClick from 'src/shared/libs/helpers/useOutsideClick';
+import useOutsideClick from 'src/shared/hooks/useOutsideClick';
 
 export const Select = ({
   isValid,

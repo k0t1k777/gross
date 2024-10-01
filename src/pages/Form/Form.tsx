@@ -1,7 +1,7 @@
 import 'src/pages/Form/Form.scss';
 import { Button } from 'src/shared/ui/Button/Button';
 import { Input } from 'src/shared/ui/Input/Input';
-import useFormAndValidation from 'src/shared/libs/helpers/useFormAndValidation';
+import useFormAndValidation from 'src/shared/hooks/useFormAndValidation';
 import { validationSchemaAuthForms } from 'src/shared/consts/validationSchemas';
 import { Select } from 'src/shared/ui/Select/Select';
 import { PROFESSION_DATA } from 'src/shared/consts/constants';
@@ -188,7 +188,7 @@ const Form = () => {
           </Button>
         </div>
         <div className='form__info'>
-          <Subtitle text='Наша суперцель' className='subtitle__form'/>
+          <Subtitle text='Наша суперцель' className='subtitle__form' />
           <p className='form__info_text'>
             <span>— стать любимым магазином для каждой российской семьи.</span>{' '}
             <span className='form__info_span'>
