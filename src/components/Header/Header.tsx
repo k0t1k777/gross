@@ -1,5 +1,5 @@
-import { useNavigate } from 'react-router-dom';
 import 'src/components/Header/Header.scss';
+import { useNavigate } from 'react-router-dom';
 import { Button } from 'src/shared/ui/Button/Button';
 import { Icon } from 'src/shared/ui/Icon/Icon';
 import LogoGroup from 'src/shared/ui/LogoGroup/LogoGroup';
@@ -9,10 +9,10 @@ import usePopupOpen from 'src/shared/hooks/usePopupOpen';
 export const Header = () => {
   const cx = cn.bind({});
   const navigate = useNavigate();
-  const mainRouter =  window.location.hash === '#/';
+  const mainRouter = window.location.hash === '#/' || window.location.pathname === '/';
   const formRoute =  window.location.hash === '#/form';
   const waitYouRoute =  window.location.hash === '#/form/wait-you';
-  const { isOpenPopup, isStickyButton } = usePopupOpen();
+  const { isStickyButton } = usePopupOpen();
 
   function createForm() {
     navigate('/form');
@@ -40,7 +40,7 @@ export const Header = () => {
           <Icon id='phone' className='svg__phone' />
         </div>
       )}
-      {isStickyButton && mainRouter && !isOpenPopup && (
+      {isStickyButton && mainRouter && (
         <Button className='button__header_type-sticky' onClick={createForm}>
           заполнить анкету
         </Button>
