@@ -9,9 +9,8 @@ import usePopupOpen from 'src/shared/hooks/usePopupOpen';
 export const Header = () => {
   const cx = cn.bind({});
   const navigate = useNavigate();
-  const mainRouter = window.location.hash === '#/' || window.location.pathname === '/';
-  const formRoute =  window.location.hash === '#/form';
-  const waitYouRoute =  window.location.hash === '#/form/wait-you';
+  const formRoute = window.location.hash === '#/form';
+  const waitYouRoute = window.location.hash === '#/form/wait-you';
   const { isStickyButton } = usePopupOpen();
 
   function createForm() {
@@ -40,7 +39,7 @@ export const Header = () => {
           <Icon id='phone' className='svg__phone' />
         </div>
       )}
-      {isStickyButton && mainRouter && (
+      {isStickyButton && !formRoute && !waitYouRoute && (
         <Button className='button__header_type-sticky' onClick={createForm}>
           заполнить анкету
         </Button>
